@@ -3,13 +3,15 @@ const colors = require('tailwindcss/colors')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{js,jsx}'],
-  darkMode: 'class',
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
   ],
   // theme is where you define your colors, spacing, fonts, etc. Anything visual
   theme: {
+    fontFamily: {
+      sans: ['Poppins', 'sans-serif'],
+    },
     fontSize: {
       xs: ['0.8125rem', { lineHeight: '1.5rem' }],
       sm: ['0.875rem', { lineHeight: '1.5rem' }],
@@ -25,7 +27,7 @@ module.exports = {
       '8xl': ['6rem', { lineHeight: '1' }],
       '9xl': ['8rem', { lineHeight: '1' }],
     },
-    // If you’d like to preserve the default values for a theme option but also add new values, add your extensions under the extend key in the theme section of your configuration file.
+    // If you'd like to preserve the default values for a theme option but also add new values, add your extensions under the extend key in the theme section of your configuration file.
     extend: {
       colors: {
         // https://tailwindcss.com/docs/customizing-colors#color-palette-reference

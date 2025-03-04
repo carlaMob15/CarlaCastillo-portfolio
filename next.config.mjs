@@ -10,7 +10,7 @@ const nextConfig = {
     scrollRestoration: true,
   },
   images: {
-    domains: ['images.unsplash.com'],
+    domains: ['placehold.co'],
   },
 }
 
