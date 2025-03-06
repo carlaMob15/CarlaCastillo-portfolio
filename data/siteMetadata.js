@@ -39,20 +39,16 @@ const siteMetadata = {
       href: '/about',
     },
     {
-      name: 'Experience',
-      href: '/experience',
-    },
-    {
-      name: 'Offerings',
-      href: '/offerings',
-    },
-    {
-      name: 'Contact',
-      href: '/contact',
+      name: 'Blog',
+      href: '/blog',
     },
     {
       name: 'Projects',
       href: '/projects',
+    },
+    {
+      name: 'Contact',
+      href: '/contact',
     },
   ],
   siteRepo: 'https://github.com/Cwarcup/',
@@ -97,7 +93,7 @@ const siteMetadata = {
     //TODO also need to update the features array in the FeatureSection component
   },
   experience: {
-    title: 'Things I’ve done trying to put my dent in the universe.',
+    title: "Things I've done trying to put my dent in the universe.",
     intro:
       "I have never delivered pizza before, but I have made it. I don't think you should hire me for my pizza skills, but I'm sure I'm a great developer. I've been coding for a long time, and my mom says I'm pretty good at it.",
     //TODO also need to update the experience array in the ExperienceSection component. This is because of the icons used.

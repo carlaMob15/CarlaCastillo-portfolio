@@ -5,34 +5,7 @@ import { Container } from '@/components/Container'
 import { TwitterIcon, GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import SocialLink from '@/components/SocialLink'
 import siteMetadata from '@/data/siteMetadata'
-
-// Dummy projects data
-const projects = [
-  {
-    title: 'Project One',
-    description: 'A beautiful web application',
-    image: 'https://placehold.co/800x600/4A90E2/ffffff?text=Project+One',
-    link: '#'
-  },
-  {
-    title: 'Project Two',
-    description: 'Mobile app design',
-    image: 'https://placehold.co/800x600/50E3C2/ffffff?text=Project+Two',
-    link: '#'
-  },
-  {
-    title: 'Project Three',
-    description: 'Brand identity design',
-    image: 'https://placehold.co/800x600/F5A623/ffffff?text=Project+Three',
-    link: '#'
-  },
-  {
-    title: 'Project Four',
-    description: 'UI/UX design system',
-    image: 'https://placehold.co/800x600/D0021B/ffffff?text=Project+Four',
-    link: '#'
-  }
-]
+import { projectsData } from '@/data/projectsData'
 
 const Home = () => {
   return (
@@ -98,10 +71,10 @@ const Home = () => {
           Featured Projects
         </h2>
         <div className="grid grid-cols-1 gap-8 mt-16 sm:grid-cols-2">
-          {projects.map((project, index) => (
+          {projectsData.map((project) => (
             <Link 
-              key={index} 
-              href={project.link}
+              key={project.slug} 
+              href={`/projects/${project.slug}`}
               className="group relative overflow-hidden rounded-3xl bg-primaryText-100"
             >
               <div className="aspect-[4/3] relative">
@@ -114,7 +87,7 @@ const Home = () => {
               </div>
               <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/60 to-transparent p-8 text-white">
                 <h3 className="font-semibold text-xl">{project.title}</h3>
-                <p className="mt-2 text-white/80">{project.description}</p>
+                <p className="mt-2 text-white/80">{project.shortDescription}</p>
               </div>
             </Link>
           ))}
