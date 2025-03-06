@@ -6,7 +6,7 @@ const siteMetadata = {
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://your-portfolio-url.com', // This will be your deployed site URL
-  siteRepo: '', // We can leave this empty for now
+  siteRepo: 'https://github.com/carlaMob15/nextjs-tailwind-portfolio', // Updated repository URL
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
