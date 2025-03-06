@@ -33,7 +33,7 @@ const About = () => {
               <div className="col-span-2">
                 <div className="aspect-square relative rounded-3xl overflow-hidden bg-primaryText-100">
                   <Image
-                    src="https://placehold.co/800x800/F5A623/ffffff"
+                    src="https://picsum.photos/800/800?random=1"
                     alt="Large square image"
                     fill
                     className="object-cover"
@@ -42,7 +42,7 @@ const About = () => {
               </div>
               <div className="aspect-[4/3] relative rounded-3xl overflow-hidden bg-primaryText-100">
                 <Image
-                  src="https://placehold.co/400x300/F5A623/ffffff"
+                  src="https://picsum.photos/400/300?random=2"
                   alt="Small image 1"
                   fill
                   className="object-cover"
@@ -50,7 +50,7 @@ const About = () => {
               </div>
               <div className="aspect-[4/3] relative rounded-3xl overflow-hidden bg-primaryText-100">
                 <Image
-                  src="https://placehold.co/400x300/F5A623/ffffff"
+                  src="https://picsum.photos/400/300?random=3"
                   alt="Small image 2"
                   fill
                   className="object-cover"
@@ -127,7 +127,7 @@ const About = () => {
       <div className="relative mb-24">
         <div className="absolute inset-0">
           <Image
-            src="https://placehold.co/1920x600/F5A623/ffffff"
+            src="https://picsum.photos/1920/600?random=4"
             alt="Full-width background"
             fill
             className="object-cover"
