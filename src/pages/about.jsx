@@ -1,32 +1,8 @@
 import Image from 'next/image'
 import Head from 'next/head'
-import Link from 'next/link'
-import clsx from 'clsx'
-import siteMetadata from '@/data/siteMetadata'
-
 import { Container } from '@/components/Container'
-import {
-  TwitterIcon,
-  InstagramIcon,
-  GitHubIcon,
-  LinkedInIcon,
-  MailIcon,
-} from '@/components/SocialIcons'
-import avatarImage from '@/images/avatar.jpg'
-
-function SocialLink({ className, href, children, icon: Icon }) {
-  return (
-    <li className={clsx(className, 'flex')}>
-      <Link
-        href={href}
-        className="flex text-sm font-medium transition group text-primaryText-800 hover:text-accent-500 dark:text-primaryText-200 dark:hover:text-accent-500"
-      >
-        <Icon className="flex-none w-6 h-6 transition fill-primaryText-500 group-hover:fill-accent-500" />
-        <span className="ml-4">{children}</span>
-      </Link>
-    </li>
-  )
-}
+import WorkTogether from '@/components/WorkTogether'
+import siteMetadata from '@/data/siteMetadata'
 
 const About = () => {
   return (
@@ -35,68 +11,145 @@ const About = () => {
         <title>About - {siteMetadata.author}</title>
         <meta name="description" content={siteMetadata.description} />
       </Head>
+
+      {/* Hero Section */}
       <Container className="mt-16 sm:mt-32">
-        <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-          <div className="lg:pl-20">
-            <div className="max-w-xs px-2.5 lg:max-w-none">
-              <Image
-                src={avatarImage}
-                alt="picture of the author"
-                sizes="(min-width: 1024px) 32rem, 20rem"
-                className="object-cover aspect-square rounded-2xl bg-primaryText-100 dark:bg-primaryText-800"
-              />
+        <div className="max-w-3xl mx-auto text-center mb-24">
+          <h1 className="text-4xl font-bold tracking-tight text-primaryText-800 dark:text-primaryText-100 sm:text-5xl mb-6">
+            Create Your Dream Website With The Free Framer Template
+          </h1>
+          <p className="text-xl text-primaryText-600 dark:text-primaryText-400">
+            We redefine possibility by combining imagination with precision to shape extraordinary experiences.
+          </p>
+        </div>
+      </Container>
+
+      {/* Image Grid Section */}
+      <Container className="mb-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Image Grid */}
+            <div className="grid grid-cols-2 gap-6 h-full">
+              <div className="col-span-2">
+                <div className="aspect-square relative rounded-3xl overflow-hidden bg-primaryText-100">
+                  <Image
+                    src="https://placehold.co/800x800/F5A623/ffffff"
+                    alt="Large square image"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+              <div className="aspect-[4/3] relative rounded-3xl overflow-hidden bg-primaryText-100">
+                <Image
+                  src="https://placehold.co/400x300/F5A623/ffffff"
+                  alt="Small image 1"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] relative rounded-3xl overflow-hidden bg-primaryText-100">
+                <Image
+                  src="https://placehold.co/400x300/F5A623/ffffff"
+                  alt="Small image 2"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
-          </div>
-          <div className="lg:order-first lg:row-span-2">
-            <h1 className="text-4xl font-bold tracking-tight text-primaryText-800 dark:text-primaryText-100 sm:text-5xl">
-              {siteMetadata.authorHeadline}
-            </h1>
-            <div className="mt-6 text-base space-y-7 text-primaryText-600 dark:text-primaryText-400">
-              <p className="whitespace-pre-wrap">
-                {siteMetadata.authorAboutExtended}
+            {/* Content */}
+            <div className="flex flex-col justify-center">
+              <h2 className="text-3xl font-bold tracking-tight text-primaryText-800 dark:text-primaryText-100 sm:text-4xl mb-6">
+                About Our Vision
+              </h2>
+              <p className="text-lg text-primaryText-600 dark:text-primaryText-400 mb-6">
+                We believe in the power of design to inspire and make a meaningful impact. Our approach combines creativity with technical expertise to deliver solutions that exceed expectations.
+              </p>
+              <p className="text-lg text-primaryText-600 dark:text-primaryText-400">
+                We strive to bring creativity and functionality together, crafting solutions that resonate with your audience and drive real results for your business.
               </p>
             </div>
           </div>
-          <div className="lg:pl-20">
-            <ul role="list">
-              <SocialLink
-                href={siteMetadata.socials.twitter}
-                icon={TwitterIcon}
-              >
-                Follow on Twitter
-              </SocialLink>
-              <SocialLink
-                href={siteMetadata.socials.instagram}
-                icon={InstagramIcon}
-                className="mt-4"
-              >
-                Follow on Instagram
-              </SocialLink>
-              <SocialLink
-                href={siteMetadata.socials.github}
-                icon={GitHubIcon}
-                className="mt-4"
-              >
-                Follow on GitHub
-              </SocialLink>
-              <SocialLink
-                href={siteMetadata.socials.linkedin}
-                icon={LinkedInIcon}
-                className="mt-4"
-              >
-                Follow on LinkedIn
-              </SocialLink>
-              <SocialLink
-                href={`mailto:${siteMetadata.email}`}
-                icon={MailIcon}
-                className="pt-8 mt-8 border-t border-primaryText-100 dark:border-primaryText-700/40"
-              >
-                {siteMetadata.email}
-              </SocialLink>
-            </ul>
+        </div>
+      </Container>
+
+      {/* Services Section Header */}
+      <Container className="mb-12">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-primaryText-800 dark:text-primaryText-100 sm:text-4xl mb-6">
+            Services
+          </h2>
+          <p className="text-xl text-primaryText-600 dark:text-primaryText-400">
+            Services are designed with simplicity and effectiveness in mind. We offer a comprehensive range of solutions tailored to meet your design needs.
+          </p>
+        </div>
+      </Container>
+
+      {/* Services Grid */}
+      <Container className="mb-24">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {[
+              {
+                title: 'Branding',
+                description: "Logo Design / Brand Guidelines / Collateral Design / Rebranding Services"
+              },
+              {
+                title: 'UX & UI Design',
+                description: "User Research and Analysis / Wireframing and Prototyping / User Interface Design"
+              },
+              {
+                title: 'Motion & Animation',
+                description: "Motion Graphics Design / Animated Explainer Videos / Interactive Presentations"
+              },
+              {
+                title: 'Mobile',
+                description: "iOS App Development / Android App Development / App Prototyping and Testing"
+              }
+            ].map((service, index) => (
+              <div key={index} className="relative">
+                <div className="w-16 h-16 rounded-full bg-accent-500 mb-6 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-yellow-300"></div>
+                </div>
+                <h3 className="text-xl font-semibold text-primaryText-800 dark:text-primaryText-100 mb-4">
+                  {service.title}
+                </h3>
+                <p className="text-primaryText-600 dark:text-primaryText-400">
+                  {service.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </Container>
+
+      {/* Full-width Image Section with Text */}
+      <div className="relative mb-24">
+        <div className="absolute inset-0">
+          <Image
+            src="https://placehold.co/1920x600/F5A623/ffffff"
+            alt="Full-width background"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30"></div>
+        </div>
+        <Container>
+          <div className="relative py-24 sm:py-32">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
+                Designing Success Together
+              </h2>
+              <p className="text-xl text-white/90">
+                See how we've turned ideas into reality. Dive into the stories of successful product designs that make a difference.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </div>
+
+      {/* Work Together Section */}
+      <WorkTogether />
     </>
   )
 }
