@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
+import WorkTogether from '@/components/WorkTogether'
 import siteMetadata from '@/data/siteMetadata'
 
 import ecomLogo from '@/images/projects/ecom.svg'
@@ -91,6 +92,7 @@ export default function Projects() {
           })}
         </ul>
       </SimpleLayout>
+      <WorkTogether />
     </>
   )
 }

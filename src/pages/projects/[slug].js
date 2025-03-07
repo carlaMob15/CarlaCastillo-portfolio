@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import { Container } from '@/components/Container';
 import { ProjectCarousel } from '@/components/ProjectCarousel';
+import WorkTogether from '@/components/WorkTogether';
 import { projectsData } from '@/data/projectsData';
 
 export default function ProjectDetail() {
@@ -181,6 +182,9 @@ export default function ProjectDetail() {
           </div>
         </div>
       </Container>
+
+      {/* Work Together Section */}
+      <WorkTogether />
     </>
   );
 } 
