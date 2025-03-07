@@ -1,26 +1,68 @@
+import { motion } from 'framer-motion'
 import { Container } from '@/components/Container'
+import siteMetadata from '@/data/siteMetadata'
 
-const WorkTogether = () => {
+export default function WorkTogether() {
   return (
     <Container className="mt-24 sm:mt-32 mb-16">
-      <div className="max-w-2xl">
-        <h2 className="text-3xl font-bold tracking-tight text-primaryText-800 dark:text-primaryText-100">
-          Let's work together
-        </h2>
-        <p className="mt-6 text-lg text-primaryText-600 dark:text-primaryText-400">
-          I'm currently available for freelance work. If you have a project that you want to get started, think you need my help with something or just fancy saying hey, then get in touch.
-        </p>
-        <div className="mt-8">
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primaryText-900 rounded-full hover:bg-primaryText-700 dark:bg-primaryText-100 dark:text-primaryText-900 dark:hover:bg-primaryText-200"
-          >
-            Contact me
-          </a>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="relative overflow-hidden rounded-3xl bg-primary-500"
+      >
+        <div className="absolute inset-0">
+          <motion.div
+            initial={{ opacity: 0.5, scale: 1.1 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0 bg-gradient-to-br from-primary-600/80 via-primary-500/50 to-primary-400/30"
+          />
         </div>
-      </div>
+        
+        <div className="relative px-8 py-24 sm:px-16 sm:py-32">
+          <div className="max-w-2xl mx-auto text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-4xl font-bold tracking-tight text-white sm:text-5xl"
+            >
+              Let's start creating together
+            </motion.h2>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="mt-6 text-lg text-white/80"
+            >
+              Ready to bring your vision to life? Let's collaborate and create something extraordinary.
+            </motion.p>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="mt-10 flex justify-center gap-6"
+            >
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href={`mailto:${siteMetadata.email}`}
+                className="rounded-full bg-white px-8 py-3 text-base font-medium text-primary-600 shadow-sm hover:bg-white/90 transition-colors"
+              >
+                Let's talk
+              </motion.a>
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
     </Container>
   )
-}
-
-export default WorkTogether 
+} 

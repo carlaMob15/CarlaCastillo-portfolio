@@ -29,10 +29,10 @@ const Faq = () => {
     <div className="px-4 py-16 mx-auto max-w-7xl sm:px-6 lg:py-20 lg:px-8">
       <div className="lg:grid lg:grid-cols-3 lg:gap-8">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight text-primaryText-800 dark:text-primaryText-100">
+          <h2 className="text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100">
             Frequently asked questions
           </h2>
-          <p className="mt-4 text-lg text-primaryText-600 dark:text-primaryText-400">
+          <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
             Can’t find the answer you’re looking for? Reach out to{' '}
             <a
               href={`mailto:${siteMetadata.email}`}
@@ -52,10 +52,10 @@ const Faq = () => {
                 key={faq.question}
               >
                 <div>
-                  <dt className="text-lg font-medium leading-6 text-primaryText-800 dark:text-primaryText-100">
+                  <dt className="text-lg font-medium leading-6 text-neutral-800 dark:text-neutral-100">
                     {faq.question}
                   </dt>
-                  <dd className="mt-2 text-base text-primaryText-600 dark:text-primaryText-400 ">
+                  <dd className="mt-2 text-base text-neutral-600 dark:text-neutral-400 ">
                     {faq.answer}
                   </dd>
                 </div>

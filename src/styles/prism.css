@@ -1,47 +1,100 @@
 pre[class*='language-'] {
-  color: theme('colors.primaryText.100');
-}
-
-.token.tag,
-.token.class-name,
-.token.selector,
-.token.selector .class,
-.token.selector.class,
-.token.function {
-  color: theme('colors.pink.400');
-}
-
-.token.attr-name,
-.token.keyword,
-.token.rule,
-.token.pseudo-class,
-.token.important {
-  color: theme('colors.primaryText.300');
-}
-
-.token.module {
-  color: theme('colors.pink.400');
-}
-
-.token.attr-value,
-.token.class,
-.token.string,
-.token.property {
-  color: theme('colors.teal.300');
-}
-
-.token.punctuation,
-.token.attr-equals {
-  color: theme('colors.primaryText.500');
-}
-
-.token.unit,
-.language-css .token.function {
-  color: theme('colors.sky.200');
+  color: theme('colors.neutral.100');
+  background: theme('colors.neutral.900');
+  font-family: theme('fontFamily.mono');
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
 }
 
 .token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: theme('colors.neutral.500');
+}
+
+.token.punctuation {
+  color: theme('colors.neutral.400');
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+  color: theme('colors.primary.400');
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin {
+  color: theme('colors.primary.300');
+}
+
 .token.operator,
-.token.combinator {
-  color: theme('colors.primaryText.400');
+.token.entity,
+.token.url,
+.language-css .token.string,
+.token.variable,
+.token.inserted {
+  color: theme('colors.secondary.300');
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: theme('colors.primary.500');
+}
+
+.token.regex,
+.token.important {
+  color: theme('colors.secondary.400');
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.deleted {
+  color: theme('colors.secondary.500');
+}
+
+/* Line highlighting */
+.highlight-line {
+  background-color: theme('colors.neutral.800');
+  border-left: 4px solid theme('colors.primary.500');
+  padding-left: calc(1em - 4px);
+}
+
+.line-number::before {
+  display: inline-block;
+  width: 1rem;
+  text-align: right;
+  margin-right: 1rem;
+  color: theme('colors.neutral.500');
+  content: attr(line);
 }

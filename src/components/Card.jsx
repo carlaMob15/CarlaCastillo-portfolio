@@ -27,7 +27,7 @@ export function Card({ as: Component = 'div', className, children }) {
 Card.Link = function CardLink({ children, ...props }) {
   return (
     <>
-      <div className="absolute z-0 transition scale-95 opacity-0 -inset-y-6 -inset-x-4 bg-primaryText-200/50 group-hover:scale-100 group-hover:opacity-100 dark:bg-primaryText-800/50 sm:-inset-x-6 sm:rounded-2xl" />
+      <div className="absolute z-0 transition scale-95 opacity-0 -inset-y-6 -inset-x-4 bg-neutral-200/50 group-hover:scale-100 group-hover:opacity-100 dark:bg-neutral-800/50 sm:-inset-x-6 sm:rounded-2xl" />
       <Link {...props}>
         <span className="absolute z-20 -inset-y-6 -inset-x-4 sm:-inset-x-6 sm:rounded-2xl" />
         <span className="relative z-10">{children}</span>
@@ -38,7 +38,7 @@ Card.Link = function CardLink({ children, ...props }) {
 
 Card.Title = function CardTitle({ as: Component = 'h2', href, children }) {
   return (
-    <Component className="text-base font-semibold tracking-tight text-primaryText-800 dark:text-primaryText-100">
+    <Component className="text-base font-semibold tracking-tight text-neutral-800 dark:text-neutral-100">
       {href ? <Card.Link href={href}>{children}</Card.Link> : children}
     </Component>
   )
@@ -46,7 +46,7 @@ Card.Title = function CardTitle({ as: Component = 'h2', href, children }) {
 
 Card.Description = function CardDescription({ children }) {
   return (
-    <p className="relative z-10 mt-2 text-sm text-primaryText-600 dark:text-primaryText-400">
+    <p className="relative z-10 mt-2 text-sm text-neutral-600 dark:text-neutral-400">
       {children}
     </p>
   )
@@ -75,7 +75,7 @@ Card.Eyebrow = function CardEyebrow({
     <Component
       className={clsx(
         className,
-        'relative z-10 order-first mb-3 flex items-center text-sm text-primaryText-400 dark:text-primaryText-500',
+        'relative z-10 order-first mb-3 flex items-center text-sm text-neutral-400 dark:text-neutral-500',
         decorate && 'pl-3.5'
       )}
       {...props}
@@ -85,7 +85,7 @@ Card.Eyebrow = function CardEyebrow({
           className="absolute inset-y-0 left-0 flex items-center"
           aria-hidden="true"
         >
-          <span className="h-4 w-0.5 rounded-full bg-primaryText-200 dark:bg-primaryText-500" />
+          <span className="h-4 w-0.5 rounded-full bg-neutral-200 dark:bg-neutral-500" />
         </span>
       )}
       {children}

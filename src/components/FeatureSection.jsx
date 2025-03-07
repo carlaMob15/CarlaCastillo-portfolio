@@ -24,10 +24,10 @@ const FeatureSection = () => {
           <h2 className="text-lg font-semibold leading-8 text-accent-600">
             Offerings
           </h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-primaryText-800 dark:text-primaryText-100 sm:text-4xl">
+          <p className="mt-2 text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-4xl">
             {siteMetadata.featureSection.title}
           </p>
-          <p className="max-w-2xl mx-auto mt-6 text-lg leading-8 text-primaryText-600 dark:text-primaryText-400">
+          <p className="max-w-2xl mx-auto mt-6 text-lg leading-8 text-neutral-600 dark:text-neutral-400">
             {siteMetadata.featureSection.description}
           </p>
         </div>
@@ -43,10 +43,10 @@ const FeatureSection = () => {
                   <feature.icon className="w-8 h-8" aria-hidden="true" />
                 </div>
                 <div className="sm:min-w-0 sm:flex-1">
-                  <p className="text-lg font-semibold leading-8 text-primaryText-800 dark:text-primaryText-100">
+                  <p className="text-lg font-semibold leading-8 text-neutral-800 dark:text-neutral-100">
                     {feature.name}
                   </p>
-                  <p className="mt-2 text-base leading-7 text-primaryText-600 dark:text-primaryText-400">
+                  <p className="mt-2 text-base leading-7 text-neutral-600 dark:text-neutral-400">
                     {feature.description}
                   </p>
                 </div>
