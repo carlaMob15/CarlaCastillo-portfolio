@@ -1,17 +1,17 @@
 import Image from 'next/image'
-import Head from 'next/head'
 import { Container } from '@/components/Container'
 import WorkTogether from '@/components/WorkTogether'
 import LifeBeyondDesign from '@/components/LifeBeyondDesign'
+import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 
 const About = () => {
   return (
     <>
-      <Head>
-        <title>About - {siteMetadata.author}</title>
-        <meta name="description" content={siteMetadata.description} />
-      </Head>
+      <PageSEO 
+        title="About"
+        description={siteMetadata.description}
+      />
 
       {/* Hero Section */}
       <Container className="mt-16 sm:mt-32">

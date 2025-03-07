@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import Head from 'next/head'
-
+import { PageSEO } from '@/components/SEO'
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
 import WorkTogether from '@/components/WorkTogether'
@@ -53,10 +52,10 @@ function LinkIcon(props) {
 export default function Projects() {
   return (
     <>
-      <Head>
-        <title>Projects - {siteMetadata.author}</title>
-        <meta name="description" content="Personal projects by Curtis Warcup" />
-      </Head>
+      <PageSEO 
+        title="Projects"
+        description="Personal projects and work samples showcasing my expertise in design and development"
+      />
       <SimpleLayout
         title="Projects I've worked on"
         intro="These are some of the projects that I'm most proud of. I've built them to learn new technologies, or to solve a problem that I've encountered."
