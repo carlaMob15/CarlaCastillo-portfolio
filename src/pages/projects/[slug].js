@@ -16,8 +16,6 @@ export default function ProjectDetail() {
     return <div>Project not found</div>;
   }
 
-  const nextProject = projectsData[(projectsData.findIndex((p) => p.slug === slug) + 1) % projectsData.length];
-
   return (
     <>
       <Head>
@@ -25,161 +23,99 @@ export default function ProjectDetail() {
         <meta name="description" content={project.description} />
       </Head>
 
-      {/* Hero Section */}
-      <div className="relative h-[80vh] w-full">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-5xl font-bold tracking-tight sm:text-6xl">
+      <Container className="pt-24 pb-32">
+        {/* Project Header */}
+        <div className="max-w-3xl space-y-8 mb-24">
+          <div className="space-y-4">
+            <span className="text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+              {project.category || 'Project'}
+            </span>
+            <h1 className="text-4xl font-bold">
               {project.title}
             </h1>
-            <p className="mt-6 text-xl text-zinc-100">
-              {project.description}
-            </p>
           </div>
-        </div>
-      </div>
-
-      <Container className="mt-16 sm:mt-32">
-        {/* Project Overview */}
-        <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-3 lg:gap-x-12">
-          <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-              Project Overview
-            </h2>
-            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-              {project.overview}
-            </p>
-          </div>
-          <div className="space-y-8 lg:pl-8">
+          <p className="text-lg text-zinc-600 dark:text-zinc-400">
+            {project.description}
+          </p>
+          <div className="grid grid-cols-2 gap-8 pt-8">
             <div>
-              <h3 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-                CLIENT
+              <h3 className="text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-2">
+                Client
               </h3>
-              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              <p className="text-base">
                 {project.client || 'Personal Project'}
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-                TIMELINE
+              <h3 className="text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-2">
+                Year
               </h3>
-              <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+              <p className="text-base">
                 {project.timeline || '2024'}
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
-                TECHNOLOGIES
-              </h3>
-              <div className="mt-2 flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full bg-zinc-100 px-3 py-1 text-sm text-zinc-800 dark:bg-zinc-800 dark:text-zinc-100"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* Challenge & Solution */}
-        <div className="mt-24 grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-x-16">
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-              The Challenge
-            </h2>
-            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-              {project.challenge || 'Description of the challenges faced during the project development.'}
+        {/* Main Project Image */}
+        <div className="relative aspect-[16/9] w-full mb-24">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Project Overview */}
+        <div className="max-w-3xl mx-auto space-y-24">
+          <div className="space-y-8">
+            <p className="text-lg text-zinc-600 dark:text-zinc-400">
+              {project.overview}
             </p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-              The Solution
-            </h2>
-            <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-              {project.solution || 'Description of how the challenges were addressed and solved.'}
-            </p>
-          </div>
-        </div>
-
-        {/* Key Features */}
-        <div className="mt-24">
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-            Key Features
-          </h2>
-          <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {project.features.map((feature, index) => (
-              <div
-                key={index}
-                className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-              >
-                <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-100">
-                  Feature {index + 1}
-                </h3>
-                <p className="mt-4 text-zinc-600 dark:text-zinc-400">{feature}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Project Gallery */}
-        <div className="mt-24">
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
-            Project Gallery
-          </h2>
-          <div className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2">
-            {project.gallery?.map((image, index) => (
-              <div
-                key={index}
-                className="aspect-w-16 aspect-h-9 relative overflow-hidden rounded-2xl"
-              >
-                <Image
-                  src={image}
-                  alt={`${project.title} gallery image ${index + 1}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Next Project */}
-        <div className="mt-24 mb-16">
-          <div className="group relative h-[50vh] w-full overflow-hidden rounded-2xl">
-            <Image
-              src={nextProject.image}
-              alt={nextProject.title}
-              fill
-              className="object-cover transition duration-300 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black/40" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center">
-                <p className="text-sm font-medium text-zinc-100">Next Project</p>
-                <h3 className="mt-2 text-3xl font-bold text-white">
-                  {nextProject.title}
-                </h3>
-                <button
-                  onClick={() => router.push(`/projects/${nextProject.slug}`)}
-                  className="mt-4 rounded-full bg-white px-6 py-2 text-sm font-medium text-zinc-900 transition hover:bg-zinc-100"
+            <div className="flex flex-wrap gap-2">
+              {project.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 text-sm text-zinc-600 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800 rounded-full"
                 >
-                  View Project
-                </button>
-              </div>
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
+
+          {/* Project Content */}
+          <div className="space-y-24">
+            {project.features.map((feature, index) => (
+              <div key={index} className="space-y-12">
+                <div className="relative aspect-[16/9] w-full">
+                  <Image
+                    src={`https://picsum.photos/1600/900?random=${index + 20}`}
+                    alt={`Feature ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="max-w-2xl">
+                  <p className="text-base text-zinc-600 dark:text-zinc-400">
+                    {feature}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* More Projects */}
+        <div className="mt-32">
+          <div className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-2xl font-medium">More projects</h2>
+          </div>
+          <ProjectCarousel
+            projects={projectsData.filter(p => p.slug !== slug)}
+          />
         </div>
       </Container>
 

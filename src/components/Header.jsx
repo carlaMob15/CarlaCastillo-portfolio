@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect, useRef } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -6,9 +6,9 @@ import { Dialog, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import { Container } from '@/components/Container'
-import avatarImage from '@/images/avatar.jpg'
-import siteMetadata from '@/data/siteMetadata'
+import { Container } from './Container'
+import avatarImage from '../images/avatar.jpg'
+import siteMetadata from '../data/siteMetadata'
 
 function NavItem({ href, children }) {
   let isActive = useRouter().pathname === href
@@ -63,6 +63,7 @@ function MobileNav() {
         type="button"
         onClick={() => setIsOpen(true)}
         className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow-lg shadow-neutral-800/5 ring-1 ring-neutral-900/5 backdrop-blur dark:bg-neutral-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+        aria-label="Toggle Menu"
       >
         <svg
           viewBox="0 0 24 24"
@@ -103,7 +104,7 @@ function MobileNav() {
               className="fixed inset-y-0 right-0 w-full max-w-xs bg-white px-6 py-4 dark:bg-neutral-900"
             >
               <div className="flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-3">
+                <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
                   <Image
                     src={avatarImage}
                     alt=""
@@ -119,6 +120,7 @@ function MobileNav() {
                   type="button"
                   onClick={() => setIsOpen(false)}
                   className="rounded-full p-1 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+                  aria-label="Close Menu"
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -178,8 +180,8 @@ export function Header() {
       transition={{ duration: 0.5 }}
       className="fixed inset-x-0 top-0 z-50 backdrop-blur-sm bg-white/80 dark:bg-neutral-900/80"
     >
-      <Container className="relative flex h-16 items-center">
-        <div className="flex flex-1 items-center justify-between md:justify-start md:gap-8">
+      <Container className="relative flex h-16 items-center justify-between">
+        <div className="flex flex-1 items-center gap-4">
           <Link href="/" className="flex items-center gap-3">
             <Image
               src={avatarImage}

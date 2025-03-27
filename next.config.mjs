@@ -9,6 +9,11 @@ const nextConfig = {
   images: {
     domains: ['picsum.photos'],
   },
+  // Optimize development performance
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  }
 }
 
 const withMDX = nextMDX({

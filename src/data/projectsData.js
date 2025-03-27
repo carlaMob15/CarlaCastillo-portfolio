@@ -3,7 +3,7 @@ export const projectsData = [
     title: 'E-commerce Platform',
     description: 'A modern e-commerce platform built with Next.js and Tailwind',
     shortDescription: 'Full-featured e-commerce solution',
-    image: 'https://picsum.photos/800/600?random=1',
+    image: 'https://picsum.photos/1920/1080?random=1',
     slug: 'e-commerce-platform',
     client: 'ShopTech Inc.',
     timeline: 'Jan 2024 - Mar 2024',
@@ -17,7 +17,7 @@ export const projectsData = [
       'Responsive admin dashboard for inventory management'
     ],
     gallery: [
-      'https://picsum.photos/800/600?random=2',
+      'https://picsum.photos/1920/1080?random=2',
       'https://picsum.photos/800/600?random=3',
       'https://picsum.photos/800/600?random=4'
     ],
