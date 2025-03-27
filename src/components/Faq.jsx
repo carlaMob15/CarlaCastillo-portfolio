@@ -1,11 +1,11 @@
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '../data/siteMetadata'
 import { motion } from 'framer-motion'
 
 const faqs = [
   {
     question: 'What flour is the best for pizza dough?',
     answer:
-      'You can make pizza with bread flour or all-purpose flour. Bread flour is the best option because it has a higher protein content which means when it’s mixed with water, it has more gluten in the dough. Gluten is what makes the dough stretchy and gives it a chewier crust.',
+      'You can make pizza with bread flour or all-purpose flour. Bread flour is the best option because it has a higher protein content which means when it's mixed with water, it has more gluten in the dough. Gluten is what makes the dough stretchy and gives it a chewier crust.',
   },
   {
     question: 'Can I use a rolling pin, or is that cheating?',
@@ -15,7 +15,7 @@ const faqs = [
   {
     question: 'How to make a pizza without cheese?',
     answer:
-      'What is wrong with you? Just kidding. Cheeseless pizza is fairly new, but it’s gaining popularity for those with dietary conditions or even some vegans. You can use cashew cheese or try some of the non-dairy shreds available in most supermarkets. Nutritional yeast is a common product that has a nutty, cheesy taste. Or you could skip the cheese and go veggie-heavy.',
+      'What is wrong with you? Just kidding. Cheeseless pizza is fairly new, but it's gaining popularity for those with dietary conditions or even some vegans. You can use cashew cheese or try some of the non-dairy shreds available in most supermarkets. Nutritional yeast is a common product that has a nutty, cheesy taste. Or you could skip the cheese and go veggie-heavy.',
   },
   {
     question: 'Should I use fresh tomatoes or canned?',
@@ -33,7 +33,7 @@ const Faq = () => {
             Frequently asked questions
           </h2>
           <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
-            Can’t find the answer you’re looking for? Reach out to{' '}
+            Can't find the answer you're looking for? Reach out to{' '}
             <a
               href={`mailto:${siteMetadata.email}`}
               className="font-medium text-accent-600 hover:text-accent-500"

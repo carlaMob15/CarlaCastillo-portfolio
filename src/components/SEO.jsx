@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import siteMetadata from '@/data/siteMetadata';
+import siteMetadata from '../data/siteMetadata';
 
 export function PageSEO({ title, description }) {
   const pageTitle = title ? `${title} - ${siteMetadata.author}` : siteMetadata.title;

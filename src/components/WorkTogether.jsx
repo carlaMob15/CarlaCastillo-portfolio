@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { Container } from '@/components/Container'
-import siteMetadata from '@/data/siteMetadata'
+import { Container } from './Container'
+import siteMetadata from '../data/siteMetadata'
 
 export default function WorkTogether() {
   return (

@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import { motion } from 'framer-motion'
-import { Container } from '@/components/Container'
-import { TwitterIcon, GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
-import SocialLink from '@/components/SocialLink'
-import { ProjectCard } from '@/components/ProjectCard'
-import WorkTogether from '@/components/WorkTogether'
-import siteMetadata from '@/data/siteMetadata'
-import { projectsData } from '@/data/projectsData'
-import { FadeIn, FadeInStagger } from '@/components/Motion'
+import { Container } from '../components/Container'
+import { TwitterIcon, GitHubIcon, LinkedInIcon } from '../components/SocialIcons'
+import SocialLink from '../components/SocialLink'
+import { ProjectCard } from '../components/ProjectCard'
+import WorkTogether from '../components/WorkTogether'
+import siteMetadata from '../data/siteMetadata'
+import { projectsData } from '../data/projectsData'
+import { FadeIn, FadeInStagger } from '../components/Motion'
 
 const Home = () => {
   return (

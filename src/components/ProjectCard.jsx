@@ -25,7 +25,7 @@ export function ProjectCard({ project }) {
       whileHover="hover"
       className="group relative overflow-hidden rounded-3xl bg-neutral-100 dark:bg-neutral-800/50"
     >
-      <div className="absolute inset-0 z-0">
+      <div className="relative aspect-[16/10]">
         <motion.div
           variants={{
             hover: {
@@ -36,7 +36,7 @@ export function ProjectCard({ project }) {
             duration: 0.4,
             ease: [0.4, 0, 0.2, 1],
           }}
-          className="h-full"
+          className="absolute inset-0"
         >
           <Image
             src={project.image}
@@ -49,7 +49,7 @@ export function ProjectCard({ project }) {
       
       <Link 
         href={`/projects/${project.slug}`}
-        className="relative z-10 flex flex-col h-full"
+        className="absolute inset-0 z-10 flex flex-col"
       >
         <div className="flex-1 p-6">
           <motion.div
@@ -96,7 +96,7 @@ export function ProjectCard({ project }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <div className="relative">
             <h3 className="text-xl font-semibold text-white">{project.title}</h3>
-            <p className="mt-2 text-white/80 line-clamp-2">{project.shortDescription}</p>
+            <p className="mt-2 text-white/80 line-clamp-2">{project.shortDescription || project.description}</p>
           </div>
         </motion.div>
       </Link>

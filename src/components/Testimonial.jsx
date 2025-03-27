@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '../data/siteMetadata'
 
 const Testimonial = () => {
   return (

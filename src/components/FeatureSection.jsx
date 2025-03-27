@@ -1,5 +1,5 @@
 import { RiRunLine, RiSignalWifi3Line } from 'react-icons/ri'
-import siteMetadata from '@/data/siteMetadata'
+import siteMetadata from '../data/siteMetadata'
 
 // TODO: Add your own features here. Make sure to add the icon from Remix-Design's repo:
 const features = [

@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import { Container } from '@/components/Container'
-import WorkTogether from '@/components/WorkTogether'
-import LifeBeyondDesign from '@/components/LifeBeyondDesign'
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
+import { Container } from '../components/Container'
+import WorkTogether from '../components/WorkTogether'
+import LifeBeyondDesign from '../components/LifeBeyondDesign'
+import { PageSEO } from '../components/SEO'
+import siteMetadata from '../data/siteMetadata'
 
 const About = () => {
   return (

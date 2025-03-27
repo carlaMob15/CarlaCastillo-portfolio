@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { Container } from '@/components/Container'
-import { SimpleLayout } from '@/components/SimpleLayout'
-import siteMetadata from '@/data/siteMetadata'
+import { Container } from '../components/Container'
+import { SimpleLayout } from '../components/SimpleLayout'
+import siteMetadata from '../data/siteMetadata'
 
 export default function Blog() {
   return (
