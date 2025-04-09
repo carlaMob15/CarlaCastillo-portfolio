@@ -10,7 +10,7 @@ const faqs = [
   {
     question: 'Can I use a rolling pin, or is that cheating?',
     answer:
-      'Professional pizzaiolos are experts in stretchy and throwing dough, and the more you practice, you will be able to. But there is no shame in using a rolling pin as you learn about the best way to stretch your dough..',
+      'Professional pizzaiolos are experts in stretchy and throwing dough, and the more you practice, you will be able to. But there is no shame in using a rolling pin as you learn about the best way to stretch your dough.',
   },
   {
     question: 'How to make a pizza without cheese?',

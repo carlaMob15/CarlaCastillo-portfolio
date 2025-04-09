@@ -5,6 +5,13 @@ export function HeroSlider({ images, title, description }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
+  const handleSlideChange = (newIndex) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentSlide(newIndex);
+    setTimeout(() => setIsTransitioning(false), 500);
+  };
+
   // Auto-advance slides
   useEffect(() => {
     const timer = setInterval(() => {
@@ -12,14 +19,7 @@ export function HeroSlider({ images, title, description }) {
     }, 6000); // Change slide every 6 seconds like Baltic Art
 
     return () => clearInterval(timer);
-  }, [currentSlide, images.length]);
-
-  const handleSlideChange = (newIndex) => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentSlide(newIndex);
-    setTimeout(() => setIsTransitioning(false), 1000); // Match transition duration
-  };
+  }, [currentSlide, images.length, handleSlideChange]);
 
   const nextSlide = () => {
     handleSlideChange((currentSlide + 1) % images.length);
