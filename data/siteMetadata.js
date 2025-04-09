@@ -3,10 +3,11 @@ import { RiShoppingBagLine, RiCarLine } from 'react-icons/ri'
 import { IoFastFoodOutline } from 'react-icons/io5'
 
 const siteMetadata = {
-  title: 'Best Nextjs Tailwind Portfolio',
-  description:
-    'This is where you can learn about me and my work. I am a full stack developer and I love to build things.',
-  author: 'Curtis Warcup',
+  title: 'Carla Castillo Digital',
+  author: 'Carla Castillo Digital',
+  headerTitle: 'Carla Castillo Digital',
+  headerSubtitle: 'Senior UX/UI Designer',
+  description: 'Senior UI/UX Designer with over 10 years of experience',
   authorHeadline: 'Full Stack Developer, amateur pizza critic 🍕',
   authorAbout:
     "Hi, I'm Curtis, a full stack developer. I created this to help my mom create a website for all her crazy business ideas. I hope you like it!",
@@ -31,16 +32,8 @@ const siteMetadata = {
   // TODO: Add the name of the navbar items and the corresponding page. Used in the Header and Footer components.
   siteNavLinks: [
     {
-      name: 'Home',
-      href: '/',
-    },
-    {
       name: 'About',
       href: '/about',
-    },
-    {
-      name: 'Blog',
-      href: '/blog',
     },
     {
       name: 'Projects',

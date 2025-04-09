@@ -5,8 +5,11 @@ import siteMetadata from '../data/siteMetadata'
 
 function SocialLink({ icon: Icon, ...props }) {
   return (
-    <Link className="group -m-1 p-1" {...props}>
-      <Icon className="h-6 w-6 fill-neutral-500 transition group-hover:fill-neutral-600 dark:fill-neutral-400 dark:group-hover:fill-neutral-300" />
+    <Link 
+      className="group -m-1 p-1 transition-transform duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-neutral-900" 
+      {...props}
+    >
+      <Icon className="h-6 w-6 fill-neutral-500 transition-colors duration-300 group-hover:fill-primary-500 dark:fill-neutral-400 dark:group-hover:fill-primary-400" />
     </Link>
   )
 }
@@ -15,7 +18,7 @@ function NavLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="transition hover:text-neutral-600 dark:hover:text-neutral-300"
+      className="transition-all duration-300 hover:text-primary-600 hover:translate-x-1 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:hover:text-primary-400 dark:focus:ring-offset-neutral-900"
     >
       {children}
     </Link>
@@ -59,7 +62,7 @@ export function Footer() {
                   />
                 )}
               </div>
-              <p className="text-sm text-neutral-400 dark:text-neutral-500">
+              <p className="text-sm text-neutral-400 transition-colors duration-300 dark:text-neutral-500">
                 &copy; {new Date().getFullYear()} {siteMetadata.author}. All rights reserved.
               </p>
             </div>

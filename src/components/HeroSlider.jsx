@@ -1,9 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import { Container } from './Container';
 
 export function HeroSlider({ images, title, description }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleSlideChange = useCallback((newIndex) => {
     if (isTransitioning) return;
@@ -14,12 +16,14 @@ export function HeroSlider({ images, title, description }) {
 
   // Auto-advance slides
   useEffect(() => {
+    if (isHovered) return; // Pause auto-advance when hovered
+    
     const timer = setInterval(() => {
       handleSlideChange((currentSlide + 1) % images.length);
-    }, 6000); // Change slide every 6 seconds like Baltic Art
+    }, 6000); // Change slide every 6 seconds
 
     return () => clearInterval(timer);
-  }, [currentSlide, images.length, handleSlideChange]);
+  }, [currentSlide, images.length, handleSlideChange, isHovered]);
 
   const nextSlide = () => {
     handleSlideChange((currentSlide + 1) % images.length);
@@ -30,7 +34,11 @@ export function HeroSlider({ images, title, description }) {
   };
 
   return (
-    <div className="relative h-[90vh] w-full overflow-hidden bg-black">
+    <div 
+      className="relative h-[90vh] w-full overflow-hidden bg-black"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       {/* Slides */}
       {images.map((image, index) => (
         <div
@@ -46,29 +54,29 @@ export function HeroSlider({ images, title, description }) {
             src={image}
             alt={`Slide ${index + 1}`}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-[10000ms] ease-linear group-hover:scale-105"
             priority={index === 0}
           />
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
         </div>
       ))}
 
       {/* Content */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
+      <Container className="absolute inset-0 flex items-center justify-center z-10">
         <div className="text-center text-white max-w-4xl px-4">
-          <h1 className="text-5xl font-bold tracking-tight sm:text-6xl mb-6">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-4 md:mb-6 transition-all duration-500 ease-in-out">
             {title}
           </h1>
-          <p className="text-xl text-zinc-100">
+          <p className="text-lg md:text-xl text-zinc-100 transition-all duration-500 ease-in-out delay-100">
             {description}
           </p>
         </div>
-      </div>
+      </Container>
 
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors duration-200 backdrop-blur-sm"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
         aria-label="Previous slide"
         disabled={isTransitioning}
       >
@@ -89,7 +97,7 @@ export function HeroSlider({ images, title, description }) {
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors duration-200 backdrop-blur-sm"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent"
         aria-label="Next slide"
         disabled={isTransitioning}
       >

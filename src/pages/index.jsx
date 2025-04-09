@@ -43,7 +43,7 @@ const Home = () => {
         <FadeIn>
           <div className="max-w-3xl">
             <motion.h1 
-              className="text-4xl font-bold tracking-tight text-neutral-800 sm:text-7xl dark:text-neutral-100"
+              className="text-4xl font-bold tracking-tight text-neutral-800 sm:text-5xl md:text-6xl lg:text-7xl dark:text-neutral-100"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -51,7 +51,7 @@ const Home = () => {
               Digital designer & developer
             </motion.h1>
             <motion.p 
-              className="mt-6 text-xl text-neutral-600 dark:text-neutral-400"
+              className="mt-6 text-lg md:text-xl text-neutral-600 dark:text-neutral-400"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -87,15 +87,21 @@ const Home = () => {
       {/* Projects Grid */}
       <Container className="mt-24 sm:mt-32">
         <FadeIn>
-          <h2 className="text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100">
             Featured Projects
           </h2>
         </FadeIn>
-        <div className="grid grid-cols-1 gap-8 mt-16 sm:grid-cols-2">
+        <Container.Grid 
+          cols={1} 
+          smCols={1} 
+          mdCols={2} 
+          gap={8}
+          className="mt-16"
+        >
           {projectsData.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
-        </div>
+        </Container.Grid>
       </Container>
 
       {/* Contact Section */}
