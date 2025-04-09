@@ -3,19 +3,19 @@ import { motion } from 'framer-motion'
 
 const faqs = [
   {
-    question: 'What flour is the best for pizza dough?',
+    question: "What flour is the best for pizza dough?",
     answer:
-      'You can make pizza with bread flour or all-purpose flour. Bread flour is the best option because it has a higher protein content which means when it's mixed with water, it has more gluten in the dough. Gluten is what makes the dough stretchy and gives it a chewier crust.',
+      "You can make pizza with bread flour or all-purpose flour. Bread flour is the best option because it has a higher protein content which means when it's mixed with water, it has more gluten in the dough. Gluten is what makes the dough stretchy and gives it a chewier crust.",
   },
   {
-    question: 'Can I use a rolling pin, or is that cheating?',
+    question: "Can I use a rolling pin, or is that cheating?",
     answer:
-      'Professional pizzaiolos are experts in stretchy and throwing dough, and the more you practice, you will be able to. But there is no shame in using a rolling pin as you learn about the best way to stretch your dough.',
+      "Professional pizzaiolos are experts in stretchy and throwing dough, and the more you practice, you will be able to. But there is no shame in using a rolling pin as you learn about the best way to stretch your dough.",
   },
   {
-    question: 'How to make a pizza without cheese?',
+    question: "How to make a pizza without cheese?",
     answer:
-      'What is wrong with you? Just kidding. Cheeseless pizza is fairly new, but it's gaining popularity for those with dietary conditions or even some vegans. You can use cashew cheese or try some of the non-dairy shreds available in most supermarkets. Nutritional yeast is a common product that has a nutty, cheesy taste. Or you could skip the cheese and go veggie-heavy.',
+      "What is wrong with you? Just kidding. Cheeseless pizza is fairly new, but it's gaining popularity for those with dietary conditions or even some vegans. You can use cashew cheese or try some of the non-dairy shreds available in most supermarkets. Nutritional yeast is a common product that has a nutty, cheesy taste. Or you could skip the cheese and go veggie-heavy.",
   },
   {
     question: 'Should I use fresh tomatoes or canned?',

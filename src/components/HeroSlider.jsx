@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 
 export function HeroSlider({ images, title, description }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const handleSlideChange = (newIndex) => {
+  const handleSlideChange = useCallback((newIndex) => {
     if (isTransitioning) return;
     setIsTransitioning(true);
     setCurrentSlide(newIndex);
     setTimeout(() => setIsTransitioning(false), 500);
-  };
+  }, [isTransitioning]);
 
   // Auto-advance slides
   useEffect(() => {
