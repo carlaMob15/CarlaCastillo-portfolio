@@ -1,6 +1,6 @@
 {
-    "name": "cwarcup",
-    "short_name": "cwarcup",
+    "name": "Carla Castillo Portfolio",
+    "short_name": "CC Portfolio",
     "icons": [
         {
             "src": "/android-chrome-72x72.png",
@@ -8,7 +8,7 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
+    "theme_color": "#4f46e5",
     "background_color": "#ffffff",
     "display": "standalone"
 }
