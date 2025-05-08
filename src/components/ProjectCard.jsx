@@ -5,10 +5,11 @@ import clsx from 'clsx'
 
 const ArrowIcon = () => (
   <svg
-    className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1"
+    className="w-6 h-6"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
   >
     <path
       d="M5 12H19M19 12L12 5M19 12L12 19"
@@ -16,6 +17,7 @@ const ArrowIcon = () => (
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
+      className="transition-colors duration-300"
     />
   </svg>
 )
@@ -26,76 +28,62 @@ export function ProjectCard({ project, className }) {
       whileHover="hover"
       whileTap="tap"
       className={clsx(
-        "group relative overflow-hidden rounded-3xl bg-neutral-100 dark:bg-neutral-800/50",
-        "transition-all duration-300 hover:shadow-xl dark:hover:shadow-primary-500/10",
+        "group relative overflow-hidden rounded-2xl bg-white dark:bg-neutral-900",
+        "transition-all duration-500",
         "focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 dark:focus-within:ring-offset-neutral-900",
         className
       )}
+      role="article"
     >
-      <div className="relative aspect-[16/10]">
-        <motion.div
-          variants={{
-            hover: {
-              scale: 1.05,
-            },
-            tap: {
-              scale: 0.98,
-            }
-          }}
-          transition={{
-            duration: 0.4,
-            ease: [0.4, 0, 0.2, 1],
-          }}
-          className="absolute inset-0"
-        >
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-        </motion.div>
-      </div>
-      
       <Link 
         href={`/projects/${project.slug}`}
-        className="absolute inset-0 z-10 flex flex-col justify-end"
+        className="block relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
+        aria-label={`View project: ${project.title}`}
       >
-        <div className="relative p-6">
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 group-hover:from-black/90" />
-          <div className="relative space-y-2">
-            <h3 className="text-xl font-semibold text-white transition-transform duration-300 group-hover:translate-x-1">{project.title}</h3>
-            <p className="text-white/80 line-clamp-2 transition-opacity duration-300 group-hover:text-white/90">{project.shortDescription || project.description}</p>
-            <motion.div
-              variants={{
-                hover: {
-                  y: -4,
-                }
-              }}
-              transition={{
-                duration: 0.3,
-                ease: [0.4, 0, 0.2, 1],
-              }}
-              className="flex items-center space-x-2 text-white mt-2"
-            >
-              <span className="text-sm font-medium opacity-60 transition-opacity duration-300 group-hover:opacity-100">View Project</span>
-              <motion.div
-                variants={{
-                  hover: {
-                    x: 4,
-                  }
-                }}
-                transition={{
-                  duration: 0.3,
-                  ease: [0.4, 0, 0.2, 1],
-                }}
-              >
-                <ArrowIcon />
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
+        <Image
+          src={project.image || "/placeholder.jpg"}
+          alt={project.title}
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          priority={false}
+          loading="lazy"
+          quality={85}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </Link>
+      
+      <div className="p-6">
+        <span 
+          className="text-sm font-medium text-neutral-500 dark:text-neutral-400 block mb-2 transition-colors duration-300 group-hover:text-[rgb(99,102,241)]"
+          aria-label={`Project category: ${project.category || project.client}`}
+        >
+          {project.category || project.client}
+        </span>
+        <div className="flex items-center justify-between">
+          <Link 
+            href={`/projects/${project.slug}`}
+            className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-[rgb(99,102,241)] focus:ring-offset-2 rounded-lg"
+          >
+            <h3 className="text-2xl font-bold text-neutral-900 dark:text-white group-hover:text-[rgb(99,102,241)] transition-colors duration-300">
+              {project.title}
+            </h3>
+          </Link>
+          <Link 
+            href={`/projects/${project.slug}`}
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors cursor-pointer group focus:outline-none focus:ring-2 focus:ring-[rgb(99,102,241)] focus:ring-offset-2"
+            aria-label={`View project details: ${project.title}`}
+          >
+            <ArrowIcon className="stroke-neutral-500 group-hover:stroke-[rgb(99,102,241)]" />
+          </Link>
+        </div>
+        <p 
+          className="text-neutral-600 dark:text-neutral-400 line-clamp-2 mt-2 transition-colors duration-300 group-hover:text-neutral-700 dark:group-hover:text-neutral-300"
+          aria-label={`Project description: ${project.shortDescription || project.description}`}
+        >
+          {project.shortDescription || project.description}
+        </p>
+      </div>
     </motion.div>
   )
 } 
