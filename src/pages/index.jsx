@@ -1,13 +1,12 @@
 import Head from 'next/head'
 import { motion } from 'framer-motion'
 import { Container } from '../components/Container'
-import { TwitterIcon, GitHubIcon, LinkedInIcon } from '../components/SocialIcons'
-import SocialLink from '../components/SocialLink'
 import { ProjectCard } from '../components/ProjectCard'
 import WorkTogether from '../components/WorkTogether'
 import siteMetadata from '../data/siteMetadata'
 import { projectsData } from '../data/projectsData'
 import { FadeIn, FadeInStagger } from '../components/Motion'
+import Link from 'next/link'
 
 const Home = () => {
   return (
@@ -41,45 +40,36 @@ const Home = () => {
       {/* Hero Section */}
       <Container className="mt-24 sm:mt-32">
         <FadeIn>
-          <div className="max-w-3xl">
+          <div className="max-w-4xl">
             <motion.h1 
-              className="text-4xl font-bold tracking-tight text-neutral-800 sm:text-5xl md:text-6xl lg:text-7xl dark:text-neutral-100"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-neutral-800 dark:text-neutral-100 mb-8 text-left"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Digital designer & developer
+              Creating intuitive, accessible digital experiences that solve complex problems
+              <br className="hidden sm:block" />
+              through beautiful design
             </motion.h1>
-            <motion.p 
-              className="mt-6 text-lg md:text-xl text-neutral-600 dark:text-neutral-400"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              I create beautiful digital experiences that help businesses grow and succeed online. With a focus on user experience and modern design principles.
-            </motion.p>
-            <motion.div 
-              className="flex gap-6 mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <SocialLink
-                href={siteMetadata.socials.twitter}
-                aria-label="Follow on Twitter"
-                icon={TwitterIcon}
+            <div className="flex flex-col sm:flex-row items-start gap-8 sm:gap-12 mt-10 sm:mt-16 w-full">
+              {/* Body Copy and Link */}
+              <div className="text-lg text-neutral-800 dark:text-neutral-100 max-w-xl text-left flex flex-col items-start gap-6">
+                <div>
+                  Hello! I'm Carla Castillo, a Senior UI/UX Designer with over 10 years of experience in crafting intuitive web, SaaS, and mobile applications. I specialise in building comprehensive design systems and creating inclusive digital experiences—transforming complex challenges into beautiful, functional solutions.
+                </div>
+                <Link 
+                  href="/projects"
+                  className="text-sm font-medium hover:text-[#4f46e5] transition-colors duration-200"
+                >
+                  View my <span className="text-[#6366f1]">work</span> →
+                </Link>
+              </div>
+              {/* Placeholder Image */}
+              <div
+                className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-neutral-300 mt-6 sm:mt-0 mx-auto sm:mx-0"
+                aria-label="Profile placeholder"
               />
-              <SocialLink
-                href={siteMetadata.socials.github}
-                aria-label="Follow on GitHub"
-                icon={GitHubIcon}
-              />
-              <SocialLink
-                href={siteMetadata.socials.linkedin}
-                aria-label="Follow on LinkedIn"
-                icon={LinkedInIcon}
-              />
-            </motion.div>
+            </div>
           </div>
         </FadeIn>
       </Container>
