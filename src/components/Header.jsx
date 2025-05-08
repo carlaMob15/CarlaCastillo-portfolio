@@ -190,7 +190,7 @@ export function Header() {
             >
               <span className="text-neutral-800 dark:text-neutral-200 font-semibold">
                 {siteMetadata.headerTitle}
-                <span className="text-[#6366f1] text-xl ml-0.5">.</span>
+                <span className="text-[#6366f1] text-2xl ml-0.5">.</span>
               </span>
             </Link>
           </div>
