@@ -207,7 +207,7 @@ export function Header() {
             <nav>
               <ul className="flex items-center space-x-8">
                 <li>
-                  <NavItem href="/projects">Work</NavItem>
+                  <NavItem href="/projects">Projects</NavItem>
                 </li>
                 <li>
                   <NavItem href="/about">About</NavItem>

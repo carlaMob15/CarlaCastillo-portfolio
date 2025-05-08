@@ -1,7 +1,7 @@
 const siteMetadata = {
   title: 'Carla Castillo Portfolio',
   author: 'Carla Castillo',
-  headerTitle: 'Carla Castillo',
+  headerTitle: 'WC Web Creativity',
   description: 'Senior UI/UX Designer with over 10 years of experience',
   language: 'en-us',
   theme: 'system', // system, dark or light
@@ -14,7 +14,9 @@ const siteMetadata = {
   socials: {
     github: '',
     linkedin: 'https://www.linkedin.com/in/carla-castillo-32751176/',
-    twitter: ''
+    twitter: '',
+    behance: 'https://www.behance.net/carlacastillo',
+    dribbble: 'https://dribbble.com/Calaca15'
   },
   locale: 'en-US',
   // Adding navigation links that are referenced in the Header component
