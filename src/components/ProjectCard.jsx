@@ -22,13 +22,16 @@ const ArrowIcon = () => (
   </svg>
 )
 
-export function ProjectCard({ project, className }) {
+export function ProjectCard({ project, className, noBackground }) {
   return (
     <motion.div
       whileHover="hover"
       whileTap="tap"
       className={clsx(
-        "group relative overflow-hidden rounded-2xl bg-white dark:bg-neutral-900",
+        "group relative overflow-hidden rounded-2xl",
+        noBackground
+          ? "bg-transparent"
+          : "bg-white dark:bg-neutral-900",
         "transition-all duration-500",
         "focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 dark:focus-within:ring-offset-neutral-900",
         className

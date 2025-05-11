@@ -66,7 +66,7 @@ export function ProjectCarousel({ projects = [] }) {
                 className="group block relative aspect-[16/10] overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800/50"
               >
                 <Image
-                  src={project.image}
+                  src={"/placeholder.jpg"}
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
