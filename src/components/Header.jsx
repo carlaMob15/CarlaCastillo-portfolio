@@ -106,6 +106,7 @@ function MobileNav() {
                 >
                   <span className="font-semibold text-neutral-900 dark:text-white">
                     {siteMetadata.headerTitle}
+                    <span className="text-[#6366f1] text-2xl ml-0.5">.</span>
                   </span>
                 </Link>
                 <button

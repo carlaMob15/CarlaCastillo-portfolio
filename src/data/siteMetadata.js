@@ -1,16 +1,23 @@
 const siteMetadata = {
-  title: 'Carla Castillo Portfolio',
+  title: 'WC Web Creativity',
   author: 'Carla Castillo',
   headerTitle: 'WC Web Creativity',
+  headerSubtitle: 'Senior UX/UI Designer',
   description: 'Senior UI/UX Designer with over 10 years of experience',
+  authorHeadline: 'Senior UX/UI Designer, passionate about creating beautiful digital experiences',
+  authorAbout: "Hi, I'm Carla Castillo, a Senior UX/UI Designer with over 10 years of experience in creating beautiful and functional digital products. I specialize in user-centered design, creating intuitive interfaces that solve real user problems.",
+  authorAboutExtended: "With a strong background in both design and development, I bring a unique perspective to every project. I believe in creating designs that are not only visually appealing but also highly functional and accessible. My approach combines creative thinking with technical expertise to deliver exceptional user experiences.",
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://your-portfolio-url.com', // This will be your deployed site URL
-  siteRepo: 'https://github.com/carlaMob15/nextjs-tailwind-portfolio', // Updated repository URL
-  siteLogo: '/static/images/logo.png',
-  image: '/static/images/avatar.png',
-  socialBanner: '/static/images/twitter-card.png',
+  siteUrl: 'https://wcwebcreativity.vercel.app', // Vercel deployment URL
+  siteRepo: 'https://github.com/carlaMob15/nextjs-tailwind-portfolio',
+  siteLogo: '/images/logo.png',
+  image: '/images/avatar.jpg',
+  socialBanner: '/images/social-banner.jpg',
   email: 'wcwebcreativity@gmail.com',
+  phoneNumber: '+1 (555) 123-4567', // Update with your actual phone number
+  contactTitle: 'Let\'s Work Together',
+  contactSubtitle: "I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision. Feel free to reach out through the contact form below.",
   socials: {
     github: '',
     linkedin: 'https://www.linkedin.com/in/carla-castillo-32751176/',
@@ -29,7 +36,7 @@ const siteMetadata = {
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
-    googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
+    googleAnalyticsId: '', // Add your Google Analytics ID when ready
   },
   newsletter: {
     // supports mailchimp, buttondown, convertkit, klaviyo, revue, emailoctopus

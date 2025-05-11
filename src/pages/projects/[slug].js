@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Container } from '../../components/Container';
 import { ProjectCard } from '../../components/ProjectCard';
 import WorkTogether from '../../components/WorkTogether';
+import BackToTop from '../../components/BackToTop';
 import { projectsData } from '../../data/projectsData';
 import { SiFigma, SiReact, SiTailwindcss, SiNextdotjs, SiMongodb, SiStripe } from 'react-icons/si';
 
@@ -42,6 +43,7 @@ export default function ProjectDetail() {
       </Head>
 
       <Container className="pt-16 pb-32 md:pt-24">
+        <BackToTop />
         {/* Project Header */}
         <motion.div 
           className="max-w-3xl space-y-8 mb-16 md:mb-24"
