@@ -19,6 +19,7 @@ const siteMetadata = {
     linkedin: 'https://www.linkedin.com/in/curtiswarcup/',
     instagram: 'https://www.instagram.com/curtiswarcup/',
     facebook: 'https://www.facebook.com/curtiswarcup',
+    medium: 'https://medium.com/@carlacastillo',
   },
   email: 'curtis.gwarcup@gmail.com',
   phoneNumber: '123-456-7890',
@@ -34,6 +35,10 @@ const siteMetadata = {
     {
       name: 'About',
       href: '/about',
+    },
+    {
+      name: 'Services',
+      href: '/services',
     },
     {
       name: 'Projects',
