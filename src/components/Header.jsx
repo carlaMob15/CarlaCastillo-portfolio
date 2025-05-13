@@ -196,13 +196,6 @@ export function Header() {
             </Link>
           </div>
           
-          {/* Middle section - Subtitle */}
-          <div className="hidden md:flex items-center justify-center">
-            <span className="text-neutral-600 dark:text-neutral-400">
-              {siteMetadata.headerSubtitle}
-            </span>
-          </div>
-          
           {/* Right section - Navigation and Social Icons */}
           <div className="hidden md:flex items-center space-x-8">
             <nav>
