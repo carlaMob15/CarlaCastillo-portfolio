@@ -7,7 +7,7 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx'],
   reactStrictMode: true,
   images: {
-    domains: ['picsum.photos', 'via.placeholder.com'],
+    domains: ['picsum.photos', 'via.placeholder.com', 'images.unsplash.com'],
   },
   // Optimize development performance
   swcMinify: true,

@@ -25,7 +25,6 @@ export default function Projects() {
           smCols={1} 
           mdCols={2} 
           lgCols={2} 
-          xlCols={2} 
           gap={8}
           className="mx-auto max-w-7xl"
         >

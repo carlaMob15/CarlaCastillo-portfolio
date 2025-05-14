@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Dialog, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SiBehance, SiLinkedin, SiDribbble } from 'react-icons/si'
+import { SiLinkedin, SiDribbble } from 'react-icons/si'
 
 import { Container } from './Container'
 import avatarImage from '../images/avatar.jpg'
@@ -147,9 +147,6 @@ function MobileNav() {
 
               {/* Social Icons */}
               <div className="flex items-center space-x-6 mt-8 pt-8 border-t border-neutral-200 dark:border-neutral-800">
-                <Link href={siteMetadata.socials.behance || '#'} className="group" aria-label="Behance" target="_blank" rel="noopener noreferrer">
-                  <SiBehance className="w-6 h-6 text-[#6366f1] group-hover:text-[#4f46e5] transition-colors duration-200" />
-                </Link>
                 <Link href={siteMetadata.socials.medium || '#'} className="group" aria-label="Medium" target="_blank" rel="noopener noreferrer">
                   <svg
                     className="w-6 h-6 text-[#6366f1] group-hover:text-[#4f46e5] transition-colors duration-200"
@@ -225,9 +222,6 @@ export function Header() {
             
             {/* Social Icons */}
             <div className="flex items-center space-x-4">
-              <Link href={siteMetadata.socials.behance || '#'} className="group" aria-label="Behance" target="_blank" rel="noopener noreferrer">
-                <SiBehance className="w-6 h-6 text-[#6366f1] group-hover:text-[#4f46e5] transition-colors duration-200" />
-              </Link>
               <Link href={siteMetadata.socials.medium || '#'} className="group" aria-label="Medium" target="_blank" rel="noopener noreferrer">
                 <svg
                   className="w-6 h-6 text-[#6366f1] group-hover:text-[#4f46e5] transition-colors duration-200"

@@ -1,11 +1,13 @@
 import Image from 'next/image'
 import { Container } from '../components/Container'
-import LifeBeyondDesign from '../components/LifeBeyondDesign'
 import { PageSEO } from '../components/SEO'
 import siteMetadata from '../data/siteMetadata'
 import { Button } from '../components/Button'
 import { RoundedImage } from '../components/RoundedImage'
 import ContactPurpleBlock from '../components/ContactPurpleBlock'
+import UxUiIcon from '../images/icons/UxUiIcon'
+import LightBulbIcon from '../images/icons/LightBulbIcon'
+import FrontendIcon from '../images/icons/FrontendIcon'
 
 const Services = () => {
   return (
@@ -46,11 +48,7 @@ const Services = () => {
                 {
                   title: 'UX & UI Design',
                   description: "We design digital experiences that are clear, functional, and visually engaging — tailored for real users on web and mobile.",
-                  icon: (
-                    <svg width="32" height="32" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7.5,16h-4a.5.5,0,0,1-.5-.5v-1A1.5,1.5,0,0,0,1.5,13,1.5,1.5,0,0,0,0,14.5v1a.5.5,0,0,1-.5.5h-4a.5.5,0,0,1-.5-.5V3.5a.5.5,0,0,1,.5-.5H-1V2.5A2.5,2.5,0,0,1,1.5,0,2.5,2.5,0,0,1,4,2.5V3h3.5a.5.5,0,0,1,.5.5V7h.5A2.5,2.5,0,0,1,11,9.5,2.5,2.5,0,0,1,8.5,12H8v3.5A.5.5,0,0,1,7.5,16ZM4,15h3V11.5a.5.5,0,0,1,.5-.5h1A1.5,1.5,0,0,0,10,9.5,1.5,1.5,0,0,0,8.5,8h-1A.5.5,0,0,1,7,7.5V4H3.5a.5.5,0,0,1-.5-.5v-1A1.5,1.5,0,0,0,1.5,1,1.5,1.5,0,0,0,0,2.5v1a.5.5,0,0,1-.5.5H-4V15h3v-.5A2.5,2.5,0,0,1,1.5,12,2.5,2.5,0,0,1,4,14.5Z" stroke="rgb(99 102 241)" strokeWidth="0.5" fill="none"/>
-                    </svg>
-                  )
+                  icon: <UxUiIcon stroke="rgb(99 102 241)" />
                 },
                 {
                   title: 'Design Systems & Accessibility',
@@ -65,23 +63,12 @@ const Services = () => {
                 {
                   title: 'Product & Platform Design',
                   description: "We specialise in UX/UI for SaaS, B2B, and e-commerce products — helping turn complex functionality into simple, intuitive interfaces.",
-                  icon: (
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="rgb(99 102 241)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M2 17L12 22L22 17" stroke="rgb(99 102 241)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M2 12L12 17L22 12" stroke="rgb(99 102 241)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )
+                  icon: <LightBulbIcon fill="rgb(99 102 241)" />
                 },
                 {
                   title: 'Frontend-Aware Design',
                   description: "We understand how digital products are built. Our designs are created with development in mind — meaning fewer handoff headaches and better implementation.",
-                  icon: (
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M16 18L22 12L16 6" stroke="rgb(99 102 241)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M8 6L2 12L8 18" stroke="rgb(99 102 241)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  )
+                  icon: <FrontendIcon stroke="rgb(99 102 241)" />
                 },
                 {
                   title: 'Creativity & Fun at Heart',
@@ -113,58 +100,75 @@ const Services = () => {
         </div>
       </div>
 
+      {/* How We Work Section (formerly Life Beyond Design) */}
+      <section className="w-full py-20 sm:py-28 px-4 sm:px-8">
+        <div className="max-w-3xl lg:max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex-1">
+            <h2 className="text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-5xl mb-6 text-left">
+              How We Work
+            </h2>
+            <p className="text-lg leading-8 text-neutral-700 dark:text-neutral-300 mb-12 text-left">
+              Design should feel effortless for the user — but getting there takes collaboration, curiosity, and clarity.<br /><br />
+              We start each project by understanding your goals, mapping out real user journeys, and sketching ideas by hand. From there, we iterate, prototype, and refine until the experience feels just right.
+            </p>
+          </div>
+          <div className="flex-1 flex justify-center">
+            <Image
+              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+              alt="Design process illustration"
+              width={320}
+              height={320}
+              className="rounded-2xl object-cover w-80 h-80"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Services Overview Section */}
       <Container className="mt-24 mb-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Images */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 justify-center">
             <RoundedImage
               src="https://picsum.photos/800/700?random=1"
               alt="Design process"
               width={400}
               height={350}
-              className="w-full h-auto"
+              className="w-full h-[380px] object-cover"
             />
-            <div className="grid grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-8 items-center">
               <RoundedImage
                 src="https://picsum.photos/400/300?random=2"
                 alt="UX Research"
                 width={200}
-                height={150}
-                className="w-full h-auto"
+                height={220}
+                className="w-full h-[220px] object-cover"
               />
               <RoundedImage
                 src="https://picsum.photos/400/300?random=3"
                 alt="Design implementation"
                 width={200}
-                height={150}
-                className="w-full h-auto"
+                height={220}
+                className="w-full h-[220px] object-cover"
               />
             </div>
           </div>
-          {/* Services Content */}
+          {/* About Carla Content */}
           <div className="flex flex-col justify-center max-w-xl mx-auto lg:mx-0">
             <h2 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-4xl mb-8">
-              My Approach
+              About Carla
             </h2>
             <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8">
-              I combine user-centered design principles with strategic thinking to create digital products that not only look beautiful but also deliver exceptional user experiences.
+              I'm a Senior Product UX/UI Designer originally from Panama, now based in the UK.<br /><br />
+              My path into design began by exploring how things work under the hood. I started my career as a front-end designer before moving into design fully — a journey that gave me a strong foundation for creating practical, buildable solutions.<br /><br />
+              Over the years, I've worked with start-ups, studios, and organisations across Italy, Germany, and the UK — shaping digital products and strategies that put people first. While I enjoy the full design process, I have a particular love for visual design (UI) and inclusive systems that scale.<br /><br />
+              And although I spend my days in the digital world, I still start every project the old-school way: pen and paper first, always.<br /><br />
+              When I'm not designing, you'll probably find me experimenting in the kitchen, learning a new language, or chasing after my daughter.<br /><br />
+              My family is at the centre of everything I do. They remind me daily that simplicity matters — and that maintaining a healthy work/life balance is key to showing up as my best self in both worlds.
             </p>
-            <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-12">
-              Every project starts with understanding your goals and users' needs, followed by a collaborative design process that ensures we create solutions that drive real business value.
-            </p>
-            <a
-              href={`mailto:${siteMetadata.email}`}
-              className="rounded-full bg-[rgb(99,102,241)] text-white px-6 sm:px-8 py-3 text-base font-medium shadow-sm hover:bg-[rgb(79,70,229)] transition-all duration-300 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[rgb(99,102,241)] w-fit"
-            >
-              Start a project
-            </a>
           </div>
         </div>
       </Container>
-
-      {/* Life Beyond Design Section */}
-      <LifeBeyondDesign />
 
       {/* Contact Section */}
       <Container>
