@@ -210,10 +210,10 @@ export function Header() {
             
             {/* Social Icons */}
             <div className="flex items-center space-x-4">
-              <Link href={siteMetadata.socials.behance || '#'} className="group" aria-label="Behance">
+              <Link href={siteMetadata.socials.behance || '#'} className="group" aria-label="Behance" target="_blank" rel="noopener noreferrer">
                 <SiBehance className="w-6 h-6 text-[#6366f1] group-hover:text-[#4f46e5] transition-colors duration-200" />
               </Link>
-              <Link href={siteMetadata.socials.medium || '#'} className="group" aria-label="Medium">
+              <Link href={siteMetadata.socials.medium || '#'} className="group" aria-label="Medium" target="_blank" rel="noopener noreferrer">
                 <svg
                   className="w-6 h-6 text-[#6366f1] group-hover:text-[#4f46e5] transition-colors duration-200"
                   viewBox="0 0 24 24"
@@ -222,10 +222,10 @@ export function Header() {
                   <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
                 </svg>
               </Link>
-              <Link href={siteMetadata.socials.linkedin || '#'} className="group" aria-label="LinkedIn">
+              <Link href={siteMetadata.socials.linkedin || '#'} className="group" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                 <SiLinkedin className="w-6 h-6 text-[#6366f1] group-hover:text-[#4f46e5] transition-colors duration-200" />
               </Link>
-              <Link href={siteMetadata.socials.dribbble || '#'} className="group" aria-label="Dribbble">
+              <Link href={siteMetadata.socials.dribbble || '#'} className="group" aria-label="Dribbble" target="_blank" rel="noopener noreferrer">
                 <SiDribbble className="w-6 h-6 text-[#6366f1] group-hover:text-[#4f46e5] transition-colors duration-200" />
               </Link>
             </div>

@@ -3,7 +3,7 @@ const siteMetadata = {
   author: 'Carla Castillo',
   headerTitle: 'WC Web Creativity',
   headerSubtitle: 'Senior UX/UI Designer',
-  description: 'Senior UI/UX Designer with over 10 years of experience',
+  description: 'WC Web Creativity is a digital design studio crafting intuitive, user-first websites and digital products for brands, artists, and founders. Experienced in web design, SaaS platforms, and mobile app design.',
   authorHeadline: 'Senior UX/UI Designer, passionate about creating beautiful digital experiences',
   authorAbout: "Hi, I'm Carla Castillo, a Senior UX/UI Designer with over 10 years of experience in creating beautiful and functional digital products. I specialize in user-centered design, creating intuitive interfaces that solve real user problems.",
   authorAboutExtended: "With a strong background in both design and development, I bring a unique perspective to every project. I believe in creating designs that are not only visually appealing but also highly functional and accessible. My approach combines creative thinking with technical expertise to deliver exceptional user experiences.",
@@ -20,17 +20,16 @@ const siteMetadata = {
   contactSubtitle: "I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision. Feel free to reach out through the contact form below.",
   socials: {
     github: '',
-    linkedin: 'https://www.linkedin.com/in/carla-castillo-32751176/',
+    linkedin: 'https://www.linkedin.com/company/wcwebcreativity/',
     twitter: '',
-    behance: 'https://www.behance.net/carlacastillo',
-    dribbble: 'https://dribbble.com/Calaca15'
+    dribbble: 'https://dribbble.com/Calaca15',
+    medium: 'https://medium.com/@wcwebcreativity'
   },
   locale: 'en-US',
   // Adding navigation links that are referenced in the Header component
   siteNavLinks: [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Projects', href: '/projects' },
+    { name: 'Services', href: '/services' },
+    { name: 'Work', href: '/projects' },
     { name: 'Contact', href: '/contact' }
   ],
   analytics: {

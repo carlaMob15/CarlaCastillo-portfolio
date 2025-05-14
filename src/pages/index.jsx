@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { motion } from 'framer-motion'
 import { Container } from '../components/Container'
 import { ProjectCard } from '../components/ProjectCard'
-import WorkTogether from '../components/WorkTogether'
+import ContactPurpleBlock from '../components/ContactPurpleBlock'
 import siteMetadata from '../data/siteMetadata'
 import { projectsData } from '../data/projectsData'
 import { FadeIn, FadeInStagger } from '../components/Motion'
@@ -42,33 +42,27 @@ const Home = () => {
         <FadeIn>
           <div className="max-w-4xl">
             <motion.h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-neutral-800 dark:text-neutral-100 mb-8 text-left"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.5] md:leading-[2] lg:leading-[1.5] text-neutral-900 dark:text-neutral-100 mb-16 text-left"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              Creating intuitive, accessible digital experiences that solve complex problems
-              <br className="hidden sm:block" />
-              through beautiful design
+              Creating <span className="text-[rgb(99,102,241)]">intuitive</span>, accessible digital experiences that solve <span className="text-[rgb(99,102,241)]">complex problems</span> with <span className="text-[rgb(99,102,241)]">beautiful</span>, thoughtful design
+              <span className="inline-block align-baseline ml-2 w-2.5 h-2.5 md:w-4 md:h-4 rounded-full bg-[rgb(99,102,241)]" style={{ verticalAlign: 'baseline' }}></span>
             </motion.h1>
-            <div className="flex flex-col sm:flex-row items-start gap-8 sm:gap-12 mt-10 sm:mt-16 w-full">
+            <div className="flex flex-col items-start gap-8 mt-10 sm:mt-16 w-full">
               {/* Body Copy and Link */}
-              <div className="text-lg text-neutral-800 dark:text-neutral-100 max-w-xl text-left flex flex-col items-start gap-6">
-                <div>
-                  Hello! I'm Carla Castillo, a Senior UI/UX Designer with over 10 years of experience in crafting intuitive web, SaaS, and mobile applications. I specialise in building comprehensive design systems and creating inclusive digital experiences—transforming complex challenges into beautiful, functional solutions.
+              <div className="text-lg text-neutral-800 dark:text-neutral-100 max-w-2xl text-left flex flex-col items-start gap-8">
+                <div className="leading-relaxed">
+                  WC Web Creativity is a digital design studio helping brands, artists, and founders build meaningful websites and digital products through smart UX and beautiful UI design. With over a decade of experience in web design, SaaS platforms, and mobile app design, we create intuitive, scalable solutions—turning complex challenges into clean, user-first digital experiences.
                 </div>
                 <Link 
                   href="/projects"
                   className="text-sm font-medium hover:text-[#4f46e5] transition-colors duration-200"
                 >
-                  View my <span className="text-[#6366f1]">work</span> →
+                  See work →
                 </Link>
               </div>
-              {/* Placeholder Image */}
-              <div
-                className="flex-shrink-0 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-neutral-300 mt-6 sm:mt-0 mx-auto sm:mx-0"
-                aria-label="Profile placeholder"
-              />
             </div>
           </div>
         </FadeIn>
@@ -95,7 +89,9 @@ const Home = () => {
       </Container>
 
       {/* Contact Section */}
-      <WorkTogether />
+      <Container>
+        <ContactPurpleBlock className="mt-24 sm:mt-32 mb-16" />
+      </Container>
     </>
   )
 }

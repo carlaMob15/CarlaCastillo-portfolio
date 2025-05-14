@@ -4,7 +4,7 @@ import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { Container } from '../../components/Container';
 import { ProjectCard } from '../../components/ProjectCard';
-import WorkTogether from '../../components/WorkTogether';
+import ContactPurpleBlock from '../../components/ContactPurpleBlock';
 import BackToTop from '../../components/BackToTop';
 import { projectsData } from '../../data/projectsData';
 import { SiFigma, SiReact, SiTailwindcss, SiNextdotjs, SiMongodb, SiStripe } from 'react-icons/si';
@@ -299,7 +299,9 @@ export default function ProjectDetail() {
       </div>
 
       {/* Work Together Section */}
-      <WorkTogether />
+      <Container>
+        <ContactPurpleBlock className="mt-24 sm:mt-32 mb-16" />
+      </Container>
     </>
   );
 } 

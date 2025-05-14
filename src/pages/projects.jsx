@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { PageSEO } from '../components/SEO'
 import { SimpleLayout } from '../components/SimpleLayout'
-import WorkTogether from '../components/WorkTogether'
+import ContactPurpleBlock from '../components/ContactPurpleBlock'
 import { Container } from '../components/Container'
 import { ProjectCard } from '../components/ProjectCard'
 import { projectsData } from '../data/projectsData'
@@ -10,12 +10,12 @@ export default function Projects() {
   return (
     <>
       <PageSEO 
-        title="Projects"
-        description="Personal projects and work samples showcasing my expertise in design and development"
+        title="Work"
+        description="Work samples and case studies showcasing my expertise in design and development"
       />
       <SimpleLayout>
         <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl mb-8">
-          Projects
+          Work
         </h1>
         <Container.Grid 
           cols={1} 
@@ -34,7 +34,9 @@ export default function Projects() {
           ))}
         </Container.Grid>
       </SimpleLayout>
-      <WorkTogether />
+      <Container>
+        <ContactPurpleBlock className="mt-24 sm:mt-32 mb-16" />
+      </Container>
     </>
   )
 }
