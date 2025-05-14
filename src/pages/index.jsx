@@ -56,12 +56,6 @@ const Home = () => {
                 <div className="leading-relaxed">
                   WC Web Creativity is a digital design studio helping brands, artists, and founders build meaningful websites and digital products through smart UX and beautiful UI design. With over a decade of experience in web design, SaaS platforms, and mobile app design, we create intuitive, scalable solutions—turning complex challenges into clean, user-first digital experiences.
                 </div>
-                <Link 
-                  href="/projects"
-                  className="text-sm font-medium hover:text-[#4f46e5] transition-colors duration-200"
-                >
-                  See work →
-                </Link>
               </div>
             </div>
           </div>
@@ -72,7 +66,7 @@ const Home = () => {
       <Container className="mt-24 sm:mt-32">
         <FadeIn>
           <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-neutral-800 dark:text-neutral-100">
-            Featured Projects
+            Featured Work
           </h2>
         </FadeIn>
         <Container.Grid 
