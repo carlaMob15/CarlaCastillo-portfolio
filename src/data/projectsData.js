@@ -4,7 +4,7 @@ export const projectsData = [
     description: 'A complete redesign of OSD\'s healthcare website, improving accessibility, navigation, and user experience across devices.',
     shortDescription: 'A complete redesign of OSD\'s healthcare website, improving accessibility, navigation, and user experience across devices.',
     projectType: 'Website, B2C, Healthcare',
-    image: 'https://picsum.photos/1920/1080?random=20',
+    image: '/images/projects/osd-healthcare/hero.jpg',
     slug: 'osd-healthcare-redesign',
     client: 'Tarrantoga',
     timeline: '2024 - 2025',
@@ -18,16 +18,38 @@ export const projectsData = [
       'Balanced content distribution with sliders, lists, and images'
     ],
     gallery: [
-      'https://picsum.photos/1920/1080?random=21',
-      'https://picsum.photos/800/600?random=22',
-      'https://picsum.photos/800/600?random=23',
-      'https://picsum.photos/1920/1080?random=24',
-      'https://picsum.photos/1920/1080?random=25',
-      'https://picsum.photos/1920/1080?random=26'
+      '/images/projects/osd-healthcare/gallery-1.jpg',
+      '/images/projects/osd-healthcare/gallery-2.jpg',
+      '/images/projects/osd-healthcare/gallery-3.jpg',
+      '/images/projects/osd-healthcare/gallery-4.jpg',
+      '/images/projects/osd-healthcare/gallery-5.jpg',
+      '/images/projects/osd-healthcare/gallery-6.jpg'
+    ],
+    galleryCaptions: [
+      'Homepage redesign showcasing the new interactive human body interface',
+      'Treatment browsing interface with intuitive navigation',
+      'Mobile-responsive design for optimal viewing on all devices',
+      'Service directory with improved information architecture',
+      'Patient portal with enhanced user experience',
+      'Contact page with streamlined appointment booking'
     ],
     overview: "A complete redesign of a healthcare services website, focused on improving user experience through a modern interface and intuitive navigation. The project aimed to enhance engagement by refining the visual hierarchy and streamlining the information architecture—particularly in making treatment and services directories easier to explore.",
-    challenge: "The existing site had an outdated interface and presented complex medical information in a way that was hard to follow. Our main priorities were to improve the searchability of treatments and services while making the overall experience more accessible, responsive, and user-friendly.",
-    solution: "We developed a fresh design system centred on interaction and accessibility. One of the standout features was an interactive human body interface, allowing users to browse treatments by selecting relevant body parts—a more natural, intuitive way to navigate healthcare information. To support this, we introduced a clean bento-style grid layout that helped break down complex content into clear, digestible blocks. Content was distributed across sliders, numbered lists, text sections, and images to create a balanced, visually engaging experience—all while meeting accessibility standards."
+    challenge: "The main challenge was creating an intuitive interface for browsing medical treatments while maintaining accessibility and ease of use. We needed to balance comprehensive medical information with a user-friendly design that works across all devices.",
+    solution: "We implemented an interactive human body interface for intuitive treatment browsing, created a clean bento-style grid layout for digestible content presentation, and ensured responsive design optimization for all devices. The solution focused on accessible typography and clear visual hierarchy while streamlining the information architecture for better navigation.",
+    technicalApproach: [
+      "Conducted extensive user research to understand patient needs and pain points",
+      "Created wireframes and prototypes focusing on intuitive navigation",
+      "Implemented responsive design patterns for optimal viewing across devices",
+      "Developed an interactive treatment browsing system with clear visual feedback",
+      "Optimized content structure for better accessibility and SEO"
+    ],
+    impact: [
+      "Improved user engagement with the interactive treatment browsing interface",
+      "Enhanced mobile usability with responsive design implementation",
+      "Streamlined appointment booking process leading to increased conversions",
+      "Better content organization resulting in improved user satisfaction",
+      "Accessible design ensuring compliance with WCAG guidelines"
+    ]
   },
   {
     title: 'E-commerce Platform',

@@ -76,7 +76,7 @@ const Home = () => {
           gap={8}
           className="mt-16"
         >
-          {projectsData.map((project) => (
+          {projectsData.slice(0, 5).map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
         </Container.Grid>
