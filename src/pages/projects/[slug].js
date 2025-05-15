@@ -2,6 +2,13 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
+import Lightbox from 'yet-another-react-lightbox';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
+import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
+import 'yet-another-react-lightbox/styles.css';
+import 'yet-another-react-lightbox/plugins/thumbnails.css';
+import { useState } from 'react';
 import { Container } from '../../components/Container';
 import { ProjectCard } from '../../components/ProjectCard';
 import ContactPurpleBlock from '../../components/ContactPurpleBlock';
@@ -28,12 +35,19 @@ const techIcons = {
 export default function ProjectDetail() {
   const router = useRouter();
   const { slug } = router.query;
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const project = projectsData.find((p) => p.slug === slug);
 
   if (!project) {
     return <div>Project not found</div>;
   }
+
+  const handleImageClick = (index) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
 
   return (
     <>
@@ -56,7 +70,7 @@ export default function ProjectDetail() {
               {project.projectType.split(',').map((type, index) => (
                 <span 
                   key={index} 
-                  className="inline-flex items-center px-4 py-1 rounded-full text-base md:text-lg font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400"
+                  className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400"
                 >
                   {type.trim()}
                 </span>
@@ -110,19 +124,21 @@ export default function ProjectDetail() {
 
         {/* Main Project Image */}
         <motion.div 
-          className="relative aspect-[16/10] w-full mb-24 md:mb-32 rounded-3xl overflow-hidden shadow-lg"
+          className="relative aspect-[16/10] w-full mb-24 md:mb-32 rounded-3xl overflow-hidden shadow-lg cursor-pointer group"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
+          onClick={() => handleImageClick(0)}
         >
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
             sizes="(min-width: 1280px) 1200px, 100vw"
             priority
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </motion.div>
 
         {/* Project Content */}
@@ -155,15 +171,17 @@ export default function ProjectDetail() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden"
+                  className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                  onClick={() => handleImageClick(0)}
                 >
                   <Image
                     src={project.gallery[0]}
                     alt="Solution overview"
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(min-width: 1280px) 1200px, 100vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </motion.div>
                 <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Large image caption placeholder</p>
                 {/* Two smaller images */}
@@ -175,15 +193,17 @@ export default function ProjectDetail() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
-                        className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden"
+                        className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                        onClick={() => handleImageClick(index + 1)}
                       >
                         <Image
                           src={image}
                           alt={`Solution detail ${index + 1}`}
                           fill
-                          className="object-cover"
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
                           sizes="(min-width: 1280px) 600px, 100vw"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       </motion.div>
                       <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Small image {index + 1} caption placeholder</p>
                     </div>
@@ -227,15 +247,17 @@ export default function ProjectDetail() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden"
+                    className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                    onClick={() => handleImageClick(index + 3)}
                   >
                     <Image
                       src={image}
                       alt={`Technical detail ${index + 1}`}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                       sizes="(min-width: 1280px) 1200px, 100vw"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </motion.div>
                   <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Technical image {index + 1} caption placeholder</p>
                 </div>
@@ -264,15 +286,17 @@ export default function ProjectDetail() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden"
+                  className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden cursor-pointer group"
+                  onClick={() => handleImageClick(5)}
                 >
                   <Image
                     src={project.gallery[5]}
                     alt="Project highlight"
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="(min-width: 1280px) 1200px, 100vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </motion.div>
                 <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Project impact image caption placeholder</p>
               </div>
@@ -316,6 +340,143 @@ export default function ProjectDetail() {
       <Container>
         <ContactPurpleBlock className="mt-24 sm:mt-32 mb-16" />
       </Container>
+
+      {/* Lightbox Gallery */}
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setLightboxOpen(false)}
+        index={currentImageIndex}
+        slides={project.gallery.map((image) => ({ src: image }))}
+        carousel={{
+          padding: "16px",
+          spacing: "16px",
+        }}
+        animation={{ fade: 500 }}
+        controller={{ closeOnBackdropClick: true }}
+        plugins={[Zoom, Thumbnails, Fullscreen]}
+        zoom={{
+          maxZoomPixelRatio: 3,
+          zoomInMultiplier: 2,
+          doubleTapDelay: 300,
+          doubleClickDelay: 300,
+          doubleClickMaxStops: 2,
+          keyboardMoveDistance: 50,
+          wheelZoomDistanceFactor: 100,
+          pinchZoomDistanceFactor: 100,
+          scrollToZoom: true,
+        }}
+        thumbnails={{
+          width: 120,
+          height: 80,
+          padding: 4,
+          border: 2,
+          borderRadius: 12,
+          gap: 16,
+          imageFit: "contain",
+          showToggle: true,
+          position: "bottom",
+          style: {
+            "--yarl__thumbnails_thumbnail_active_border_color": "rgb(99, 102, 241)",
+            "--yarl__thumbnails_thumbnail_border_color": "transparent",
+            "--yarl__thumbnails_thumbnail_border_width": "2px",
+          },
+        }}
+        styles={{
+          container: {
+            backgroundColor: "rgba(0, 0, 0, 0.85)",
+          },
+          slide: {
+            borderRadius: "24px",
+            overflow: "hidden",
+            boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+          },
+          button: {
+            backgroundColor: "white",
+            backdropFilter: "none",
+            borderRadius: "50%",
+            padding: "12px",
+            color: "rgb(99, 102, 241)",
+            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+            boxShadow: "0 1px 1px rgba(0, 0, 0, 0.03)",
+            "&:hover": {
+              backgroundColor: "white",
+              transform: "scale(1.05)",
+              boxShadow: "0 1px 2px rgba(0, 0, 0, 0.04)",
+              color: "rgb(79, 70, 229)",
+            },
+          },
+          close: {
+            position: "absolute",
+            top: "16px",
+            right: "16px",
+            padding: "12px",
+            backgroundColor: "white",
+            backdropFilter: "none",
+            borderRadius: "50%",
+            color: "rgb(99, 102, 241)",
+            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+            boxShadow: "0 1px 1px rgba(0, 0, 0, 0.03)",
+            "&:hover": {
+              backgroundColor: "white",
+              transform: "scale(1.05)",
+              boxShadow: "0 1px 2px rgba(0, 0, 0, 0.04)",
+              color: "rgb(79, 70, 229)",
+            },
+            "&::after": {
+              content: '"Close"',
+              position: "absolute",
+              bottom: "-24px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              color: "white",
+              fontSize: "12px",
+              whiteSpace: "nowrap",
+              textShadow: "0 1px 2px rgba(0, 0, 0, 0.5)",
+            },
+          },
+          navigation: {
+            prev: {
+              left: "16px",
+            },
+            next: {
+              right: "16px",
+            },
+          },
+          thumbnailsContainer: {
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            backdropFilter: "blur(8px)",
+            padding: "16px",
+          },
+          thumbnail: {
+            borderRadius: "12px",
+            overflow: "hidden",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              transform: "scale(1.05)",
+            },
+          },
+          toolbar: {
+            top: "16px",
+            right: "16px",
+            gap: "8px",
+          },
+          toolbarButton: {
+            backgroundColor: "white",
+            backdropFilter: "none",
+            borderRadius: "50%",
+            padding: "12px",
+            color: "rgb(99, 102, 241)",
+            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+            boxShadow: "0 1px 1px rgba(0, 0, 0, 0.03)",
+            "&:hover": {
+              backgroundColor: "white",
+              transform: "scale(1.05)",
+              boxShadow: "0 1px 2px rgba(0, 0, 0, 0.04)",
+              color: "rgb(79, 70, 229)",
+            },
+          },
+        }}
+      />
     </>
   );
 } 
