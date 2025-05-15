@@ -104,7 +104,7 @@ export default function ProjectDetail() {
                 Services
               </h3>
               <p className="text-base text-zinc-600 dark:text-zinc-400">
-                UX/UI Design, Interactive Design, Prototyping, Responsive Design
+                {project.services || 'UX/UI Design, Interactive Design, Prototyping, Responsive Design'}
               </p>
             </div>
             <div>
@@ -112,8 +112,22 @@ export default function ProjectDetail() {
                 Tools
               </h3>
               <p className="text-base text-zinc-600 dark:text-zinc-400 flex items-center gap-2">
-                <SiFigma className="w-4 h-4" />
-                Figma
+                {project.tools ? (
+                  project.tools.split(',').map((tool, index) => {
+                    const Icon = techIcons[tool.trim()];
+                    return Icon ? (
+                      <span key={index} className="flex items-center gap-2">
+                        <Icon className="w-4 h-4" />
+                        {tool.trim()}
+                      </span>
+                    ) : null;
+                  })
+                ) : (
+                  <>
+                    <SiFigma className="w-4 h-4" />
+                    Figma
+                  </>
+                )}
               </p>
             </div>
           </div>
@@ -190,7 +204,11 @@ export default function ProjectDetail() {
                     </div>
                   </div>
                 </motion.div>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Large image caption placeholder</p>
+                {project.galleryCaptions?.[0] && (
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                    {project.galleryCaptions[0]}
+                  </p>
+                )}
                 {/* Two smaller images */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   {project.gallery.slice(1, 3).map((image, index) => (
@@ -217,18 +235,20 @@ export default function ProjectDetail() {
                           </div>
                         </div>
                       </motion.div>
-                      <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Small image {index + 1} caption placeholder</p>
+                      {project.galleryCaptions?.[index + 1] && (
+                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                          {project.galleryCaptions[index + 1]}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>
               </div>
-              {(project.solutionDetails || project.solutionCaption) && (
+              {project.solutionDetails && (
                 <div className="max-w-2xl mx-auto text-center mt-8">
-                  {project.solutionDetails && (
-                    <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">
-                      {project.solutionDetails}
-                    </p>
-                  )}
+                  <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">
+                    {project.solutionDetails}
+                  </p>
                   {project.solutionCaption && (
                     <p className="text-sm text-zinc-500 dark:text-zinc-500 italic">
                       {project.solutionCaption}
@@ -243,12 +263,20 @@ export default function ProjectDetail() {
           <div className="space-y-8">
             <h2 className="text-2xl font-semibold tracking-tight">Technical Approach</h2>
             <div className="space-y-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-              <p>
-                We retained OSD's existing brand identity while giving it a fresh, contemporary feel. The responsive design performs smoothly across devices—from mobile to desktop—and incorporates accessible typography, clear headings, and responsive video content.
-              </p>
-              <p>
-                Working closely with the product owner and development team, we ensured the design met both user needs and technical requirements. The result is a visually appealing, technically sound experience that helps users find what they're looking for more easily.
-              </p>
+              {project.technicalApproach ? (
+                project.technicalApproach.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))
+              ) : (
+                <>
+                  <p>
+                    We retained the existing brand identity while giving it a fresh, contemporary feel. The responsive design performs smoothly across devices—from mobile to desktop—and incorporates accessible typography, clear headings, and responsive video content.
+                  </p>
+                  <p>
+                    Working closely with the product owner and development team, we ensured the design met both user needs and technical requirements. The result is a visually appealing, technically sound experience that helps users find what they're looking for more easily.
+                  </p>
+                </>
+              )}
             </div>
             {/* Two large images stacked */}
             <div className="space-y-12 mt-8">
@@ -276,7 +304,11 @@ export default function ProjectDetail() {
                       </div>
                     </div>
                   </motion.div>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Technical image {index + 1} caption placeholder</p>
+                  {project.galleryCaptions?.[index + 3] && (
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                      {project.galleryCaptions[index + 3]}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
@@ -291,9 +323,15 @@ export default function ProjectDetail() {
           <div className="space-y-8 mt-16">
             <h2 className="text-2xl font-semibold tracking-tight">Project Impact & Reflection</h2>
             <div className="space-y-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-              <p>
-                This was a genuinely enjoyable project to work on. Collaborating with a former colleague on the development side added a personal layer to the experience. I particularly loved the challenge of turning dense medical content into something practical, clear, and engaging. The interactive features brought real value, making the site feel informative without being overwhelming.
-              </p>
+              {project.impact ? (
+                project.impact.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))
+              ) : (
+                <p>
+                  This was a genuinely enjoyable project to work on. Collaborating with a former colleague on the development side added a personal layer to the experience. I particularly loved the challenge of turning dense medical content into something practical, clear, and engaging. The interactive features brought real value, making the site feel informative without being overwhelming.
+                </p>
+              )}
             </div>
             {/* Large image below the text */}
             {project.gallery[5] && (
@@ -320,7 +358,11 @@ export default function ProjectDetail() {
                     </div>
                   </div>
                 </motion.div>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Project impact image caption placeholder</p>
+                {project.galleryCaptions?.[5] && (
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                    {project.galleryCaptions[5]}
+                  </p>
+                )}
               </div>
             )}
           </div>

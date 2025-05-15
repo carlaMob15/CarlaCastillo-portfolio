@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
+import PropTypes from 'prop-types'
 
 const ArrowIcon = () => (
   <svg
@@ -61,7 +62,7 @@ export function ProjectCard({ project, className, noBackground }) {
               className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/60 backdrop-blur-md border border-white/20 hover:bg-white/70 transition-all duration-500 ease-out cursor-pointer focus:outline-none focus:ring-2 focus:ring-[rgb(99,102,241)] focus:ring-offset-2"
               aria-label={`View project details: ${project.title}`}
             >
-              <ArrowIcon className="stroke-[rgb(99,102,241)] transition-all duration-500 ease-out transform group-hover:-rotate-45" />
+              <ArrowIcon />
             </Link>
           </div>
         </div>
@@ -106,4 +107,24 @@ export function ProjectCard({ project, className, noBackground }) {
       </div>
     </motion.div>
   )
+}
+
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    slug: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    projectType: PropTypes.string,
+    category: PropTypes.string,
+    client: PropTypes.string,
+    description: PropTypes.string,
+    shortDescription: PropTypes.string,
+  }).isRequired,
+  className: PropTypes.string,
+  noBackground: PropTypes.bool,
+}
+
+ProjectCard.defaultProps = {
+  className: '',
+  noBackground: false,
 } 
