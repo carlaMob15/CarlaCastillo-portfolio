@@ -59,9 +59,22 @@ export function ProjectCard({ project, className, noBackground }) {
       <div className="p-6">
         <span 
           className="text-sm font-medium text-neutral-500 dark:text-neutral-400 block mb-2 transition-colors duration-300 group-hover:text-[rgb(99,102,241)]"
-          aria-label={`Project category: ${project.category || project.client}`}
+          aria-label={`Project type: ${project.projectType || project.category || project.client}`}
         >
-          {project.category || project.client}
+          {project.projectType ? (
+            <span className="flex flex-wrap gap-2">
+              {project.projectType.split(',').map((type, index) => (
+                <span 
+                  key={index} 
+                  className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 transition-colors duration-300 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/30 group-hover:text-indigo-600 dark:group-hover:text-indigo-400"
+                >
+                  {type.trim()}
+                </span>
+              ))}
+            </span>
+          ) : (
+            project.category || project.client
+          )}
         </span>
         <div className="flex items-center justify-between">
           <Link 
@@ -81,7 +94,7 @@ export function ProjectCard({ project, className, noBackground }) {
           </Link>
         </div>
         <p 
-          className="text-neutral-600 dark:text-neutral-400 line-clamp-2 mt-2 transition-colors duration-300 group-hover:text-neutral-700 dark:group-hover:text-neutral-300"
+          className="text-neutral-600 dark:text-neutral-400 mt-2 transition-colors duration-300 group-hover:text-neutral-700 dark:group-hover:text-neutral-300"
           aria-label={`Project description: ${project.shortDescription || project.description}`}
         >
           {project.shortDescription || project.description}

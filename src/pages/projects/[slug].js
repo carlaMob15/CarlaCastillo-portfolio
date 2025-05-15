@@ -42,20 +42,27 @@ export default function ProjectDetail() {
         <meta name="description" content={project.description} />
       </Head>
 
-      <Container className="pt-16 pb-32 md:pt-24">
+      <Container className="pt-24 pb-32 md:pt-32 md:pb-40 px-4 sm:px-8 md:px-12">
         <BackToTop />
         {/* Project Header */}
         <motion.div 
-          className="max-w-3xl space-y-8 mb-16 md:mb-24"
+          className="max-w-3xl space-y-16 mb-24 md:mb-32 mx-auto"
           initial="initial"
           animate="animate"
           variants={fadeIn}
         >
-          <div className="space-y-4">
-            <span className="text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider font-medium">
-              {project.category || 'Digital Product Design'}
-            </span>
-            <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <div className="space-y-8">
+            <div className="flex flex-wrap gap-3 md:gap-4">
+              {project.projectType.split(',').map((type, index) => (
+                <span 
+                  key={index} 
+                  className="inline-flex items-center px-4 py-1 rounded-full text-base md:text-lg font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400"
+                >
+                  {type.trim()}
+                </span>
+              ))}
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight md:leading-tight">
               {project.title}
             </h1>
             <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400">
@@ -64,53 +71,46 @@ export default function ProjectDetail() {
           </div>
 
           {/* Project Metadata */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 pt-4">
             <div>
-              <h3 className="text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider font-medium mb-2">
+              <h3 className="text-sm text-indigo-600 dark:text-indigo-400 uppercase tracking-wider font-semibold mb-2">
                 Client
               </h3>
-              <p className="text-base">
+              <p className="text-base text-zinc-600 dark:text-zinc-400">
                 {project.client || 'Personal Project'}
               </p>
             </div>
             <div>
-              <h3 className="text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider font-medium mb-2">
+              <h3 className="text-sm text-indigo-600 dark:text-indigo-400 uppercase tracking-wider font-semibold mb-2">
                 Year
               </h3>
-              <p className="text-base">
+              <p className="text-base text-zinc-600 dark:text-zinc-400">
                 {project.timeline || '2024'}
               </p>
             </div>
-            <div>
-              <h3 className="text-sm text-zinc-500 dark:text-zinc-400 uppercase tracking-wider font-medium mb-2">
+            <div className="md:col-span-2">
+              <h3 className="text-sm text-indigo-600 dark:text-indigo-400 uppercase tracking-wider font-semibold mb-2">
                 Services
               </h3>
-              <p className="text-base">
-                UX Design • App Design • Development
+              <p className="text-base text-zinc-600 dark:text-zinc-400">
+                UX/UI Design, Interactive Design, Prototyping, Responsive Design
               </p>
             </div>
-          </div>
-
-          {/* Technology Tags */}
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech) => {
-              const Icon = techIcons[tech];
-              return (
-                <span
-                  key={tech}
-                  className="px-3 py-1 text-sm text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/50 rounded-full flex items-center gap-2"
-                >
-                  {Icon && <Icon className="w-4 h-4" />}
-                  {tech}
-                </span>
-              );
-            })}
+            <div>
+              <h3 className="text-sm text-indigo-600 dark:text-indigo-400 uppercase tracking-wider font-semibold mb-2">
+                Tools
+              </h3>
+              <p className="text-base text-zinc-600 dark:text-zinc-400 flex items-center gap-2">
+                <SiFigma className="w-4 h-4" />
+                Figma
+              </p>
+            </div>
           </div>
         </motion.div>
 
         {/* Main Project Image */}
         <motion.div 
-          className="relative aspect-[16/10] w-full mb-16 md:mb-24 rounded-3xl overflow-hidden"
+          className="relative aspect-[16/10] w-full mb-24 md:mb-32 rounded-3xl overflow-hidden shadow-lg"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
@@ -132,16 +132,8 @@ export default function ProjectDetail() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {/* Project Description */}
-          <div className="space-y-8">
-            <h2 className="text-2xl font-semibold tracking-tight">Project Description</h2>
-            <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-              {project.description}
-            </p>
-          </div>
-
           {/* Challenge & Solution */}
-          <div className="space-y-20">
+          <div className="space-y-24">
             <div className="space-y-6">
               <h2 className="text-2xl font-semibold tracking-tight">The Challenge</h2>
               <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400">
@@ -154,121 +146,143 @@ export default function ProjectDetail() {
                 {project.solution}
               </p>
             </div>
+            {/* Image Grid 1 - Large image above, two below */}
+            <div className="space-y-12">
+              <div className="space-y-12">
+                {/* Large image */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden"
+                >
+                  <Image
+                    src={project.gallery[0]}
+                    alt="Solution overview"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1280px) 1200px, 100vw"
+                  />
+                </motion.div>
+                <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Large image caption placeholder</p>
+                {/* Two smaller images */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  {project.gallery.slice(1, 3).map((image, index) => (
+                    <div key={index}>
+                      <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
+                        className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden"
+                      >
+                        <Image
+                          src={image}
+                          alt={`Solution detail ${index + 1}`}
+                          fill
+                          className="object-cover"
+                          sizes="(min-width: 1280px) 600px, 100vw"
+                        />
+                      </motion.div>
+                      <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Small image {index + 1} caption placeholder</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {(project.solutionDetails || project.solutionCaption) && (
+                <div className="max-w-2xl mx-auto text-center mt-8">
+                  {project.solutionDetails && (
+                    <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">
+                      {project.solutionDetails}
+                    </p>
+                  )}
+                  {project.solutionCaption && (
+                    <p className="text-sm text-zinc-500 dark:text-zinc-500 italic">
+                      {project.solutionCaption}
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
 
-          {/* Project Features */}
-          <div className="space-y-20 md:space-y-32">
-            <h2 className="text-2xl font-semibold tracking-tight">Key Features</h2>
-            {project.features.map((feature, index) => {
-              // Special layout for feature 2 (index 1)
-              if (index === 1) {
-                return (
+          {/* Technical Approach */}
+          <div className="space-y-8">
+            <h2 className="text-2xl font-semibold tracking-tight">Technical Approach</h2>
+            <div className="space-y-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400">
+              <p>
+                We retained OSD's existing brand identity while giving it a fresh, contemporary feel. The responsive design performs smoothly across devices—from mobile to desktop—and incorporates accessible typography, clear headings, and responsive video content.
+              </p>
+              <p>
+                Working closely with the product owner and development team, we ensured the design met both user needs and technical requirements. The result is a visually appealing, technically sound experience that helps users find what they're looking for more easily.
+              </p>
+            </div>
+            {/* Two large images stacked */}
+            <div className="space-y-12 mt-8">
+              {project.gallery.slice(3, 5).map((image, index) => (
+                <div key={index}>
                   <motion.div 
-                    key={index} 
-                    className="space-y-8"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden"
                   >
-                    {/* Big full width image */}
-                    <div className="relative aspect-[3/2] w-full rounded-3xl overflow-hidden">
-                      <Image
-                        src={project.gallery[index] || `https://picsum.photos/1600/900?random=${index + 20}`}
-                        alt={`Feature ${index + 1} - Main Image`}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 1280px) 1200px, 100vw"
-                      />
-                    </div>
-                    {/* Two smaller images side by side */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden">
-                        <Image
-                          src={project.gallery[index + 1] || `https://picsum.photos/800/600?random=${index + 30}`}
-                          alt={`Feature ${index + 1} - Sub Image 1`}
-                          fill
-                          className="object-cover"
-                          sizes="(min-width: 640px) 400px, 100vw"
-                        />
-                      </div>
-                      <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden">
-                        <Image
-                          src={project.gallery[index + 2] || `https://picsum.photos/800/600?random=${index + 40}`}
-                          alt={`Feature ${index + 1} - Sub Image 2`}
-                          fill
-                          className="object-cover"
-                          sizes="(min-width: 640px) 400px, 100vw"
-                        />
-                      </div>
-                    </div>
-                    <div className="max-w-2xl mx-auto">
-                      <h3 className="text-xl font-medium mb-4">Feature {index + 1}</h3>
-                      <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-                        {feature}
-                      </p>
-                    </div>
+                    <Image
+                      src={image}
+                      alt={`Technical detail ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 1280px) 1200px, 100vw"
+                    />
                   </motion.div>
-                );
-              }
-              // Default/random layout for other features
-              const hasTwoImages = Math.random() > 0.5;
-              return (
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Technical image {index + 1} caption placeholder</p>
+                </div>
+              ))}
+            </div>
+            {project.technicalDetails && (
+              <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mt-8">
+                {project.technicalDetails}
+              </p>
+            )}
+          </div>
+
+          {/* Project Impact & Reflection */}
+          <div className="space-y-8 mt-16">
+            <h2 className="text-2xl font-semibold tracking-tight">Project Impact & Reflection</h2>
+            <div className="space-y-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400">
+              <p>
+                This was a genuinely enjoyable project to work on. Collaborating with a former colleague on the development side added a personal layer to the experience. I particularly loved the challenge of turning dense medical content into something practical, clear, and engaging. The interactive features brought real value, making the site feel informative without being overwhelming.
+              </p>
+            </div>
+            {/* Large image below the text */}
+            {project.gallery[5] && (
+              <div className="mt-10">
                 <motion.div 
-                  key={index} 
-                  className="space-y-8"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5 }}
+                  className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden"
                 >
-                  {hasTwoImages ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div className="relative aspect-[3/2] w-full rounded-3xl overflow-hidden">
-                        <Image
-                          src={project.gallery[index] || `https://picsum.photos/1600/900?random=${index + 20}`}
-                          alt={`Feature ${index + 1} - Image 1`}
-                          fill
-                          className="object-cover"
-                          sizes="(min-width: 1280px) 600px, 100vw"
-                        />
-                      </div>
-                      <div className="relative aspect-[3/2] w-full rounded-3xl overflow-hidden">
-                        <Image
-                          src={project.gallery[index + 1] || `https://picsum.photos/1600/900?random=${index + 21}`}
-                          alt={`Feature ${index + 1} - Image 2`}
-                          fill
-                          className="object-cover"
-                          sizes="(min-width: 1280px) 600px, 100vw"
-                        />
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="relative aspect-[3/2] w-full rounded-3xl overflow-hidden">
-                      <Image
-                        src={project.gallery[index] || `https://picsum.photos/1600/900?random=${index + 20}`}
-                        alt={`Feature ${index + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="(min-width: 1280px) 1200px, 100vw"
-                      />
-                    </div>
-                  )}
-                  <div className="max-w-2xl mx-auto">
-                    <h3 className="text-xl font-medium mb-4">Feature {index + 1}</h3>
-                    <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-                      {feature}
-                    </p>
-                  </div>
+                  <Image
+                    src={project.gallery[5]}
+                    alt="Project highlight"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1280px) 1200px, 100vw"
+                  />
                 </motion.div>
-              );
-            })}
+                <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Project impact image caption placeholder</p>
+              </div>
+            )}
           </div>
         </motion.div>
       </Container>
 
-      {/* More Projects Section with Background - moved outside Container for full width */}
-      <div className="relative w-full mt-32 md:mt-40">
+      {/* More Projects Section with Background */}
+      <div className="relative w-full mt-40 md:mt-48">
         {/* Full width background */}
         <div className="absolute inset-0 bg-zinc-50 dark:bg-zinc-900/50" aria-hidden="true" />
         {/* Content aligned with main content */}

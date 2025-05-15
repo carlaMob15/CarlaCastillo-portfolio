@@ -1,5 +1,35 @@
 export const projectsData = [
   {
+    title: 'OSD Website Redesign',
+    description: 'A complete redesign of OSD\'s healthcare website, improving accessibility, navigation, and user experience across devices.',
+    shortDescription: 'A complete redesign of OSD\'s healthcare website, improving accessibility, navigation, and user experience across devices.',
+    projectType: 'Website, B2C, Healthcare',
+    image: 'https://picsum.photos/1920/1080?random=20',
+    slug: 'osd-healthcare-redesign',
+    client: 'Tarrantoga',
+    timeline: '2024 - 2025',
+    technologies: ['Figma', 'UX/UI Design', 'Interactive Design', 'Prototyping', 'Responsive Design'],
+    features: [
+      'Interactive human body interface for intuitive treatment browsing',
+      'Clean bento-style grid layout for digestible content presentation',
+      'Responsive design optimized for all devices',
+      'Accessible typography and clear visual hierarchy',
+      'Streamlined information architecture for better navigation',
+      'Balanced content distribution with sliders, lists, and images'
+    ],
+    gallery: [
+      'https://picsum.photos/1920/1080?random=21',
+      'https://picsum.photos/800/600?random=22',
+      'https://picsum.photos/800/600?random=23',
+      'https://picsum.photos/1920/1080?random=24',
+      'https://picsum.photos/1920/1080?random=25',
+      'https://picsum.photos/1920/1080?random=26'
+    ],
+    overview: "A complete redesign of a healthcare services website, focused on improving user experience through a modern interface and intuitive navigation. The project aimed to enhance engagement by refining the visual hierarchy and streamlining the information architecture—particularly in making treatment and services directories easier to explore.",
+    challenge: "The existing site had an outdated interface and presented complex medical information in a way that was hard to follow. Our main priorities were to improve the searchability of treatments and services while making the overall experience more accessible, responsive, and user-friendly.",
+    solution: "We developed a fresh design system centred on interaction and accessibility. One of the standout features was an interactive human body interface, allowing users to browse treatments by selecting relevant body parts—a more natural, intuitive way to navigate healthcare information. To support this, we introduced a clean bento-style grid layout that helped break down complex content into clear, digestible blocks. Content was distributed across sliders, numbered lists, text sections, and images to create a balanced, visually engaging experience—all while meeting accessibility standards."
+  },
+  {
     title: 'E-commerce Platform',
     description: 'A modern e-commerce platform built with Next.js and Tailwind',
     shortDescription: 'Full-featured e-commerce solution',
