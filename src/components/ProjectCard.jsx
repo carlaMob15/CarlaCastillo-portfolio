@@ -13,11 +13,11 @@ const ArrowIcon = () => (
   >
     <path
       d="M5 12H19M19 12L12 5M19 12L12 19"
-      stroke="currentColor"
+      stroke="rgb(99,102,241)"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="transition-colors duration-300"
+      className="transition-all duration-500 ease-out"
     />
   </svg>
 )
@@ -54,6 +54,17 @@ export function ProjectCard({ project, className, noBackground }) {
           quality={85}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute bottom-4 right-4">
+          <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform translate-y-4 group-hover:translate-y-0">
+            <Link 
+              href={`/projects/${project.slug}`}
+              className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/60 backdrop-blur-md border border-white/20 hover:bg-white/70 transition-all duration-500 ease-out cursor-pointer focus:outline-none focus:ring-2 focus:ring-[rgb(99,102,241)] focus:ring-offset-2"
+              aria-label={`View project details: ${project.title}`}
+            >
+              <ArrowIcon className="stroke-[rgb(99,102,241)] transition-all duration-500 ease-out transform group-hover:-rotate-45" />
+            </Link>
+          </div>
+        </div>
       </Link>
       
       <div className="p-6">
@@ -84,13 +95,6 @@ export function ProjectCard({ project, className, noBackground }) {
             <h3 className="text-2xl font-bold text-neutral-900 dark:text-white group-hover:text-[rgb(99,102,241)] transition-colors duration-300">
               {project.title}
             </h3>
-          </Link>
-          <Link 
-            href={`/projects/${project.slug}`}
-            className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors cursor-pointer group focus:outline-none focus:ring-2 focus:ring-[rgb(99,102,241)] focus:ring-offset-2"
-            aria-label={`View project details: ${project.title}`}
-          >
-            <ArrowIcon className="stroke-neutral-500 group-hover:stroke-[rgb(99,102,241)]" />
           </Link>
         </div>
         <p 

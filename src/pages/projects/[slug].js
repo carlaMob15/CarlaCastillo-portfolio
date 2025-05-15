@@ -3,11 +3,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import Lightbox from 'yet-another-react-lightbox';
-import Zoom from 'yet-another-react-lightbox/plugins/zoom';
-import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
-import Fullscreen from 'yet-another-react-lightbox/plugins/fullscreen';
 import 'yet-another-react-lightbox/styles.css';
-import 'yet-another-react-lightbox/plugins/thumbnails.css';
 import { useState } from 'react';
 import { Container } from '../../components/Container';
 import { ProjectCard } from '../../components/ProjectCard';
@@ -15,6 +11,7 @@ import ContactPurpleBlock from '../../components/ContactPurpleBlock';
 import BackToTop from '../../components/BackToTop';
 import { projectsData } from '../../data/projectsData';
 import { SiFigma, SiReact, SiTailwindcss, SiNextdotjs, SiMongodb, SiStripe } from 'react-icons/si';
+import { HiMagnifyingGlass } from 'react-icons/hi2';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -124,7 +121,7 @@ export default function ProjectDetail() {
 
         {/* Main Project Image */}
         <motion.div 
-          className="relative aspect-[16/10] w-full mb-24 md:mb-32 rounded-3xl overflow-hidden shadow-lg cursor-pointer group"
+          className="relative aspect-[16/10] w-full mb-24 md:mb-32 rounded-3xl overflow-hidden shadow-lg group cursor-pointer"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
@@ -139,6 +136,11 @@ export default function ProjectDetail() {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="bg-white/10 backdrop-blur-sm p-4 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+              <HiMagnifyingGlass className="w-8 h-8 text-white" />
+            </div>
+          </div>
         </motion.div>
 
         {/* Project Content */}
@@ -182,6 +184,11 @@ export default function ProjectDetail() {
                     sizes="(min-width: 1280px) 1200px, 100vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
                 </motion.div>
                 <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Large image caption placeholder</p>
                 {/* Two smaller images */}
@@ -204,6 +211,11 @@ export default function ProjectDetail() {
                           sizes="(min-width: 1280px) 600px, 100vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                          </div>
+                        </div>
                       </motion.div>
                       <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Small image {index + 1} caption placeholder</p>
                     </div>
@@ -258,6 +270,11 @@ export default function ProjectDetail() {
                       sizes="(min-width: 1280px) 1200px, 100vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
                   </motion.div>
                   <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Technical image {index + 1} caption placeholder</p>
                 </div>
@@ -297,6 +314,11 @@ export default function ProjectDetail() {
                     sizes="(min-width: 1280px) 1200px, 100vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
                 </motion.div>
                 <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">Project impact image caption placeholder</p>
               </div>
@@ -353,34 +375,6 @@ export default function ProjectDetail() {
         }}
         animation={{ fade: 500 }}
         controller={{ closeOnBackdropClick: true }}
-        plugins={[Zoom, Thumbnails, Fullscreen]}
-        zoom={{
-          maxZoomPixelRatio: 3,
-          zoomInMultiplier: 2,
-          doubleTapDelay: 300,
-          doubleClickDelay: 300,
-          doubleClickMaxStops: 2,
-          keyboardMoveDistance: 50,
-          wheelZoomDistanceFactor: 100,
-          pinchZoomDistanceFactor: 100,
-          scrollToZoom: true,
-        }}
-        thumbnails={{
-          width: 120,
-          height: 80,
-          padding: 4,
-          border: 2,
-          borderRadius: 12,
-          gap: 16,
-          imageFit: "contain",
-          showToggle: true,
-          position: "bottom",
-          style: {
-            "--yarl__thumbnails_thumbnail_active_border_color": "rgb(99, 102, 241)",
-            "--yarl__thumbnails_thumbnail_border_color": "transparent",
-            "--yarl__thumbnails_thumbnail_border_width": "2px",
-          },
-        }}
         styles={{
           container: {
             backgroundColor: "rgba(0, 0, 0, 0.85)",
@@ -389,20 +383,37 @@ export default function ProjectDetail() {
             borderRadius: "24px",
             overflow: "hidden",
             boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+            padding: "64px",
+            "@media (max-width: 768px)": {
+              padding: "16px",
+            },
+          },
+          slideImage: {
+            borderRadius: "24px",
+            overflow: "hidden",
           },
           button: {
-            backgroundColor: "white",
-            backdropFilter: "none",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(8px)",
             borderRadius: "50%",
             padding: "12px",
-            color: "rgb(99, 102, 241)",
+            color: "white",
             transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
             boxShadow: "0 1px 1px rgba(0, 0, 0, 0.03)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
             "&:hover": {
-              backgroundColor: "white",
-              transform: "scale(1.05)",
-              boxShadow: "0 1px 2px rgba(0, 0, 0, 0.04)",
-              color: "rgb(79, 70, 229)",
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              transform: "scale(1.05) translateY(-2px)",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+              color: "rgba(255, 255, 255, 0.9)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+            },
+            "&:active": {
+              transform: "scale(0.98) translateY(0)",
+              boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
+            },
+            "@media (max-width: 768px)": {
+              padding: "8px",
             },
           },
           close: {
@@ -410,17 +421,23 @@ export default function ProjectDetail() {
             top: "16px",
             right: "16px",
             padding: "12px",
-            backgroundColor: "white",
-            backdropFilter: "none",
+            backgroundColor: "rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(8px)",
             borderRadius: "50%",
-            color: "rgb(99, 102, 241)",
+            color: "white",
             transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
             boxShadow: "0 1px 1px rgba(0, 0, 0, 0.03)",
+            border: "1px solid rgba(255, 255, 255, 0.1)",
             "&:hover": {
-              backgroundColor: "white",
-              transform: "scale(1.05)",
-              boxShadow: "0 1px 2px rgba(0, 0, 0, 0.04)",
-              color: "rgb(79, 70, 229)",
+              backgroundColor: "rgba(255, 255, 255, 0.2)",
+              transform: "scale(1.05) translateY(-2px)",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+              color: "rgba(255, 255, 255, 0.9)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+            },
+            "&:active": {
+              transform: "scale(0.98) translateY(0)",
+              boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
             },
             "&::after": {
               content: '"Close"',
@@ -433,46 +450,34 @@ export default function ProjectDetail() {
               whiteSpace: "nowrap",
               textShadow: "0 1px 2px rgba(0, 0, 0, 0.5)",
             },
+            "@media (max-width: 768px)": {
+              padding: "8px",
+            },
           },
           navigation: {
+            container: {
+              position: "absolute",
+              bottom: "32px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              display: "flex",
+              gap: "160px",
+              padding: "0 32px",
+              "@media (max-width: 768px)": {
+                bottom: "24px",
+                gap: "120px",
+                padding: "0 24px",
+              },
+            },
             prev: {
-              left: "16px",
+              position: "relative",
+              left: "auto",
+              transform: "none",
             },
             next: {
-              right: "16px",
-            },
-          },
-          thumbnailsContainer: {
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            backdropFilter: "blur(8px)",
-            padding: "16px",
-          },
-          thumbnail: {
-            borderRadius: "12px",
-            overflow: "hidden",
-            transition: "all 0.3s ease",
-            "&:hover": {
-              transform: "scale(1.05)",
-            },
-          },
-          toolbar: {
-            top: "16px",
-            right: "16px",
-            gap: "8px",
-          },
-          toolbarButton: {
-            backgroundColor: "white",
-            backdropFilter: "none",
-            borderRadius: "50%",
-            padding: "12px",
-            color: "rgb(99, 102, 241)",
-            transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-            boxShadow: "0 1px 1px rgba(0, 0, 0, 0.03)",
-            "&:hover": {
-              backgroundColor: "white",
-              transform: "scale(1.05)",
-              boxShadow: "0 1px 2px rgba(0, 0, 0, 0.04)",
-              color: "rgb(79, 70, 229)",
+              position: "relative",
+              left: "auto",
+              transform: "none",
             },
           },
         }}
