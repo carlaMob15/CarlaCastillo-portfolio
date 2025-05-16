@@ -244,5 +244,53 @@ Serving as a companion to the iPad version, the app enhances the user experience
       'The app was designed with scalability in mind, allowing for future feature additions and platform expansion.'
     ],
     impact: "I really enjoyed this project because I learned so much from my colleagues and deepened my understanding of iOS app design — even experimenting a little with Swift to better design for the platform. I spent most of last year focused on this product, and the collaboration across the team was incredible. We got the app up and running within four months, which was a huge achievement.\n\nOf course, there were some bumps along the way, but the experience was one of the most rewarding I've had. It was a real team effort, and I'm proud of what we built together.\n\nWhile the company later shifted direction and the app's future became uncertain, we successfully delivered a fully functional, polished product. I'm proud of what we achieved together — and even if the roadmap paused, the experience shaped how I approach mobile design today."
+  },
+  {
+    title: 'Covea – Design System Foundations',
+    description: 'Created a scalable, mobile-first design system to align teams, speed up delivery, and drive consistency across products.',
+    shortDescription: 'Created a scalable, mobile-first design system to align teams, speed up delivery, and drive consistency across products.',
+    projectType: 'Design System, Internal Toolkit, Cross-Platform',
+    image: '/images/projects/covea-design-system/hero.jpg',
+    slug: 'covea-design-system-foundations',
+    client: 'Covea Insurance plc',
+    timeline: '2020 - 2023',
+    services: 'Design Systems, UI Library Creation, Collaboration & Team Enablement, UX Documentation, Component Inventory & Governance',
+    tools: ['Figma', 'Storybook', 'Confluence', 'Jira'],
+    overview: `To support Covea's growing portfolio of insurance products and platforms, there was a need for a centralised, flexible design system. The goal was to create a toolkit of adaptive components that could be reused across brands and projects, enabling faster delivery, reducing duplication, and improving collaboration between design and development teams.`,
+    challenge: `The team needed a mobile-first, modular design system that could serve multiple customer-facing products and internal tools. Existing design efforts were fragmented, with duplicated work, inconsistent components, and slow feedback loops. Designers and developers were working in silos, lacking a shared language, process, or source of truth.`,
+    gallery: [
+      'https://picsum.photos/1200/800?random=1',
+      'https://picsum.photos/800/600?random=2',
+      'https://picsum.photos/800/600?random=3',
+      'https://picsum.photos/1200/800?random=4',
+      'https://picsum.photos/1200/800?random=5',
+      'https://picsum.photos/1200/800?random=6'
+    ],
+    galleryCaptions: [
+      'Design system overview showing component hierarchy and relationships',
+      'Component library in Storybook with interactive documentation',
+      'Design tokens and style guide documentation',
+      'Mobile-first responsive components and patterns',
+      'Cross-platform implementation examples',
+      'Team collaboration and governance framework'
+    ],
+    solution: `We created a scalable design system with reusable, white label components that could be adapted for various customer products. The system included:
+
+- A Figma toolkit for designers
+- A matching React Storybook for developers
+- Guidelines and documentation to ensure alignment across teams
+
+To bridge communication, we introduced shared documentation in Confluence and set up regular workshops, catch-ups, and forums to support adoption. This created a more streamlined, collaborative environment across teams.`,
+    technicalApproach: [`The design system was built on the foundations of the GoSure brand, establishing a clean, flexible UI style that could evolve with business needs.`,
+      'Key activities included:',
+      '- Identifying core component patterns and creating a design-led toolkit in Figma',
+      '- Supporting developers in translating Figma components into interactive React elements',
+      '- Creating documentation to define component behaviour, usage rules, and version control',
+      '- Running fortnightly syncs to review progress and ensure cross-team alignment',
+      '- Hosting workshops to onboard designers and introduce best practices around the system'
+    ],
+    impact: `My focus was on laying the design foundations — building the internal UI library, aligning it with the GoSure brand, and collaborating closely with developers to ensure accurate implementation.
+
+While I didn't build the Storybook toolkit myself, I worked alongside the development team to help mirror the design system from Figma into React. We defined component variants, explored interaction patterns, and created a shared process that supported better cross-team collaboration. It was rewarding to see how this system brought clarity and consistency to projects across the organisation.`
   }
 ]; 
