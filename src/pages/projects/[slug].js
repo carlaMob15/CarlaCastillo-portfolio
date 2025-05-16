@@ -10,7 +10,7 @@ import { ProjectCard } from '../../components/ProjectCard';
 import ContactPurpleBlock from '../../components/ContactPurpleBlock';
 import BackToTop from '../../components/BackToTop';
 import { projectsData } from '../../data/projectsData';
-import { SiFigma, SiReact, SiTailwindcss, SiNextdotjs, SiMongodb, SiStripe } from 'react-icons/si';
+import { SiFigma, SiReact, SiTailwindcss, SiNextdotjs, SiMongodb, SiStripe, SiStorybook, SiConfluence, SiJira } from 'react-icons/si';
 import { HiMagnifyingGlass } from 'react-icons/hi2';
 
 const fadeIn = {
@@ -27,7 +27,26 @@ const techIcons = {
   'Next.js': SiNextdotjs,
   'MongoDB': SiMongodb,
   'Stripe': SiStripe,
+  'Storybook': SiStorybook,
+  'Confluence': SiConfluence,
+  'Jira': SiJira,
 };
+
+// Expanded color palette for tags
+const tagColors = [
+  'bg-indigo-100 text-indigo-800',
+  'bg-violet-100 text-violet-800',
+  'bg-pink-100 text-pink-800',
+  'bg-amber-100 text-amber-800',
+  'bg-teal-100 text-teal-800',
+  'bg-blue-100 text-blue-800',
+  'bg-green-100 text-green-800',
+  'bg-rose-100 text-rose-800',
+  'bg-cyan-100 text-cyan-800',
+  'bg-fuchsia-100 text-fuchsia-800',
+  'bg-orange-100 text-orange-800',
+  'bg-lime-100 text-lime-800',
+];
 
 export default function ProjectDetail() {
   const router = useRouter();
@@ -122,29 +141,30 @@ export default function ProjectDetail() {
                 {project.services || 'UX/UI Design, Interactive Design, Prototyping, Responsive Design'}
               </p>
             </div>
-            <div>
-              <h3 className="text-sm text-indigo-600 dark:text-indigo-400 uppercase tracking-wider font-semibold mb-2">
-                Tools
-              </h3>
-              <p className="text-base text-zinc-600 dark:text-zinc-400 flex items-center gap-2">
-                {project.tools ? (
-                  project.tools.split(',').map((tool, index) => {
-                    const Icon = techIcons[tool.trim()];
-                    return Icon ? (
-                      <span key={index} className="flex items-center gap-2">
-                        <Icon className="w-4 h-4" />
-                        {tool.trim()}
-                      </span>
-                    ) : null;
-                  })
-                ) : (
-                  <>
-                    <SiFigma className="w-4 h-4" />
-                    Figma
-                  </>
-                )}
-              </p>
-            </div>
+            {project.tools && (
+              <div>
+                <h3 className="text-sm text-indigo-600 dark:text-indigo-400 uppercase tracking-wider font-semibold mb-2">
+                  Tools
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {(Array.isArray(project.tools) ? project.tools : project.tools.split(','))
+                    .map((tool, index) => {
+                      const Icon = techIcons[tool.trim()];
+                      // Assign a color from the expanded palette for each tag
+                      const colorClass = tagColors[index % tagColors.length];
+                      return (
+                        <span
+                          key={index}
+                          className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium shadow-sm ${colorClass}`}
+                        >
+                          {Icon && <Icon className="h-4 w-4 mr-2" />}
+                          <span>{tool.trim()}</span>
+                        </span>
+                      );
+                    })}
+                </div>
+              </div>
+            )}
           </div>
         </motion.div>
 

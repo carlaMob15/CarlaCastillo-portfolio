@@ -9,6 +9,7 @@ export const projectsData = [
     client: 'Covea Insurance plc',
     timeline: '2020 - 2023',
     services: 'UX/UI Design, Brand Creation, Design Systems, Prototyping, Responsive Design',
+    tools: ['Figma'],
     technologies: ['Figma', 'After Effects', 'UX/UI Design', 'Brand Design', 'Design Systems', 'Prototyping', 'Design Tooling'],
     features: [
       'UX/UI Design',
@@ -57,6 +58,8 @@ export const projectsData = [
     client: 'Tarrantoga',
     timeline: '2024 - 2025',
     liveUrl: 'https://onestophospital.co.uk',
+    services: undefined,
+    tools: ['Figma'],
     technologies: ['Figma', 'UX/UI Design', 'Interactive Design', 'Prototyping', 'Responsive Design'],
     features: [
       'Interactive human body interface for intuitive treatment browsing',
@@ -205,6 +208,7 @@ export const projectsData = [
     client: 'Jugo Ltd',
     timeline: '2023 - 2024',
     services: 'UX/UI Design, Native App Design, Prototyping',
+    tools: ['Figma'],
     technologies: ['Figma', 'iOS Development', 'UX/UI Design', 'Prototyping', 'Mobile Design', 'Design Systems'],
     features: [
       'Native iOS app design and development',
