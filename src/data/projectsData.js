@@ -8,14 +8,14 @@ export const projectsData = [
     slug: 'gosure-brand-redesign',
     client: 'Covea Insurance plc',
     timeline: '2020 - 2023',
+    services: 'UX/UI Design, Brand Creation, Design Systems, Prototyping, Responsive Design',
     technologies: ['Figma', 'After Effects', 'UX/UI Design', 'Brand Design', 'Design Systems', 'Prototyping', 'Design Tooling'],
     features: [
-      'Mobile-first brand identity design',
-      'Comprehensive design system development',
-      'Cross-platform digital product unification',
-      'Innovative user experience patterns',
-      'Accessible and scalable design solutions',
-      'Brand guidelines and documentation'
+      'UX/UI Design',
+      'Brand Creation',
+      'Design Systems',
+      'Prototyping',
+      'Responsive Design'
     ],
     gallery: [
       '/images/projects/gosure/gallery-1.jpg',
@@ -194,5 +194,55 @@ export const projectsData = [
     overview: `A comprehensive social media dashboard that provides real-time analytics and insights for multiple social media platforms. The dashboard helps businesses make data-driven decisions about their social media strategy.`,
     challenge: `Processing and visualizing large amounts of social media data in real-time while maintaining a responsive user interface was the main challenge. We also needed to handle multiple API integrations efficiently.`,
     solution: `We implemented a microservices architecture for data processing, used D3.js for efficient data visualization, and created a caching layer for improved performance. The dashboard updates in real-time while maintaining smooth interactions.`
+  },
+  {
+    title: 'Jugo – Companion for Virtual Events',
+    description: 'Designed a native iOS companion app for virtual meetings, combining seamless UX with cross-device functionality for events and presentations.',
+    shortDescription: 'Designed a native iOS companion app for virtual meetings, combining seamless UX with cross-device functionality for events and presentations.',
+    projectType: 'Mobile App, B2B, Events/Meetings',
+    image: '/images/projects/jugo/hero.jpg',
+    slug: 'jugo-virtual-events',
+    client: 'Jugo Ltd',
+    timeline: '2023 - 2024',
+    services: 'UX/UI Design, Native App Design, Prototyping',
+    technologies: ['Figma', 'iOS Development', 'UX/UI Design', 'Prototyping', 'Mobile Design', 'Design Systems'],
+    features: [
+      'Native iOS app design and development',
+      'Seamless cross-device functionality',
+      'Intuitive event navigation and management',
+      'Real-time presentation controls',
+      'Interactive participant engagement features',
+      'Offline mode support'
+    ],
+    gallery: [
+      '/images/projects/jugo/gallery-1.jpg',
+      '/images/projects/jugo/gallery-2.jpg',
+      '/images/projects/jugo/gallery-3.jpg',
+      '/images/projects/jugo/gallery-4.jpg',
+      '/images/projects/jugo/gallery-5.jpg',
+      '/images/projects/jugo/gallery-6.jpg'
+    ],
+    galleryCaptions: [
+      'Main dashboard showcasing event overview and navigation',
+      'Presentation controls and interaction features',
+      'Participant engagement interface',
+      'Cross-device synchronization demonstration',
+      'Offline mode functionality',
+      'Settings and customization options'
+    ],
+    overview: "Jugo is a native iOS companion app designed to enhance virtual meetings and presentations. The app provides seamless cross-device functionality, allowing users to control presentations, engage with participants, and manage events from their iOS devices.",
+    challenge: 'The challenge was to create a companion app that enhances the user experience primarily on iPhones while ensuring a seamless experience on iPads and maintaining consistency with the web version. The solution was a fully native app designed to be smooth and intuitive, making virtual meetings easy and enjoyable.',
+    solution: `The Jugo Spaces native app was crafted for both iPhones and iPads, ensuring smooth integration across platforms. The entire design process was managed from concept to delivery, including user testing, while maintaining consistency with Jugo's design system, brand identity, and web platform.
+
+Serving as a companion to the iPad version, the app enhances the user experience by featuring different modes, such as presenter view and remote control, allowing users to easily manage their presentations during meetings or events. These features can be accessed via the iPad, with the iPhone acting as a simplified remote version of the main screen. The app's scalable design effortlessly switches between landscape and portrait modes, ensuring a smooth experience regardless of device orientation.`,
+    technicalApproach: [
+      "We used Figma and its prototyping tools to clearly demonstrate animations and interactions for iOS developers. While following Apple's Human Interface Guidelines, we crafted a unique and engaging interface.",
+      'Key features included:',
+      '- Native iOS components and animations',
+      '- Comprehensive event management tools',
+      '- Intuitive presentation controls',
+      'The app was designed with scalability in mind, allowing for future feature additions and platform expansion.'
+    ],
+    impact: "I really enjoyed this project because I learned so much from my colleagues and deepened my understanding of iOS app design — even experimenting a little with Swift to better design for the platform. I spent most of last year focused on this product, and the collaboration across the team was incredible. We got the app up and running within four months, which was a huge achievement.\n\nOf course, there were some bumps along the way, but the experience was one of the most rewarding I've had. It was a real team effort, and I'm proud of what we built together.\n\nWhile the company later shifted direction and the app's future became uncertain, we successfully delivered a fully functional, polished product. I'm proud of what we achieved together — and even if the roadmap paused, the experience shaped how I approach mobile design today."
   }
 ]; 

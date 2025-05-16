@@ -189,9 +189,9 @@ export default function ProjectDetail() {
             </div>
             <div className="space-y-6">
               <h2 className="text-2xl font-semibold tracking-tight">The Solution</h2>
-              <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-                {project.solution}
-              </p>
+              {project.solution.split('\n\n').map((para, idx) => (
+                <p key={idx} className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">{para}</p>
+              ))}
             </div>
             {/* Image Grid 1 - Large image above, two below */}
             <div className="space-y-12">
@@ -343,20 +343,12 @@ export default function ProjectDetail() {
           {/* Project Impact & Reflection */}
           <div className="space-y-8 mt-16">
             <h2 className="text-2xl font-semibold tracking-tight">Project Impact & Reflection</h2>
-            <div className="space-y-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-              {project.impact ? (
-                Array.isArray(project.impact) ? (
-                  project.impact.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
-                  ))
-                ) : (
-                  <p>{project.impact}</p>
+            <div className="space-y-6">
+              {project.impact.split(/\n\s*\n/).map((para, idx) => (
+                para.trim() && (
+                  <p key={idx} className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">{para.trim()}</p>
                 )
-              ) : (
-                <p>
-                  This was a genuinely enjoyable project to work on. Collaborating with a former colleague on the development side added a personal layer to the experience. I particularly loved the challenge of turning dense medical content into something practical, clear, and engaging. The interactive features brought real value, making the site feel informative without being overwhelming.
-                </p>
-              )}
+              ))}
             </div>
             {/* Large image below the text */}
             {project.gallery[5] && (
