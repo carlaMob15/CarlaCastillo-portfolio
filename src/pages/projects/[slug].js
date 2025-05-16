@@ -79,19 +79,21 @@ export default function ProjectDetail() {
             <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400">
               {project.overview}
             </p>
-            <div className="mt-6">
-              <a 
-                href="https://onestophospital.co.uk" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-4 py-2 text-base font-medium text-indigo-600 dark:text-indigo-400 border-2 border-indigo-600 dark:border-indigo-400 rounded-full hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors"
-              >
-                Visit the live site
-                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </a>
-            </div>
+            {project.liveUrl && (
+              <div className="mt-6">
+                <a 
+                  href={project.liveUrl}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 text-base font-medium text-indigo-600 dark:text-indigo-400 border-2 border-indigo-600 dark:border-indigo-400 rounded-full hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors"
+                >
+                  Visit the live site
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            )}
           </div>
 
           {/* Project Metadata */}
@@ -278,7 +280,13 @@ export default function ProjectDetail() {
             <div className="space-y-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400">
               {project.technicalApproach ? (
                 project.technicalApproach.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
+                  paragraph.startsWith('-') ? (
+                    <ul key={index} className="list-disc pl-6 space-y-2">
+                      <li>{paragraph.substring(1).trim()}</li>
+                    </ul>
+                  ) : (
+                    <p key={index}>{paragraph}</p>
+                  )
                 ))
               ) : (
                 <>
@@ -337,9 +345,13 @@ export default function ProjectDetail() {
             <h2 className="text-2xl font-semibold tracking-tight">Project Impact & Reflection</h2>
             <div className="space-y-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400">
               {project.impact ? (
-                project.impact.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))
+                Array.isArray(project.impact) ? (
+                  project.impact.map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))
+                ) : (
+                  <p>{project.impact}</p>
+                )
               ) : (
                 <p>
                   This was a genuinely enjoyable project to work on. Collaborating with a former colleague on the development side added a personal layer to the experience. I particularly loved the challenge of turning dense medical content into something practical, clear, and engaging. The interactive features brought real value, making the site feel informative without being overwhelming.

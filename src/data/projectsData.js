@@ -1,5 +1,53 @@
 export const projectsData = [
   {
+    title: 'GoSure Brand & UX Redesign',
+    description: 'A bold new mobile-first brand built from scratch to unify digital products and spark innovation across Covea\'s platforms.',
+    shortDescription: 'A bold new mobile-first brand built from scratch to unify digital products and spark innovation across Covea\'s platforms.',
+    projectType: 'Brand, UX/UI, Mobile-First, Insurance',
+    image: '/images/projects/gosure/hero.jpg',
+    slug: 'gosure-brand-redesign',
+    client: 'Covea Insurance plc',
+    timeline: '2020 - 2023',
+    technologies: ['Figma', 'After Effects', 'UX/UI Design', 'Brand Design', 'Design Systems', 'Prototyping', 'Design Tooling'],
+    features: [
+      'Mobile-first brand identity design',
+      'Comprehensive design system development',
+      'Cross-platform digital product unification',
+      'Innovative user experience patterns',
+      'Accessible and scalable design solutions',
+      'Brand guidelines and documentation'
+    ],
+    gallery: [
+      '/images/projects/gosure/gallery-1.jpg',
+      '/images/projects/gosure/gallery-2.jpg',
+      '/images/projects/gosure/gallery-3.jpg',
+      '/images/projects/gosure/gallery-4.jpg',
+      '/images/projects/gosure/gallery-5.jpg',
+      '/images/projects/gosure/gallery-6.jpg'
+    ],
+    galleryCaptions: [
+      'New brand identity showcasing the modern and innovative approach',
+      'Mobile-first design system components and patterns',
+      'Cross-platform digital product integration',
+      'User experience improvements and innovations',
+      'Brand guidelines and documentation',
+      'Implementation across various touchpoints'
+    ],
+    overview: "Covea needed a forward-thinking approach to unify and modernise its digital insurance experience. We created GoSure, a mobile-first brand designed to challenge outdated UX patterns, establish a new visual and verbal identity, and provide a collaborative foundation for future design system work across teams.",
+    challenge: "Covea's existing product brands were inconsistent, outdated, and not designed with accessibility or mobile-first principles in mind. User journeys were inefficient and led to significant customer drop-off. Internally, design and development teams used different tools and had no single source of truth, leading to fragmented execution. On top of this, introducing future-thinking concepts within existing brand structures was nearly impossible without creating confusion among stakeholders.",
+    solution: "We developed a completely new digital brand from the ground up: GoSure. This included naming, logo design, tone of voice, visual language, and a full set of brand rules. GoSure served not just as a brand, but as a North Star — paving the way for cohesive digital experiences and aligning teams across products. We introduced a component-based toolkit in Figma to improve collaboration and consistency across design and development. The brand also acted as a testbed for new features and innovations, including tech-first insurance ideas like licence scanning to quote.",
+    technicalApproach: [
+      "We benchmarked top industry competitors to inform GoSure's positioning and set a high design standard.",
+      "Key elements included:",
+      "- Logo, typography, colour palette, tone of voice, and iconography",
+      "- A unified toolkit of reusable components",
+      "- New UX patterns designed with mobile-first in mind",
+      "- Redesigns of key journeys from scratch to reflect both business needs and modern user expectations",
+      "Design mockups and interactive prototypes (created in Figma and After Effects) were used to communicate ideas and secure stakeholder buy-in. These concepts not only challenged internal thinking but many were approved and are now in production."
+    ],
+    impact: "GoSure became more than a new brand — it was a strategic shift in how Covea designs and delivers digital experiences. It provided a shared foundation for cross-functional teams, brought visual and UX consistency across journeys, and created space for innovation. It was particularly rewarding to see early concepts gain momentum and move into production, proving the value of investing in thoughtful, user-led design from the start."
+  },
+  {
     title: 'OSD Website Redesign',
     description: 'A complete redesign of OSD\'s healthcare website, improving accessibility, navigation, and user experience across devices.',
     shortDescription: 'A complete redesign of OSD\'s healthcare website, improving accessibility, navigation, and user experience across devices.',
@@ -8,6 +56,7 @@ export const projectsData = [
     slug: 'osd-healthcare-redesign',
     client: 'Tarrantoga',
     timeline: '2024 - 2025',
+    liveUrl: 'https://onestophospital.co.uk',
     technologies: ['Figma', 'UX/UI Design', 'Interactive Design', 'Prototyping', 'Responsive Design'],
     features: [
       'Interactive human body interface for intuitive treatment browsing',
@@ -37,19 +86,10 @@ export const projectsData = [
     challenge: "The main challenge was creating an intuitive interface for browsing medical treatments while maintaining accessibility and ease of use. We needed to balance comprehensive medical information with a user-friendly design that works across all devices.",
     solution: "We implemented an interactive human body interface for intuitive treatment browsing, created a clean bento-style grid layout for digestible content presentation, and ensured responsive design optimization for all devices. The solution focused on accessible typography and clear visual hierarchy while streamlining the information architecture for better navigation.",
     technicalApproach: [
-      "Conducted extensive user research to understand patient needs and pain points",
-      "Created wireframes and prototypes focusing on intuitive navigation",
-      "Implemented responsive design patterns for optimal viewing across devices",
-      "Developed an interactive treatment browsing system with clear visual feedback",
-      "Optimized content structure for better accessibility and SEO"
+      "We retained OSD's existing brand identity while giving it a fresh, contemporary feel. The responsive design performs smoothly across devices—from mobile to desktop—and incorporates accessible typography, clear headings, and responsive video content.",
+      "Working closely with the product owner and development team, we ensured the design met both user needs and technical requirements. The result is a visually appealing, technically sound experience that helps users find what they're looking for more easily."
     ],
-    impact: [
-      "Improved user engagement with the interactive treatment browsing interface",
-      "Enhanced mobile usability with responsive design implementation",
-      "Streamlined appointment booking process leading to increased conversions",
-      "Better content organization resulting in improved user satisfaction",
-      "Accessible design ensuring compliance with WCAG guidelines"
-    ]
+    impact: "This was a genuinely enjoyable project to work on. Collaborating with a former colleague on the development side added a personal layer to the experience. I particularly loved the challenge of turning dense medical content into something practical, clear, and engaging. The interactive features brought real value, making the site feel informative without being overwhelming."
   },
   {
     title: 'E-commerce Platform',

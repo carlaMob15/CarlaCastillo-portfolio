@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import PropTypes from 'prop-types'
+import { useRouter } from 'next/router'
 
 const ArrowIcon = () => (
   <svg
@@ -24,6 +25,13 @@ const ArrowIcon = () => (
 )
 
 export function ProjectCard({ project, className, noBackground }) {
+  const router = useRouter()
+
+  const handleViewProject = (e) => {
+    e.preventDefault()
+    router.push(`/projects/${project.slug}`)
+  }
+
   return (
     <motion.div
       whileHover="hover"
@@ -57,13 +65,13 @@ export function ProjectCard({ project, className, noBackground }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         <div className="absolute bottom-4 right-4">
           <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform translate-y-4 group-hover:translate-y-0">
-            <Link 
-              href={`/projects/${project.slug}`}
+            <button 
+              onClick={handleViewProject}
               className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/60 backdrop-blur-md border border-white/20 hover:bg-white/70 transition-all duration-500 ease-out cursor-pointer focus:outline-none focus:ring-2 focus:ring-[rgb(99,102,241)] focus:ring-offset-2"
               aria-label={`View project details: ${project.title}`}
             >
               <ArrowIcon />
-            </Link>
+            </button>
           </div>
         </div>
       </Link>
