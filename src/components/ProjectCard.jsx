@@ -42,19 +42,20 @@ export function ProjectCard({ project, className, noBackground }) {
           ? "bg-transparent"
           : "bg-white dark:bg-neutral-900",
         "transition-all duration-500",
-        "focus-within:ring-2 focus-within:ring-primary-500 focus-within:ring-offset-2 dark:focus-within:ring-offset-neutral-900",
+        "focus-within:ring-2 focus-within:ring-[rgb(99,102,241)] focus-within:ring-offset-2 dark:focus-within:ring-offset-neutral-900",
         className
       )}
       role="article"
+      tabIndex="0"
     >
       <Link 
         href={`/projects/${project.slug}`}
-        className="block relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300"
+        className="block relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-[rgb(99,102,241)] focus:ring-offset-2 dark:focus:ring-offset-neutral-900"
         aria-label={`View project: ${project.title}`}
       >
         <Image
           src={project.image || "/placeholder.jpg"}
-          alt={project.title}
+          alt={`${project.title} project preview`}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -62,7 +63,10 @@ export function ProjectCard({ project, className, noBackground }) {
           loading="lazy"
           quality={85}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div 
+          className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          aria-hidden="true"
+        />
         <div className="absolute bottom-4 right-4">
           <div className="opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out transform translate-y-4 group-hover:translate-y-0">
             <button 
@@ -101,7 +105,7 @@ export function ProjectCard({ project, className, noBackground }) {
             href={`/projects/${project.slug}`}
             className="cursor-pointer focus:outline-none focus:ring-2 focus:ring-[rgb(99,102,241)] focus:ring-offset-2 rounded-lg"
           >
-            <h3 className="text-2xl font-bold text-neutral-900 dark:text-white group-hover:text-[rgb(99,102,241)] transition-colors duration-300">
+            <h3 className="text-2xl font-bold text-neutral-900 dark:text-white group-hover:text-[rgb(99,102,241)] transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[rgb(99,102,241)] after:transition-all after:duration-300 group-hover:after:w-full">
               {project.title}
             </h3>
           </Link>
