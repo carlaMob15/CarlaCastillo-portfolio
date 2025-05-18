@@ -76,9 +76,12 @@ const Home = () => {
           gap={8}
           className="mt-16"
         >
-          {projectsData.slice(0, 5).map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
+          {projectsData
+            .filter(project => project.title && project.slug && project.description)
+            .slice(0, 5)
+            .map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
         </Container.Grid>
       </Container>
 
