@@ -7,6 +7,16 @@ import { ProjectCard } from '../components/ProjectCard'
 import { projectsData } from '../data/projectsData'
 
 export default function Projects() {
+  // Sort projects by most recent year (descending)
+  const sortedProjects = [...projectsData].sort((a, b) => {
+    // Extract the first year from timeline (handles ranges like '2020 - 2023')
+    const getYear = (timeline) => {
+      if (!timeline) return 0;
+      const match = timeline.match(/\d{4}/g);
+      return match ? parseInt(match[match.length - 1], 10) : 0;
+    };
+    return getYear(b.timeline) - getYear(a.timeline);
+  });
   return (
     <>
       <PageSEO 
@@ -28,7 +38,7 @@ export default function Projects() {
           gap={8}
           className="mx-auto max-w-7xl"
         >
-          {projectsData.map((project) => (
+          {sortedProjects.map((project) => (
             <ProjectCard 
               key={project.slug} 
               project={project} 

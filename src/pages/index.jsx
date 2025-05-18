@@ -9,6 +9,15 @@ import { FadeIn, FadeInStagger } from '../components/Motion'
 import Link from 'next/link'
 
 const Home = () => {
+  // Sort projects by most recent year (descending)
+  const sortedProjects = [...projectsData].sort((a, b) => {
+    const getYear = (timeline) => {
+      if (!timeline) return 0;
+      const match = timeline.match(/\d{4}/g);
+      return match ? parseInt(match[match.length - 1], 10) : 0;
+    };
+    return getYear(b.timeline) - getYear(a.timeline);
+  });
   return (
     <>
       <Head>
@@ -76,7 +85,7 @@ const Home = () => {
           gap={8}
           className="mt-16"
         >
-          {projectsData
+          {sortedProjects
             .filter(project => project.title && project.slug && project.description)
             .slice(0, 5)
             .map((project) => (
