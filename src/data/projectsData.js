@@ -44,7 +44,7 @@ export const projectsData = [
     description: 'Future-facing concepts for a more personal and connected TV companion app—designed in one week as part of an ideation sprint.',
     shortDescription: 'Future-facing concepts for a more personal and connected TV companion app—designed in one week as part of an ideation sprint.',
     projectType: 'Consumer App, TV Companion, Concept Sprint',
-    image: 'https://picsum.photos/1920/1080?random=24',
+    image: 'https://picsum.photos/1920/1080?random=36',
     slug: 'my-sky-app-companion',
     client: 'Sky UK Limited',
     timeline: '2019',
@@ -59,12 +59,12 @@ export const projectsData = [
       'High-fidelity Prototypes'
     ],
     gallery: [
-      'https://picsum.photos/1920/1080?random=25',
-      'https://picsum.photos/1920/1080?random=26',
-      'https://picsum.photos/1920/1080?random=27',
-      'https://picsum.photos/1920/1080?random=28',
-      'https://picsum.photos/1920/1080?random=29',
-      'https://picsum.photos/1920/1080?random=30'
+      'https://picsum.photos/1920/1080?random=37',
+      'https://picsum.photos/1920/1080?random=38',
+      'https://picsum.photos/1920/1080?random=39',
+      'https://picsum.photos/1920/1080?random=40',
+      'https://picsum.photos/1920/1080?random=41',
+      'https://picsum.photos/1920/1080?random=42'
     ],
     galleryCaptions: [
       'Social viewing features and friend recommendations',
@@ -91,7 +91,7 @@ export const projectsData = [
     description: 'Expanded Sky\'s Orion design system for native platforms, bridging design and development with shared standards and tooling.',
     shortDescription: 'Expanded Sky\'s Orion design system for native platforms, bridging design and development with shared standards and tooling.',
     projectType: 'Design System, Native Apps, Cross-Platform',
-    image: 'https://picsum.photos/1920/1080?random=17',
+    image: 'https://picsum.photos/1920/1080?random=29',
     slug: 'sky-orion-design-system',
     client: 'Sky UK Limited',
     timeline: '2018 - 2020',
@@ -106,12 +106,12 @@ export const projectsData = [
       'Team Collaboration Tools'
     ],
     gallery: [
-      'https://picsum.photos/1920/1080?random=18',
-      'https://picsum.photos/1920/1080?random=19',
-      'https://picsum.photos/1920/1080?random=20',
-      'https://picsum.photos/1920/1080?random=21',
-      'https://picsum.photos/1920/1080?random=22',
-      'https://picsum.photos/1920/1080?random=23'
+      'https://picsum.photos/1920/1080?random=30',
+      'https://picsum.photos/1920/1080?random=31',
+      'https://picsum.photos/1920/1080?random=32',
+      'https://picsum.photos/1920/1080?random=33',
+      'https://picsum.photos/1920/1080?random=34',
+      'https://picsum.photos/1920/1080?random=35'
     ],
     galleryCaptions: [
       'Orion design system overview showing component hierarchy',
@@ -139,7 +139,7 @@ export const projectsData = [
     description: 'Designed an intuitive internal dashboard to streamline claims handling, support agent workflows, and boost team efficiency.',
     shortDescription: 'Designed an intuitive internal dashboard to streamline claims handling, support agent workflows, and boost team efficiency.',
     projectType: 'Dashboard, B2B, SaaS Product',
-    image: '/images/projects/gosure-claims/hero.jpg',
+    image: 'https://picsum.photos/1920/1080?random=15',
     slug: 'gosure-claims-management',
     client: 'Covea Insurance plc',
     timeline: '2020 - 2023',
@@ -154,12 +154,12 @@ export const projectsData = [
       'Design System Integration'
     ],
     gallery: [
-      '/images/projects/gosure-claims/gallery-1.jpg',
-      '/images/projects/gosure-claims/gallery-2.jpg',
-      '/images/projects/gosure-claims/gallery-3.jpg',
-      '/images/projects/gosure-claims/gallery-4.jpg',
-      '/images/projects/gosure-claims/gallery-5.jpg',
-      '/images/projects/gosure-claims/gallery-6.jpg'
+      'https://picsum.photos/1920/1080?random=16',
+      'https://picsum.photos/1920/1080?random=17',
+      'https://picsum.photos/1920/1080?random=18',
+      'https://picsum.photos/1920/1080?random=19',
+      'https://picsum.photos/1920/1080?random=20',
+      'https://picsum.photos/1920/1080?random=21'
     ],
     galleryCaptions: [
       'Dashboard overview showing key metrics and task management',
@@ -189,7 +189,7 @@ export const projectsData = [
     description: 'A bold new mobile-first brand built from scratch to unify digital products and spark innovation across Covea\'s platforms.',
     shortDescription: 'A bold new mobile-first brand built from scratch to unify digital products and spark innovation across Covea\'s platforms.',
     projectType: 'Brand, UX/UI, Mobile-First, Insurance',
-    image: '/images/projects/gosure/hero.jpg',
+    image: 'https://picsum.photos/1920/1080?random=22',
     slug: 'gosure-brand-redesign',
     client: 'Covea Insurance plc',
     timeline: '2020 - 2023',
@@ -204,12 +204,12 @@ export const projectsData = [
       'Responsive Design'
     ],
     gallery: [
-      '/images/projects/gosure/gallery-1.jpg',
-      '/images/projects/gosure/gallery-2.jpg',
-      '/images/projects/gosure/gallery-3.jpg',
-      '/images/projects/gosure/gallery-4.jpg',
-      '/images/projects/gosure/gallery-5.jpg',
-      '/images/projects/gosure/gallery-6.jpg'
+      'https://picsum.photos/1920/1080?random=23',
+      'https://picsum.photos/1920/1080?random=24',
+      'https://picsum.photos/1920/1080?random=25',
+      'https://picsum.photos/1920/1080?random=26',
+      'https://picsum.photos/1920/1080?random=27',
+      'https://picsum.photos/1920/1080?random=28'
     ],
     galleryCaptions: [
       'New brand identity showcasing the modern and innovative approach',
@@ -238,7 +238,7 @@ export const projectsData = [
     description: 'A complete redesign of OSD\'s healthcare website, improving accessibility, navigation, and user experience across devices.',
     shortDescription: 'A complete redesign of OSD\'s healthcare website, improving accessibility, navigation, and user experience across devices.',
     projectType: 'Website, B2C, Healthcare',
-    image: '/images/projects/osd-healthcare/hero.jpg',
+    image: 'https://picsum.photos/1920/1080?random=1',
     slug: 'osd-healthcare-redesign',
     client: 'Tarrantoga',
     timeline: '2024 - 2025',
@@ -255,12 +255,12 @@ export const projectsData = [
       'Balanced content distribution with sliders, lists, and images'
     ],
     gallery: [
-      '/images/projects/osd-healthcare/gallery-1.jpg',
-      '/images/projects/osd-healthcare/gallery-2.jpg',
-      '/images/projects/osd-healthcare/gallery-3.jpg',
-      '/images/projects/osd-healthcare/gallery-4.jpg',
-      '/images/projects/osd-healthcare/gallery-5.jpg',
-      '/images/projects/osd-healthcare/gallery-6.jpg'
+      'https://picsum.photos/1920/1080?random=2',
+      'https://picsum.photos/1920/1080?random=3',
+      'https://picsum.photos/1920/1080?random=4',
+      'https://picsum.photos/1920/1080?random=5',
+      'https://picsum.photos/1920/1080?random=6',
+      'https://picsum.photos/1920/1080?random=7'
     ],
     galleryCaptions: [
       'Homepage redesign showcasing the new interactive human body interface',
@@ -284,7 +284,7 @@ export const projectsData = [
     description: 'Designed a native iOS companion app for virtual meetings, combining seamless UX with cross-device functionality for events and presentations.',
     shortDescription: 'Designed a native iOS companion app for virtual meetings, combining seamless UX with cross-device functionality for events and presentations.',
     projectType: 'Mobile App, B2B, Events/Meetings',
-    image: '/images/projects/jugo/hero.jpg',
+    image: 'https://picsum.photos/1920/1080?random=8',
     slug: 'jugo-virtual-events',
     client: 'Jugo Ltd',
     timeline: '2023 - 2024',
@@ -300,12 +300,12 @@ export const projectsData = [
       'Offline mode support'
     ],
     gallery: [
-      '/images/projects/jugo/gallery-1.jpg',
-      '/images/projects/jugo/gallery-2.jpg',
-      '/images/projects/jugo/gallery-3.jpg',
-      '/images/projects/jugo/gallery-4.jpg',
-      '/images/projects/jugo/gallery-5.jpg',
-      '/images/projects/jugo/gallery-6.jpg'
+      'https://picsum.photos/1920/1080?random=9',
+      'https://picsum.photos/1920/1080?random=10',
+      'https://picsum.photos/1920/1080?random=11',
+      'https://picsum.photos/1920/1080?random=12',
+      'https://picsum.photos/1920/1080?random=13',
+      'https://picsum.photos/1920/1080?random=14'
     ],
     galleryCaptions: [
       'Main dashboard showcasing event overview and navigation',
