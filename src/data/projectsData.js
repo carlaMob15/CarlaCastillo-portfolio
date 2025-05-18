@@ -1,5 +1,190 @@
 export const projectsData = [
   {
+    title: 'Personal Trainer – App & Brand UI',
+    description: 'Designed a bold, user-friendly app to help personal trainers manage clients, bookings, and payments — all in one place.',
+    shortDescription: 'Designed a bold, user-friendly app to help personal trainers manage clients, bookings, and payments — all in one place.',
+    projectType: 'Mobile App, B2B, Fitness/Wellness',
+    image: 'https://picsum.photos/1920/1080?random=31',
+    slug: 'personal-trainer-app',
+    client: 'A fitness-focused SaaS startup',
+    timeline: '2024',
+    services: 'UI Design, Brand Identity, Mobile App Design',
+    tools: ['Figma'],
+    technologies: ['Figma', 'UI Design', 'Brand Identity', 'Mobile App Design'],
+    features: [
+      'Client Management',
+      'Session Scheduling',
+      'Payment Tracking',
+      'Dark Theme with Vibrant Highlights',
+      'Modern Fitness UI'
+    ],
+    gallery: [
+      'https://picsum.photos/1920/1080?random=32',
+      'https://picsum.photos/1920/1080?random=33',
+      'https://picsum.photos/1920/1080?random=34',
+      'https://picsum.photos/1920/1080?random=35',
+      'https://picsum.photos/1920/1080?random=36',
+      'https://picsum.photos/1920/1080?random=37'
+    ],
+    galleryCaptions: [
+      'App home screen with upcoming sessions overview',
+      'Client management and progress tracking',
+      'Session scheduling interface',
+      'Payment tracking dashboard',
+      'Brand identity and UI kit',
+      'Mobile app in dark mode with vibrant highlights'
+    ],
+    overview: '',
+    challenge: "The task was to create a fresh brand identity and final UI for a personal trainer app. The goal? To provide an easy and intuitive way for personal trainers to manage their clients, streamline bookings, and keep track of payments effortlessly. It needed to be sleek, modern, and user-friendly.",
+    solution: "The final product is an app that embraces the latest trends in fitness design. We focused on delivering a user experience that's both visually appealing and highly functional.\n\nThe dark theme with vibrant highlights gives the app a bold, modern look that fits well with the fitness space. From the home screen, trainers can quickly view upcoming sessions and stay on top of their schedule. The client management feature tracks how many sessions each client has purchased and used, helping trainers manage time and resources more effectively.\n\nThe payment tracking feature allows for easy monitoring of earnings and outstanding payments — reducing the burden of admin tasks. Whether it's scheduling, client progress, or payments, the app brings everything together in one clean, accessible experience.",
+    impact: "It was a quick project, but I enjoyed the challenge. It was a great opportunity to apply a clean, functional design approach to a focused brief — and see how much clarity you can bring in a short space of time."
+  },
+  {
+    title: 'My Sky App – Companion Redesign Sprint',
+    description: 'Future-facing concepts for a more personal and connected TV companion app—designed in one week as part of an ideation sprint.',
+    shortDescription: 'Future-facing concepts for a more personal and connected TV companion app—designed in one week as part of an ideation sprint.',
+    projectType: 'Consumer App, TV Companion, Concept Sprint',
+    image: 'https://picsum.photos/1920/1080?random=24',
+    slug: 'my-sky-app-companion',
+    client: 'Sky UK Limited',
+    timeline: '2019',
+    services: 'UI Design, Product Design, Concept Ideation, Workshop Synthesis, High-fidelity Prototyping',
+    tools: ['Sketch', 'InVision', 'Miro'],
+    technologies: ['Sketch', 'InVision', 'Miro', 'UI Design', 'Product Design', 'Prototyping'],
+    features: [
+      'Social & Shared Viewing',
+      'Emotion-Based Recommendations',
+      'Smart Home Hub Integration',
+      'Personalized Content Discovery',
+      'High-fidelity Prototypes'
+    ],
+    gallery: [
+      'https://picsum.photos/1920/1080?random=25',
+      'https://picsum.photos/1920/1080?random=26',
+      'https://picsum.photos/1920/1080?random=27',
+      'https://picsum.photos/1920/1080?random=28',
+      'https://picsum.photos/1920/1080?random=29',
+      'https://picsum.photos/1920/1080?random=30'
+    ],
+    galleryCaptions: [
+      'Social viewing features and friend recommendations',
+      'Emotion-based content suggestions interface',
+      'Smart home hub integration and daily utility features',
+      'Personalized content discovery and recommendations',
+      'High-fidelity prototype screens',
+      'Workshop synthesis and concept development'
+    ],
+    overview: "This was part of a fast-paced design sprint exploring how the My Sky app could evolve beyond account management. The aim was to consider what a next-generation TV companion app might offer—thinking more in terms of everyday utility, personalisation, and connection.\n\nThrough a week of workshops and ideation sessions, we shaped a range of concepts which I then translated into over 50 high-fidelity screens. The designs here represent the strongest and most feasible directions that came out of that process.",
+    challenge: "The app had a clear functional role but didn't yet support deeper engagement or a sense of personal connection.\n\nWe set out to explore:\n• How the app could support more personalised, daily-use features\n• What a more social or collaborative viewing experience might look like\n• Where we could introduce experimental ideas without disrupting the core product",
+    solution: "We explored three main directions that balanced ambition with usability:\n\nSocial & Shared Viewing\nNew features like \"Friends Recommend\" allowed users to see what others were watching and share playlists—bringing a more human layer to the platform.\n\nEmotion-Based Recommendations\nA face scan tool was prototyped to detect mood and suggest content accordingly. While playful, it opened up space for conversations around adaptive UX.\n\nSmart Home Hub\nWe restructured the homepage to feel more useful day-to-day, integrating things like weather, news, and richer content previews to build habit and context.",
+    technicalApproach: [
+      "• Designed with modularity in mind, using familiar Sky UI patterns to help new features slot into the existing structure",
+      "• Each concept was considered with technical feasibility and rollout in mind",
+      "• Experimental features like face scan were framed as future-facing options rather than immediate releases",
+      "• Created over 50 high-fidelity screens to demonstrate the concepts",
+      "• Conducted workshops and ideation sessions to shape the direction"
+    ],
+    impact: "This was a fast-paced project that involved producing high-fidelity screens on a tight turnaround. It was intense but rewarding—especially seeing how some of the ideas generated in this early-stage sprint began shaping conversations across the wider product team.\n\nIt was also a great reminder of how helpful a rough but focused sprint can be for surfacing ideas, aligning teams, and setting design direction—even when not everything is destined for release."
+  },
+  {
+    title: 'Sky – Orion Design System',
+    description: 'Expanded Sky\'s Orion design system for native platforms, bridging design and development with shared standards and tooling.',
+    shortDescription: 'Expanded Sky\'s Orion design system for native platforms, bridging design and development with shared standards and tooling.',
+    projectType: 'Design System, Native Apps, Cross-Platform',
+    image: 'https://picsum.photos/1920/1080?random=17',
+    slug: 'sky-orion-design-system',
+    client: 'Sky UK Limited',
+    timeline: '2018 - 2020',
+    services: 'Design Systems, Mobile App Design (iOS & Android), Accessibility, Cross-Platform UX, Design Documentation & Collaboration',
+    tools: ['Sketch', 'InVision', 'Confluence'],
+    technologies: ['Sketch', 'InVision', 'Design Systems', 'iOS Design', 'Android Design', 'Accessibility', 'Documentation'],
+    features: [
+      'Native Platform Components',
+      'Accessibility Standards',
+      'Cross-Platform Consistency',
+      'Design Documentation',
+      'Team Collaboration Tools'
+    ],
+    gallery: [
+      'https://picsum.photos/1920/1080?random=18',
+      'https://picsum.photos/1920/1080?random=19',
+      'https://picsum.photos/1920/1080?random=20',
+      'https://picsum.photos/1920/1080?random=21',
+      'https://picsum.photos/1920/1080?random=22',
+      'https://picsum.photos/1920/1080?random=23'
+    ],
+    galleryCaptions: [
+      'Orion design system overview showing component hierarchy',
+      'Native iOS components and patterns',
+      'Android-specific design elements',
+      'Accessibility guidelines and documentation',
+      'Cross-platform component mapping',
+      'Design system governance framework'
+    ],
+    overview: "Sky set out to expand its Orion design system beyond web to support native mobile platforms, with the long-term goal of creating a unified, scalable system across apps, websites, and even TV interfaces. This project focused on defining mobile-specific components, improving accessibility, and aligning design with development through consistent naming and documentation practices.",
+    challenge: "Existing web-based components didn't translate well to mobile, and there was no shared mobile toolkit that followed native platform guidelines. Accessibility considerations were inconsistent, and handoff between design and development lacked a common structure. A key technical objective was to define a component naming convention that could feed into Sky's internal AI algorithm — the 'Sky namespace' — which would eventually allow the system to recognise and manage components automatically. The bigger ambition was to establish a single source of truth that could scale across teams, products, and platforms.",
+    solution: "We proposed a new set of components specifically for iOS and Android, based on native platform guidelines and accessibility standards. Alongside this, we established a shared naming system to ensure consistency between design and development. These components were documented clearly, with properties linked to specific product requirements, allowing for more reliable implementation and future reuse. To support adoption and collaboration, we created an internal toolkit for designers using Sketch and ran regular workshops to align stakeholders around ways of working, design principles, and system structure.",
+    technicalApproach: [
+      "• Partnered with UX, research, and development teams to define and design core components",
+      "• Built a shared design toolkit in Sketch tailored to mobile apps",
+      "• Documented component specs and behaviour for developers and business analysts",
+      "• Led fortnightly workshops to align teams around naming, scalability, and cross-platform thinking",
+      "• Delivered training across departments to educate teams on design system best practices",
+      "• Created an interactive prototype in InVision to demonstrate how Orion could evolve into a centralised internal design hub"
+    ],
+    impact: "I took the lead in documenting and visualising how the Orion design system could function as a true internal resource. This included building a detailed InVision prototype that was shared across the organisation. It helped communicate the vision of Orion as a scalable system and encouraged wider team involvement.\n\nEventually, both the web and TV teams joined the initiative and began contributing their own components into the shared InVision workspace — a sign that Orion had become a collaborative, cross-team system with real momentum. It was exciting to see a design system move beyond a toolkit and start becoming a strategic asset for the business."
+  },
+  {
+    title: 'GoSure – Claims Management System',
+    description: 'Designed an intuitive internal dashboard to streamline claims handling, support agent workflows, and boost team efficiency.',
+    shortDescription: 'Designed an intuitive internal dashboard to streamline claims handling, support agent workflows, and boost team efficiency.',
+    projectType: 'Dashboard, B2B, SaaS Product',
+    image: '/images/projects/gosure-claims/hero.jpg',
+    slug: 'gosure-claims-management',
+    client: 'Covea Insurance plc',
+    timeline: '2020 - 2023',
+    services: 'UX/UI Design, Dashboard & Internal Tools, Mobile Design, Design Systems, Collaborative Workshops',
+    tools: ['Figma'],
+    technologies: ['Figma', 'UX/UI Design', 'Dashboard Design', 'Design Systems', 'Mobile Design'],
+    features: [
+      'Task Management',
+      'Clear Process Overview',
+      'Mobile Accessibility',
+      'Training-Friendly UX',
+      'Design System Integration'
+    ],
+    gallery: [
+      '/images/projects/gosure-claims/gallery-1.jpg',
+      '/images/projects/gosure-claims/gallery-2.jpg',
+      '/images/projects/gosure-claims/gallery-3.jpg',
+      '/images/projects/gosure-claims/gallery-4.jpg',
+      '/images/projects/gosure-claims/gallery-5.jpg',
+      '/images/projects/gosure-claims/gallery-6.jpg'
+    ],
+    galleryCaptions: [
+      'Dashboard overview showing key metrics and task management',
+      'Claims process workflow visualization',
+      'Mobile-responsive interface for on-the-go access',
+      'Agent training and onboarding features',
+      'Design system components and patterns',
+      'Integration with existing GoSure brand guidelines'
+    ],
+    overview: "As part of the broader GoSure brand initiative, we developed a new claims management system to support call centre agents handling customer insurance claims. The goal was to streamline complex processes, identify areas for automation, and create a tool that would not only improve efficiency but also support new agent onboarding.",
+    challenge: "The existing claims process was manual, inconsistent, and difficult to manage—particularly when multiple agents were involved in a single claim. Information was scattered, making it time-consuming to follow up or provide updates. The business needed a centralised, intuitive solution that would save time, reduce errors, and support agents in providing a better experience to customers.",
+    solution: "We designed a comprehensive, agent-focused dashboard that consolidates all essential claim data in one place. Key features include task management for tracking responsibilities across multiple agents, a clear process overview for improved visibility, mobile accessibility for on-the-go management, a training-friendly UX for new agent onboarding, and full integration with the established GoSure design system for consistency and scalability.",
+    technicalApproach: [
+      "We conducted extensive user research with agents to understand their daily workflows and pain points.",
+      "Key elements included:",
+      "- Intuitive task management system",
+      "- Clear process visualization",
+      "- Mobile-responsive design",
+      "- Training and onboarding features",
+      "- Design system integration",
+      "The solution was built using Figma and followed the established GoSure design system to ensure consistency across platforms."
+    ],
+    impact: "I was instrumental in designing the wireframes and creating the final high-fidelity designs, ensuring everything aligned with our design system. I also collaborated closely with other designers through workshops and ideation sessions, where we explored different approaches to make the system truly agent-friendly. It was especially rewarding to design something that balanced operational efficiency with human-centred design. Knowing the dashboard would help ease the workload for agents—and support those just learning the ropes—made this project particularly meaningful."
+  },
+  {
     title: 'GoSure Brand & UX Redesign',
     description: 'A bold new mobile-first brand built from scratch to unify digital products and spark innovation across Covea\'s platforms.',
     shortDescription: 'A bold new mobile-first brand built from scratch to unify digital products and spark innovation across Covea\'s platforms.',

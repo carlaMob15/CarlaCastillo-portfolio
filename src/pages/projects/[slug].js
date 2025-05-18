@@ -10,7 +10,7 @@ import { ProjectCard } from '../../components/ProjectCard';
 import ContactPurpleBlock from '../../components/ContactPurpleBlock';
 import BackToTop from '../../components/BackToTop';
 import { projectsData } from '../../data/projectsData';
-import { SiFigma, SiReact, SiTailwindcss, SiNextdotjs, SiMongodb, SiStripe, SiStorybook, SiConfluence, SiJira } from 'react-icons/si';
+import { SiFigma, SiReact, SiTailwindcss, SiNextdotjs, SiMongodb, SiStripe, SiStorybook, SiConfluence, SiJira, SiSketch, SiInvision, SiMiro } from 'react-icons/si';
 import { HiMagnifyingGlass } from 'react-icons/hi2';
 
 const fadeIn = {
@@ -30,6 +30,9 @@ const techIcons = {
   'Storybook': SiStorybook,
   'Confluence': SiConfluence,
   'Jira': SiJira,
+  'Sketch': SiSketch,
+  'InVision': SiInvision,
+  'Miro': SiMiro
 };
 
 // Expanded color palette for tags
@@ -95,9 +98,11 @@ export default function ProjectDetail() {
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight md:leading-tight">
               {project.title}
             </h1>
-            <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-              {project.overview}
-            </p>
+            {project.slug === 'personal-trainer-app' && (
+              <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mt-4">
+                The task was to create a fresh brand identity and final UI for a personal trainer app. The goal? To provide an easy and intuitive way for personal trainers to manage their clients, streamline bookings, and keep track of payments effortlessly. It needed to be sleek, modern, and user-friendly.
+              </p>
+            )}
             {project.liveUrl && (
               <div className="mt-6">
                 <a 
@@ -199,69 +204,130 @@ export default function ProjectDetail() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {/* Challenge & Solution */}
-          <div className="space-y-24">
-            <div className="space-y-6">
-              <h2 className="text-2xl font-semibold tracking-tight">The Challenge</h2>
-              <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-                {project.challenge}
-              </p>
-            </div>
-            <div className="space-y-6">
-              <h2 className="text-2xl font-semibold tracking-tight">The Solution</h2>
-              {project.solution.split('\n\n').map((para, idx) => (
-                <p key={idx} className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">{para}</p>
-              ))}
-            </div>
-            {/* Image Grid 1 - Large image above, two below */}
-            <div className="space-y-12">
-              <div className="space-y-12">
-                {/* Large image */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
-                  onClick={() => handleImageClick(0)}
-                >
-                  <Image
-                    src={project.gallery[0]}
-                    alt="Solution overview"
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(min-width: 1280px) 1200px, 100vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <HiMagnifyingGlass className="w-6 h-6 text-white" />
+          {project.slug === 'personal-trainer-app' ? (
+            <>
+              {/* Our Solution */}
+              <div className="space-y-6">
+                <h2 className="text-2xl font-semibold tracking-tight">Our Solution</h2>
+                <div className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 space-y-4">
+                  {project.solution.split('\n\n').map((para, idx) => (
+                    <p key={idx}>{para}</p>
+                  ))}
+                </div>
+              </div>
+              {/* Project Impact & Reflection */}
+              <div className="space-y-6 mt-16">
+                <h2 className="text-2xl font-semibold tracking-tight">Project Impact & Reflection</h2>
+                <div className="space-y-4">
+                  {project.impact.split(/\n\s*\n/).map((para, idx) => (
+                    para.trim() && (
+                      <p key={idx} className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">{para.trim()}</p>
+                    )
+                  ))}
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              {/* Project Overview */}
+              <div className="space-y-6">
+                <h2 className="text-2xl font-semibold tracking-tight">Project overview</h2>
+                <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400">{project.overview}</p>
+              </div>
+              {/* Project Content */}
+              <div className="space-y-24">
+                {/* Challenge & Solution */}
+                <div className="space-y-24">
+                  <div className="space-y-6">
+                    <h2 className="text-2xl font-semibold tracking-tight">The Challenge</h2>
+                    <div className="text-base md:text-lg text-zinc-600 dark:text-zinc-400">
+                      {project.challenge.split('\n\n').map((section, idx) => {
+                        // Special handling for 'We set out to explore:'
+                        if (section.includes('We set out to explore:')) {
+                          const [title, rest] = section.split('We set out to explore:');
+                          const items = rest.split('•').map(item => item.trim()).filter(Boolean);
+                          return (
+                            <div key={idx}>
+                              <p className="mb-2 font-medium">We set out to explore:</p>
+                              <ul className="list-disc pl-6 space-y-2 mt-1">
+                                {items.map((item, itemIdx) => (
+                                  <li key={itemIdx}>{item}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          );
+                        }
+                        if (section.includes('•')) {
+                          const items = section.split('•').map(item => item.trim()).filter(Boolean);
+                          if (items.length === 1) {
+                            return <p key={idx} className="mb-4">{items[0]}</p>;
+                          }
+                          return (
+                            <ul key={idx} className="list-disc pl-6 space-y-2 mt-4">
+                              {items.map((item, itemIdx) => (
+                                <li key={itemIdx}>{item}</li>
+                              ))}
+                            </ul>
+                          );
+                        }
+                        return <p key={idx} className="mb-4">{section}</p>;
+                      })}
                     </div>
                   </div>
-                </motion.div>
-                {project.galleryCaptions?.[0] && (
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
-                    {project.galleryCaptions[0]}
-                  </p>
-                )}
-                {/* Two smaller images */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                  {project.gallery.slice(1, 3).map((image, index) => (
-                    <div key={index}>
+                  <div className="space-y-6">
+                    <h2 className="text-2xl font-semibold tracking-tight">The Solution</h2>
+                    <div className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 space-y-4">
+                      {(() => {
+                        // Split by double line breaks, then process for subheaders
+                        const subheaderTitles = [
+                          'Social & Shared Viewing',
+                          'Emotion-Based Recommendations',
+                          'Smart Home Hub'
+                        ];
+                        const lines = project.solution.split('\n\n');
+                        let elements = [];
+                        lines.forEach((line, idx) => {
+                          const trimmed = line.trim();
+                          const matchedHeader = subheaderTitles.find(title => trimmed.startsWith(title));
+                          if (matchedHeader) {
+                            // Split header and the rest
+                            const [header, ...rest] = trimmed.split(/(?<=^[^:]+):?/);
+                            elements.push(
+                              <h3 key={`header-${idx}`} className="text-lg font-semibold mt-6 mb-2">{matchedHeader}</h3>
+                            );
+                            if (rest.join('').trim()) {
+                              elements.push(
+                                <p key={`para-${idx}`}>{rest.join('').replace(matchedHeader, '').replace(/^:/, '').trim()}</p>
+                              );
+                            }
+                          } else {
+                            elements.push(
+                              <p key={`para-${idx}`}>{trimmed}</p>
+                            );
+                          }
+                        });
+                        return elements;
+                      })()}
+                    </div>
+                  </div>
+                  {/* Image Grid 1 - Large image above, two below */}
+                  <div className="space-y-12">
+                    <div className="space-y-12">
+                      {/* Large image */}
                       <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
-                        className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden cursor-pointer group"
-                        onClick={() => handleImageClick(index + 1)}
+                        transition={{ duration: 0.5 }}
+                        className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                        onClick={() => handleImageClick(0)}
                       >
                         <Image
-                          src={image}
-                          alt={`Solution detail ${index + 1}`}
+                          src={project.gallery[0]}
+                          alt="Solution overview"
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          sizes="(min-width: 1280px) 600px, 100vw"
+                          sizes="(min-width: 1280px) 1200px, 100vw"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -270,139 +336,180 @@ export default function ProjectDetail() {
                           </div>
                         </div>
                       </motion.div>
-                      {project.galleryCaptions?.[index + 1] && (
+                      {project.galleryCaptions?.[0] && (
                         <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
-                          {project.galleryCaptions[index + 1]}
+                          {project.galleryCaptions[0]}
+                        </p>
+                      )}
+                      {/* Two smaller images */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        {project.gallery.slice(1, 3).map((image, index) => (
+                          <div key={index}>
+                            <motion.div 
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
+                              className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                              onClick={() => handleImageClick(index + 1)}
+                            >
+                              <Image
+                                src={image}
+                                alt={`Solution detail ${index + 1}`}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(min-width: 1280px) 600px, 100vw"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                  <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                                </div>
+                              </div>
+                            </motion.div>
+                            {project.galleryCaptions?.[index + 1] && (
+                              <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                                {project.galleryCaptions[index + 1]}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                    {project.solutionDetails && (
+                      <div className="max-w-2xl mx-auto text-center mt-8">
+                        <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">
+                          {project.solutionDetails}
+                        </p>
+                        {project.solutionCaption && (
+                          <p className="text-sm text-zinc-500 dark:text-zinc-500 italic">
+                            {project.solutionCaption}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Technical Approach */}
+                <div className="space-y-8">
+                  <h2 className="text-2xl font-semibold tracking-tight">Technical Approach</h2>
+                  <div className="space-y-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400">
+                    {project.slug === 'my-sky-app-companion' ? (
+                      <>
+                        <p>We designed with modularity in mind, using familiar Sky UI patterns to help new features slot into the existing structure.</p>
+                        <p>Each concept was considered with technical feasibility and rollout in mind—especially for more experimental features like face scan, which were framed as future-facing options rather than immediate releases.</p>
+                      </>
+                    ) : (
+                      project.technicalApproach ? (
+                        project.technicalApproach.map((paragraph, index) => (
+                          paragraph.startsWith('-') ? (
+                            <ul key={index} className="list-disc pl-6 space-y-2">
+                              <li>{paragraph.substring(1).trim()}</li>
+                            </ul>
+                          ) : (
+                            <p key={index}>{paragraph}</p>
+                          )
+                        ))
+                      ) : (
+                        <>
+                          <p>
+                            We retained the existing brand identity while giving it a fresh, contemporary feel. The responsive design performs smoothly across devices—from mobile to desktop—and incorporates accessible typography, clear headings, and responsive video content.
+                          </p>
+                          <p>
+                            Working closely with the product owner and development team, we ensured the design met both user needs and technical requirements. The result is a visually appealing, technically sound experience that helps users find what they're looking for more easily.
+                          </p>
+                        </>
+                      )
+                    )}
+                  </div>
+                  {/* Two large images stacked */}
+                  <div className="space-y-12 mt-8">
+                    {project.gallery.slice(3, 5).map((image, index) => (
+                      <div key={index}>
+                        <motion.div 
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: index * 0.1 }}
+                          className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                          onClick={() => handleImageClick(index + 3)}
+                        >
+                          <Image
+                            src={image}
+                            alt={`Technical detail ${index + 1}`}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            sizes="(min-width: 1280px) 1200px, 100vw"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                              <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                            </div>
+                          </div>
+                        </motion.div>
+                        {project.galleryCaptions?.[index + 3] && (
+                          <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                            {project.galleryCaptions[index + 3]}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  {project.technicalDetails && (
+                    <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mt-8">
+                      {project.technicalDetails}
+                    </p>
+                  )}
+                </div>
+
+                {/* Project Impact & Reflection */}
+                <div className="space-y-8 mt-16">
+                  <h2 className="text-2xl font-semibold tracking-tight">Project Impact & Reflection</h2>
+                  <div className="space-y-6">
+                    {project.impact.split(/\n\s*\n/).map((para, idx) => (
+                      para.trim() && (
+                        <p key={idx} className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">{para.trim()}</p>
+                      )
+                    ))}
+                  </div>
+                  {/* Large image below the text */}
+                  {project.gallery[5] && (
+                    <div className="mt-10">
+                      <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5 }}
+                        className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden cursor-pointer group"
+                        onClick={() => handleImageClick(5)}
+                      >
+                        <Image
+                          src={project.gallery[5]}
+                          alt="Project highlight"
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          sizes="(min-width: 1280px) 1200px, 100vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                          </div>
+                        </div>
+                      </motion.div>
+                      {project.galleryCaptions?.[5] && (
+                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                          {project.galleryCaptions[5]}
                         </p>
                       )}
                     </div>
-                  ))}
-                </div>
-              </div>
-              {project.solutionDetails && (
-                <div className="max-w-2xl mx-auto text-center mt-8">
-                  <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">
-                    {project.solutionDetails}
-                  </p>
-                  {project.solutionCaption && (
-                    <p className="text-sm text-zinc-500 dark:text-zinc-500 italic">
-                      {project.solutionCaption}
-                    </p>
                   )}
                 </div>
-              )}
-            </div>
-          </div>
-
-          {/* Technical Approach */}
-          <div className="space-y-8">
-            <h2 className="text-2xl font-semibold tracking-tight">Technical Approach</h2>
-            <div className="space-y-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-              {project.technicalApproach ? (
-                project.technicalApproach.map((paragraph, index) => (
-                  paragraph.startsWith('-') ? (
-                    <ul key={index} className="list-disc pl-6 space-y-2">
-                      <li>{paragraph.substring(1).trim()}</li>
-                    </ul>
-                  ) : (
-                    <p key={index}>{paragraph}</p>
-                  )
-                ))
-              ) : (
-                <>
-                  <p>
-                    We retained the existing brand identity while giving it a fresh, contemporary feel. The responsive design performs smoothly across devices—from mobile to desktop—and incorporates accessible typography, clear headings, and responsive video content.
-                  </p>
-                  <p>
-                    Working closely with the product owner and development team, we ensured the design met both user needs and technical requirements. The result is a visually appealing, technically sound experience that helps users find what they're looking for more easily.
-                  </p>
-                </>
-              )}
-            </div>
-            {/* Two large images stacked */}
-            <div className="space-y-12 mt-8">
-              {project.gallery.slice(3, 5).map((image, index) => (
-                <div key={index}>
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
-                    onClick={() => handleImageClick(index + 3)}
-                  >
-                    <Image
-                      src={image}
-                      alt={`Technical detail ${index + 1}`}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(min-width: 1280px) 1200px, 100vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                        <HiMagnifyingGlass className="w-6 h-6 text-white" />
-                      </div>
-                    </div>
-                  </motion.div>
-                  {project.galleryCaptions?.[index + 3] && (
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
-                      {project.galleryCaptions[index + 3]}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
-            {project.technicalDetails && (
-              <p className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mt-8">
-                {project.technicalDetails}
-              </p>
-            )}
-          </div>
-
-          {/* Project Impact & Reflection */}
-          <div className="space-y-8 mt-16">
-            <h2 className="text-2xl font-semibold tracking-tight">Project Impact & Reflection</h2>
-            <div className="space-y-6">
-              {project.impact.split(/\n\s*\n/).map((para, idx) => (
-                para.trim() && (
-                  <p key={idx} className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">{para.trim()}</p>
-                )
-              ))}
-            </div>
-            {/* Large image below the text */}
-            {project.gallery[5] && (
-              <div className="mt-10">
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden cursor-pointer group"
-                  onClick={() => handleImageClick(5)}
-                >
-                  <Image
-                    src={project.gallery[5]}
-                    alt="Project highlight"
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(min-width: 1280px) 1200px, 100vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <HiMagnifyingGlass className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                </motion.div>
-                {project.galleryCaptions?.[5] && (
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
-                    {project.galleryCaptions[5]}
-                  </p>
-                )}
               </div>
-            )}
-          </div>
+            </>
+          )}
         </motion.div>
       </Container>
 
