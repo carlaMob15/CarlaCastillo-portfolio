@@ -1,17 +1,17 @@
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Head from 'next/head';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Container } from '../../components/Container';
 import { ProjectCard } from '../../components/ProjectCard';
 import ContactPurpleBlock from '../../components/ContactPurpleBlock';
 import BackToTop from '../../components/BackToTop';
 import { projectsData } from '../../data/projectsData';
 import { SiFigma, SiReact, SiTailwindcss, SiNextdotjs, SiMongodb, SiStripe, SiStorybook, SiConfluence, SiJira, SiSketch, SiInvision, SiMiro } from 'react-icons/si';
-import { HiMagnifyingGlass } from 'react-icons/hi2';
+import { HiMagnifyingGlass, HiChevronLeft, HiChevronRight } from 'react-icons/hi2';
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -56,12 +56,81 @@ export default function ProjectDetail() {
   const { slug } = router.query;
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Add useEffect to handle responsive behavior
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const project = projectsData.find((p) => p.slug === slug);
 
   if (!project) {
     return <div>Project not found</div>;
   }
+
+  // Sort other projects by most recent year (descending)
+  const otherProjects = projectsData
+    .filter(p => p.slug !== slug)
+    .sort((a, b) => {
+      const getYear = (timeline) => {
+        if (!timeline) return 0;
+        const match = timeline.match(/\d{4}/g);
+        return match ? parseInt(match[match.length - 1], 10) : 0;
+      };
+      return getYear(b.timeline) - getYear(a.timeline);
+    });
+
+  const projectsPerPage = isMobile ? 1 : 3;
+  const totalPages = Math.ceil(otherProjects.length / projectsPerPage);
+
+  const slideVariants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+      position: 'absolute',
+      width: '100%',
+      scale: 0.95,
+      zIndex: 0
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+      position: 'relative',
+      width: '100%',
+      scale: 1,
+      zIndex: 1
+    },
+    exit: (direction) => ({
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+      position: 'absolute',
+      width: '100%',
+      scale: 0.95,
+      zIndex: 0
+    })
+  };
+
+  const handlePrevPage = () => {
+    setCurrentPage((prev) => (prev > 0 ? prev - 1 : prev));
+  };
+
+  const handleNextPage = () => {
+    setCurrentPage((prev) => (prev < totalPages - 1 ? prev + 1 : prev));
+  };
+
+  const currentProjects = otherProjects.slice(
+    currentPage * projectsPerPage,
+    (currentPage + 1) * projectsPerPage
+  );
 
   const handleImageClick = (index) => {
     setCurrentImageIndex(index);
@@ -528,17 +597,93 @@ export default function ProjectDetail() {
             <div className="mb-16 md:mb-20">
               <h2 className="text-2xl font-semibold tracking-tight">More projects</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {projectsData
-                .filter(p => p.slug !== slug)
-                .slice(0, 3)
-                .map((project) => (
-                  <ProjectCard 
-                    key={project.slug} 
-                    project={project}
-                    noBackground
-                  />
-                ))}
+            <div className="relative">
+              <div className="min-h-[400px] md:min-h-[600px] relative overflow-hidden">
+                <AnimatePresence initial={false} custom={currentPage} mode="sync">
+                  <motion.div
+                    key={currentPage}
+                    custom={currentPage}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{
+                      x: { 
+                        type: "spring", 
+                        stiffness: 150, 
+                        damping: 20,
+                        mass: 1
+                      },
+                      opacity: { duration: 0.4 },
+                      scale: { duration: 0.4 }
+                    }}
+                    className="grid grid-cols-1 lg:grid-cols-3 gap-12"
+                  >
+                    {currentProjects.map((project, index) => (
+                      <motion.div
+                        key={project.slug}
+                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ 
+                          duration: 0.5,
+                          delay: isMobile ? 0 : index * 0.1,
+                          ease: [0.4, 0, 0.2, 1]
+                        }}
+                        className="h-full"
+                      >
+                        <ProjectCard 
+                          project={project}
+                          noBackground
+                        />
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+              
+              {/* Navigation Arrows */}
+              {totalPages > 1 && (
+                <div className="flex justify-center items-center mt-12 space-x-4">
+                  <motion.button
+                    onClick={handlePrevPage}
+                    disabled={currentPage === 0}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    className={`p-2 rounded-full transition-colors duration-200 ${
+                      currentPage === 0
+                        ? 'text-zinc-400 cursor-not-allowed'
+                        : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100'
+                    }`}
+                    aria-label="Previous projects"
+                  >
+                    <HiChevronLeft className="w-6 h-6" />
+                  </motion.button>
+                  <motion.span 
+                    className="text-sm text-zinc-600 dark:text-zinc-400"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    {currentPage + 1} of {totalPages}
+                  </motion.span>
+                  <motion.button
+                    onClick={handleNextPage}
+                    disabled={currentPage === totalPages - 1}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                    className={`p-2 rounded-full transition-colors duration-200 ${
+                      currentPage === totalPages - 1
+                        ? 'text-zinc-400 cursor-not-allowed'
+                        : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100'
+                    }`}
+                    aria-label="Next projects"
+                  >
+                    <HiChevronRight className="w-6 h-6" />
+                  </motion.button>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
