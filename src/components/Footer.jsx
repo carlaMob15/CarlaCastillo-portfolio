@@ -9,7 +9,7 @@ export function Footer() {
         <div className="max-w-[2000px] mx-auto px-8">
           <div className="flex h-16 items-center justify-center">
             <p className="text-sm text-neutral-400 transition-colors duration-300 dark:text-neutral-500">
-              &copy; {new Date().getFullYear()} Carla Castillo Digital Ltd t/a WC Web Creativity. Company number: 16000458. Registered in England and Wales.
+              &copy; {new Date().getFullYear()} Carla Castillo Digital Ltd t/a Web Creativity Studio. Company number: 16000458. Registered in England and Wales.
             </p>
           </div>
         </div>

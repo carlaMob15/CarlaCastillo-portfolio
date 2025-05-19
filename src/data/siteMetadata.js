@@ -1,9 +1,9 @@
 const siteMetadata = {
-  title: 'WC Web Creativity',
+  title: 'Web Creativity Studio',
   author: 'Carla Castillo',
-  headerTitle: 'WC Web Creativity',
+  headerTitle: 'Web Creativity Studio',
   headerSubtitle: 'Senior UX/UI Designer',
-  description: 'WC Web Creativity is a digital design studio crafting intuitive, user-first websites and digital products for brands, artists, and founders. Experienced in web design, SaaS platforms, and mobile app design.',
+  description: 'Web Creativity Studio is a digital design studio crafting intuitive, user-first websites and digital products for brands, artists, and founders. Experienced in web design, SaaS platforms, and mobile app design.',
   authorHeadline: 'Senior UX/UI Designer, passionate about creating beautiful digital experiences',
   authorAbout: "Hi, I'm Carla Castillo, a Senior UX/UI Designer with over 10 years of experience in creating beautiful and functional digital products. I specialize in user-centered design, creating intuitive interfaces that solve real user problems.",
   authorAboutExtended: "With a strong background in both design and development, I bring a unique perspective to every project. I believe in creating designs that are not only visually appealing but also highly functional and accessible. My approach combines creative thinking with technical expertise to deliver exceptional user experiences.",

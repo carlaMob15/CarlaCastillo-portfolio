@@ -63,7 +63,7 @@ const Home = () => {
               {/* Body Copy and Link */}
               <div className="text-lg text-neutral-800 dark:text-neutral-100 max-w-2xl text-left flex flex-col items-start gap-8">
                 <div className="leading-relaxed">
-                  WC Web Creativity is a digital design studio helping brands, artists, and founders build meaningful websites and digital products through smart UX and beautiful UI design. With over a decade of experience in web design, SaaS platforms, and mobile app design, we create intuitive, scalable solutions—turning complex challenges into clean, user-first digital experiences.
+                  Web Creativity Studio is a digital design studio helping brands, artists, and founders build meaningful websites and digital products through smart UX and beautiful UI design. With over a decade of experience in web design, SaaS platforms, and mobile app design, we create intuitive, scalable solutions—turning complex challenges into clean, user-first digital experiences.
                 </div>
               </div>
             </div>
