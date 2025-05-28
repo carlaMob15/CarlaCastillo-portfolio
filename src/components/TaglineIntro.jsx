@@ -31,12 +31,13 @@ export default function TaglineIntro() {
   }, []);
 
   const opacity = Math.max(1 - scrollY / 300, 0);
+  const pointerEvents = opacity < 0.1 ? 'none' : 'auto';
 
   return (
     <section
       id="hero-animation"
       className="h-screen sticky top-0 flex items-center justify-center text-center px-4 z-10"
-      style={{ opacity }}
+      style={{ opacity, pointerEvents }}
     >
       <div className="text-3xl md:text-5xl font-bold leading-snug text-neutral-800 dark:text-white relative">
         <AnimatePresence mode="wait">
