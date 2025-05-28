@@ -25,8 +25,7 @@ async function generateFavicons() {
     try {
       await sharp(sourceFile)
         .resize(size, size)
-        .removeAlpha() // Remove alpha channel
-        .flatten({ background: { r: 0, g: 0, b: 0, alpha: 0 } }) // Make background transparent
+        .ensureAlpha() // Ensure alpha channel exists
         .toFile(path.join(outputDir, filename));
       console.log(`Generated ${filename}`);
     } catch (error) {
