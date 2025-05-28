@@ -255,8 +255,9 @@ export default function ProjectDetail() {
             alt={project.title}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
-            sizes="(min-width: 1280px) 1200px, 100vw"
+            sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
             priority
+            quality={90}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="absolute inset-0 flex items-center justify-center">
@@ -396,7 +397,9 @@ export default function ProjectDetail() {
                           alt="Solution overview"
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          sizes="(min-width: 1280px) 1200px, 100vw"
+                          sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
+                          quality={90}
+                          loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -427,7 +430,9 @@ export default function ProjectDetail() {
                                 alt={`Solution detail ${index + 1}`}
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                sizes="(min-width: 1280px) 600px, 100vw"
+                                sizes="(min-width: 1280px) 600px, (min-width: 768px) 384px, 100vw"
+                                quality={85}
+                                loading="lazy"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                               <div className="absolute inset-0 flex items-center justify-center">
@@ -509,7 +514,9 @@ export default function ProjectDetail() {
                             alt={`Technical detail ${index + 1}`}
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
-                            sizes="(min-width: 1280px) 1200px, 100vw"
+                            sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
+                            quality={90}
+                            loading="lazy"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                           <div className="absolute inset-0 flex items-center justify-center">
@@ -559,7 +566,9 @@ export default function ProjectDetail() {
                           alt="Project highlight"
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          sizes="(min-width: 1280px) 1200px, 100vw"
+                          sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
+                          quality={90}
+                          loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="absolute inset-0 flex items-center justify-center">

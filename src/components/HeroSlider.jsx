@@ -56,6 +56,9 @@ export function HeroSlider({ images, title, description }) {
             fill
             className="object-cover transition-transform duration-[10000ms] ease-linear group-hover:scale-105"
             priority={index === 0}
+            sizes="100vw"
+            quality={90}
+            loading={index === 0 ? "eager" : "lazy"}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
         </div>

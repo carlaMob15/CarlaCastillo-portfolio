@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react'
 import Head from 'next/head'
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
+import SEO from '../components/SEO'
+import StructuredData from '../components/StructuredData'
 import '../styles/tailwind.css'
 import 'focus-visible'
 
@@ -20,6 +22,12 @@ export default function App({ Component, pageProps, router }) {
 
   return (
     <>
+      <SEO 
+        title="Home"
+        description="Carla Castillo's portfolio showcasing web development and design projects"
+        canonical={`https://carlacastillo.com${router.pathname}`}
+      />
+      <StructuredData />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -28,6 +36,13 @@ export default function App({ Component, pageProps, router }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#6366f1" />
+        
+        {/* Preload critical fonts */}
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          as="style"
+        />
       </Head>
       <div className="relative flex min-h-screen flex-col">
         <Header />

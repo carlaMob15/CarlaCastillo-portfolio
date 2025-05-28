@@ -20,6 +20,9 @@ const Testimonial = () => {
                   width={500}
                   height={500}
                   title={siteMetadata.testimonial.imageAttribution}
+                  sizes="(min-width: 1024px) 500px, (min-width: 768px) 400px, 100vw"
+                  loading="lazy"
+                  quality={85}
                 />
               </div>
             </div>

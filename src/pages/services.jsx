@@ -135,6 +135,9 @@ const Services = () => {
               width={400}
               height={350}
               className="w-full h-[380px] object-cover"
+              sizes="(min-width: 1024px) 400px, (min-width: 768px) 350px, 100vw"
+              loading="lazy"
+              quality={85}
             />
             <div className="grid grid-cols-2 gap-8 items-center">
               <RoundedImage
@@ -143,6 +146,9 @@ const Services = () => {
                 width={200}
                 height={220}
                 className="w-full h-[220px] object-cover"
+                sizes="(min-width: 1024px) 200px, (min-width: 768px) 175px, 50vw"
+                loading="lazy"
+                quality={85}
               />
               <RoundedImage
                 src="https://picsum.photos/400/300?random=3"
@@ -150,6 +156,9 @@ const Services = () => {
                 width={200}
                 height={220}
                 className="w-full h-[220px] object-cover"
+                sizes="(min-width: 1024px) 200px, (min-width: 768px) 175px, 50vw"
+                loading="lazy"
+                quality={85}
               />
             </div>
           </div>
