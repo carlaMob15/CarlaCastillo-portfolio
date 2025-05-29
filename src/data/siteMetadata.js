@@ -5,9 +5,9 @@ const siteMetadata = {
   headerSubtitle: 'Senior UX/UI Designer',
   description: 'Web Creativity Studio helps brands, artists, and founders solve complex problems through beautiful, thoughtful digital design. We craft websites, web apps, and SaaS platforms with clean UI, smart UX, and clarity at the core.',
   authorHeadline: 'Senior UX/UI Designer, passionate about creating beautiful digital experiences',
-  authorAbout: "Hi, I'm Carla Castillo, a Senior UX/UI Designer with over 10 years of experience in creating beautiful and functional digital products. I specialize in user-centered design, creating intuitive interfaces that solve real user problems.",
+  authorAbout: "Hi, I'm Carla Castillo, a Senior UX/UI Designer with over 10 years of experience in creating beautiful and functional digital products. I specialise in user-centred design, creating intuitive interfaces that solve real user problems.",
   authorAboutExtended: "With a strong background in both design and development, I bring a unique perspective to every project. I believe in creating designs that are not only visually appealing but also highly functional and accessible. My approach combines creative thinking with technical expertise to deliver exceptional user experiences.",
-  language: 'en-us',
+  language: 'en-gb',
   theme: 'system', // system, dark or light
   siteUrl: 'https://wcwebcreativity.vercel.app', // Vercel deployment URL
   siteRepo: 'https://github.com/carlaMob15/nextjs-tailwind-portfolio',
@@ -15,7 +15,7 @@ const siteMetadata = {
   image: '/images/avatar.jpg',
   socialBanner: '/images/social-banner.jpg',
   email: 'wcwebcreativity@gmail.com',
-  phoneNumber: '+1 (555) 123-4567', // Update with your actual phone number
+  phoneNumber: '+44 (0) 123 456 7890', // Updated to UK format
   contactTitle: 'Let\'s Work Together',
   contactSubtitle: "I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision. Feel free to reach out through the contact form below.",
   socials: {
@@ -25,7 +25,7 @@ const siteMetadata = {
     dribbble: 'https://dribbble.com/Calaca15',
     medium: 'https://medium.com/@wcwebcreativity'
   },
-  locale: 'en-US',
+  locale: 'en-GB',
   // Adding navigation links that are referenced in the Header component
   siteNavLinks: [
     { name: 'Work', href: '/projects' },

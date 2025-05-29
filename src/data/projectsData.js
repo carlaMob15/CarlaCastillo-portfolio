@@ -44,7 +44,8 @@ export const projectsData = [
     description: 'Future-facing concepts for a more personal and connected TV companion app—designed in one week as part of an ideation sprint.',
     shortDescription: 'Future-facing concepts for a more personal and connected TV companion app—designed in one week as part of an ideation sprint.',
     projectType: 'Consumer App, TV Companion, Concept Sprint',
-    image: 'https://picsum.photos/1920/1080?random=36',
+    image: '/images/projects/my-sky-app-companion/my-sky-app-companion-hero-ui.png',
+    imageAlt: 'Hero view of My Sky Companion app showing dashboard and trailer',
     slug: 'my-sky-app-companion',
     client: 'Sky UK Limited',
     timeline: '2019',
@@ -59,20 +60,22 @@ export const projectsData = [
       'High-fidelity Prototypes'
     ],
     gallery: [
-      'https://picsum.photos/1920/1080?random=37',
-      'https://picsum.photos/1920/1080?random=38',
-      'https://picsum.photos/1920/1080?random=39',
-      'https://picsum.photos/1920/1080?random=40',
-      'https://picsum.photos/1920/1080?random=41',
-      'https://picsum.photos/1920/1080?random=42'
+      '/images/projects/my-sky-app-companion/social-viewing-friends-recommendations.png',
+      '/images/projects/my-sky-app-companion/emotion-based-movie-recommendations-ui.png',
+      '/images/projects/my-sky-app-companion/smart-home-tools-daily-utility-ui.png',
+      '/images/projects/my-sky-app-companion/personalised-content-discovery-ui.png'
     ],
     galleryCaptions: [
       'Social viewing features and friend recommendations',
       'Emotion-based content suggestions interface',
       'Smart home hub integration and daily utility features',
-      'Personalized content discovery and recommendations',
-      'High-fidelity prototype screens',
-      'Workshop synthesis and concept development'
+      'Personalized content discovery and recommendations'
+    ],
+    galleryAlt: [
+      'My Sky app social viewing with friends\' movie picks',
+      'Emotion-based recommendations shown in My Sky face scan result',
+      'My Sky app tools for smart home and daily features',
+      'Smart content suggestions based on user preferences and behaviour'
     ],
     overview: "This was part of a fast-paced design sprint exploring how the My Sky app could evolve beyond account management. The aim was to consider what a next-generation TV companion app might offer—thinking more in terms of everyday utility, personalisation, and connection.\n\nThrough a week of workshops and ideation sessions, we shaped a range of concepts which I then translated into over 50 high-fidelity screens. The designs here represent the strongest and most feasible directions that came out of that process.",
     challenge: "The app had a clear functional role but didn't yet support deeper engagement or a sense of personal connection.\n\nWe set out to explore:\n• How the app could support more personalised, daily-use features\n• What a more social or collaborative viewing experience might look like\n• Where we could introduce experimental ideas without disrupting the core product",
@@ -272,7 +275,7 @@ export const projectsData = [
     ],
     overview: "A complete redesign of a healthcare services website, focused on improving user experience through a modern interface and intuitive navigation. The project aimed to enhance engagement by refining the visual hierarchy and streamlining the information architecture—particularly in making treatment and services directories easier to explore.",
     challenge: "The main challenge was creating an intuitive interface for browsing medical treatments while maintaining accessibility and ease of use. We needed to balance comprehensive medical information with a user-friendly design that works across all devices.",
-    solution: "We implemented an interactive human body interface for intuitive treatment browsing, created a clean bento-style grid layout for digestible content presentation, and ensured responsive design optimization for all devices. The solution focused on accessible typography and clear visual hierarchy while streamlining the information architecture for better navigation.",
+    solution: "We implemented an interactive human body interface for intuitive treatment browsing, created a clean bento-style grid layout for digestible content presentation, and ensured responsive design optimisation for all devices. The solution focused on accessible typography and clear visual hierarchy while streamlining the information architecture for better navigation.",
     technicalApproach: [
       "We retained OSD's existing brand identity while giving it a fresh, contemporary feel. The responsive design performs smoothly across devices—from mobile to desktop—and incorporates accessible typography, clear headings, and responsive video content.",
       "Working closely with the product owner and development team, we ensured the design met both user needs and technical requirements. The result is a visually appealing, technically sound experience that helps users find what they're looking for more easily."
