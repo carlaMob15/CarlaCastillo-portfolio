@@ -499,84 +499,126 @@ export default function ProjectDetail() {
                       })()}
                     </div>
                   </div>
-                  {/* Image Grid 1 - Large image above, two below */}
+                  {/* Image Grid 1 - Three large images */}
                   <div className="space-y-12">
-                    <div className="space-y-12">
-                      {/* Large image */}
-                      <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
-                        onClick={() => handleImageClick(0)}
-                      >
-                        <Image
-                          src={project.gallery[0]}
-                          alt={project.galleryAlt?.[0] || "Solution overview"}
-                          fill
-                          className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
-                          quality={85}
-                          loading="lazy"
-                          placeholder="blur"
-                          blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
-                            '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
-                          ).toString('base64')}`}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                            <HiMagnifyingGlass className="w-6 h-6 text-white" />
-                          </div>
-                        </div>
-                      </motion.div>
-                      {project.galleryCaptions?.[0] && (
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
-                          {project.galleryCaptions[0]}
-                        </p>
-                      )}
-                      {/* Two smaller images */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        {project.gallery.slice(1, 3).map((image, index) => (
-                          <div key={index}>
-                            <motion.div 
-                              initial={{ opacity: 0, y: 20 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
-                              className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden cursor-pointer group"
-                              onClick={() => handleImageClick(index + 1)}
-                            >
-                              <Image
-                                src={image}
-                                alt={project.galleryAlt?.[index + 1] || `Solution detail ${index + 1}`}
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                sizes="(min-width: 1280px) 600px, (min-width: 768px) 384px, 100vw"
-                                quality={80}
-                                loading="lazy"
-                                placeholder="blur"
-                                blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
-                                  '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
-                                ).toString('base64')}`}
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                              <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                  <HiMagnifyingGlass className="w-6 h-6 text-white" />
-                                </div>
+                    {project.slug === 'gosure-claims-management' ? (
+                      // Three large images for GoSure project
+                      project.gallery.slice(0, 3).map((image, index) => (
+                        <div key={index} className="space-y-4">
+                          <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                            onClick={() => handleImageClick(index)}
+                          >
+                            <Image
+                              src={image}
+                              alt={project.galleryAlt?.[index] || `Solution detail ${index + 1}`}
+                              fill
+                              className="object-cover transition-transform duration-700 group-hover:scale-105"
+                              sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
+                              quality={85}
+                              loading="lazy"
+                              placeholder="blur"
+                              blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                                '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
+                              ).toString('base64')}`}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <HiMagnifyingGlass className="w-6 h-6 text-white" />
                               </div>
-                            </motion.div>
-                            {project.galleryCaptions?.[index + 1] && (
-                              <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
-                                {project.galleryCaptions[index + 1]}
-                              </p>
-                            )}
+                            </div>
+                          </motion.div>
+                          {project.galleryCaptions?.[index] && (
+                            <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                              {project.galleryCaptions[index]}
+                            </p>
+                          )}
+                        </div>
+                      ))
+                    ) : (
+                      // Original layout for other projects
+                      <div className="space-y-12">
+                        {/* Large image */}
+                        <motion.div 
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5 }}
+                          className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                          onClick={() => handleImageClick(0)}
+                        >
+                          <Image
+                            src={project.gallery[0]}
+                            alt={project.galleryAlt?.[0] || "Solution overview"}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
+                            quality={85}
+                            loading="lazy"
+                            placeholder="blur"
+                            blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                              '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
+                            ).toString('base64')}`}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                              <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                            </div>
                           </div>
-                        ))}
+                        </motion.div>
+                        {project.galleryCaptions?.[0] && (
+                          <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                            {project.galleryCaptions[0]}
+                          </p>
+                        )}
+                        {/* Two smaller images */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          {project.gallery.slice(1, 3).map((image, index) => (
+                            <div key={index} className="space-y-4">
+                              <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                                onClick={() => handleImageClick(index + 1)}
+                              >
+                                <Image
+                                  src={image}
+                                  alt={project.galleryAlt?.[index + 1] || `Solution detail ${index + 1}`}
+                                  fill
+                                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                  sizes="(min-width: 1280px) 600px, (min-width: 768px) 384px, 100vw"
+                                  quality={80}
+                                  loading="lazy"
+                                  placeholder="blur"
+                                  blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                                    '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
+                                  ).toString('base64')}`}
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                  <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                    <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                                  </div>
+                                </div>
+                              </motion.div>
+                              {project.galleryCaptions?.[index + 1] && (
+                                <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                                  {project.galleryCaptions[index + 1]}
+                                </p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
 
@@ -600,8 +642,8 @@ export default function ProjectDetail() {
                   {/* Technical Approach Images */}
                   {project.technicalApproachImages && (
                     <div className="space-y-8 mt-12">
-                      {project.slug === 'jugo-virtual-events' ? (
-                        // Three large images for Jugo project
+                      {project.slug === 'gosure-claims-management' ? (
+                        // Two large images for GoSure project
                         project.technicalApproachImages.map((image, index) => (
                           <div key={index} className="space-y-4">
                             <motion.div 

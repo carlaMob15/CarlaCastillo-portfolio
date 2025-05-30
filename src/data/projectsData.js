@@ -148,7 +148,8 @@ export const projectsData = [
     description: 'Designed an intuitive internal dashboard to streamline claims handling, support agent workflows, and boost team efficiency.',
     shortDescription: 'Designed an intuitive internal dashboard to streamline claims handling, support agent workflows, and boost team efficiency.',
     projectType: 'Dashboard, B2B, SaaS Product',
-    image: 'https://picsum.photos/1920/1080?random=15',
+    image: '/images/projects/gosure-claims/gosure-hero-dashboard.png',
+    imageAlt: 'Main GoSure claims dashboard showing full case overview and activity log',
     slug: 'gosure-claims-management',
     client: 'Covea Insurance plc',
     timeline: '2020 - 2023',
@@ -163,20 +164,13 @@ export const projectsData = [
       'Design System Integration'
     ],
     gallery: [
-      'https://picsum.photos/1920/1080?random=16',
-      'https://picsum.photos/1920/1080?random=17',
-      'https://picsum.photos/1920/1080?random=18',
-      'https://picsum.photos/1920/1080?random=19',
-      'https://picsum.photos/1920/1080?random=20',
-      'https://picsum.photos/1920/1080?random=21'
+      '/images/projects/gosure-claims/gosure-dashboard-zoom.png'
     ],
     galleryCaptions: [
-      'Dashboard overview showing key metrics and task management',
-      'Claims process workflow visualization',
-      'Mobile-responsive interface for on-the-go access',
-      'Agent training and onboarding features',
-      'Design system components and patterns',
-      'Integration with existing GoSure brand guidelines'
+      'Detailed dashboard view showing task management and metrics'
+    ],
+    galleryAlt: [
+      'Detailed view of GoSure\'s case layout showing claim details and progress'
     ],
     overview: "As part of the broader GoSure brand initiative, we developed a new claims management system to support call centre agents handling customer insurance claims. The goal was to streamline complex processes, identify areas for automation, and create a tool that would not only improve efficiency but also support new agent onboarding.",
     challenge: "The existing claims process was manual, inconsistent, and difficult to manage—particularly when multiple agents were involved in a single claim. Information was scattered, making it time-consuming to follow up or provide updates. The business needed a centralised, intuitive solution that would save time, reduce errors, and support agents in providing a better experience to customers.",
@@ -190,6 +184,18 @@ export const projectsData = [
       "- Training and onboarding features",
       "- Design system integration",
       "The solution was built using Figma and followed the established GoSure design system to ensure consistency across platforms."
+    ],
+    technicalApproachImages: [
+      {
+        src: '/images/projects/gosure-claims/gosure-photo-upload-ui.png',
+        alt: 'UI for uploading vehicle damage photos with interactive camera hotspot map',
+        caption: 'Photo upload interface with interactive camera hotspot map'
+      },
+      {
+        src: '/images/projects/gosure-claims/gosure-mobile-view.png',
+        alt: 'Mobile-optimised version of the GoSure dashboard interface',
+        caption: 'Mobile-responsive dashboard interface'
+      }
     ],
     impact: "I was instrumental in designing the wireframes and creating the final high-fidelity designs, ensuring everything aligned with our design system. I also collaborated closely with other designers through workshops and ideation sessions, where we explored different approaches to make the system truly agent-friendly. It was especially rewarding to design something that balanced operational efficiency with human-centred design. Knowing the dashboard would help ease the workload for agents—and support those just learning the ropes—made this project particularly meaningful."
   },
