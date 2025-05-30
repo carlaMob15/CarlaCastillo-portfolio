@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import OptimizedImage from './OptimizedImage';
 import { Container } from './Container';
+import PropTypes from 'prop-types';
 
 export function HeroSlider({ images, title, description }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -50,7 +52,7 @@ export function HeroSlider({ images, title, description }) {
           }`}
           style={{ zIndex: index === currentSlide ? 1 : 0 }}
         >
-          <Image
+          <OptimizedImage
             src={image}
             alt={`Slide ${index + 1}`}
             fill
@@ -58,7 +60,6 @@ export function HeroSlider({ images, title, description }) {
             priority={index === 0}
             sizes="100vw"
             quality={90}
-            loading={index === 0 ? "eager" : "lazy"}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
         </div>
@@ -138,4 +139,10 @@ export function HeroSlider({ images, title, description }) {
       </div>
     </div>
   );
-} 
+}
+
+HeroSlider.propTypes = {
+  images: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+}; 

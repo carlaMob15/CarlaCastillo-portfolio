@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import OptimizedImage from './OptimizedImage'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
@@ -53,14 +53,13 @@ export function ProjectCard({ project, className, noBackground }) {
         className="block relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer shadow-sm hover:shadow-md transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-[rgb(99,102,241)] focus:ring-offset-2 dark:focus:ring-offset-neutral-900"
         aria-label={`View project: ${project.title}`}
       >
-        <Image
+        <OptimizedImage
           src={project.image || "/placeholder.jpg"}
           alt={`${project.title} project preview`}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority={false}
-          loading="lazy"
           quality={85}
         />
         <div 

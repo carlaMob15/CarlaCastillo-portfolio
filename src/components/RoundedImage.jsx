@@ -1,14 +1,21 @@
-import Image from 'next/image'
+import OptimizedImage from './OptimizedImage'
 import clsx from 'clsx'
+import PropTypes from 'prop-types'
 
-export function RoundedImage({ className, alt = '', ...props }) {
+export function RoundedImage({ alt, className, ...props }) {
   return (
-    <div className={clsx('overflow-hidden rounded-2xl bg-zinc-100 dark:bg-zinc-800', className)}>
-      <Image
-        {...props}
+    <div className={clsx('overflow-hidden rounded-lg bg-slate-100', className)}>
+      <OptimizedImage
+        className="object-cover"
         alt={alt}
-        className={clsx('object-cover transition-all duration-300', props.className)}
+        {...props}
+        quality={85}
       />
     </div>
   )
+}
+
+RoundedImage.propTypes = {
+  alt: PropTypes.string.isRequired,
+  className: PropTypes.string,
 } 

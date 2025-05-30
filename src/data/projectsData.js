@@ -4,7 +4,8 @@ export const projectsData = [
     description: 'Designed a bold, user-friendly app to help personal trainers manage clients, bookings, and payments — all in one place.',
     shortDescription: 'Designed a bold, user-friendly app to help personal trainers manage clients, bookings, and payments — all in one place.',
     projectType: 'Mobile App, B2B, Fitness/Wellness',
-    image: 'https://picsum.photos/1920/1080?random=31',
+    image: '/images/projects/personal-trainer-app/personal-trainer-app-hero-ui.png',
+    imageAlt: 'Hero view of Personal Trainer app showing dashboard and client management',
     slug: 'personal-trainer-app',
     client: 'A fitness-focused SaaS startup',
     timeline: '2024',
@@ -19,20 +20,25 @@ export const projectsData = [
       'Modern Fitness UI'
     ],
     gallery: [
-      'https://picsum.photos/1920/1080?random=32',
-      'https://picsum.photos/1920/1080?random=33',
-      'https://picsum.photos/1920/1080?random=34',
-      'https://picsum.photos/1920/1080?random=35',
-      'https://picsum.photos/1920/1080?random=36',
-      'https://picsum.photos/1920/1080?random=37'
+      '/images/projects/personal-trainer-app/personal-trainer-app-client-list-ui.png',
+      '/images/projects/personal-trainer-app/personal-trainer-app-scheduling-payments.png',
+      '/images/projects/personal-trainer-app/personal-trainer-app-welcome-closeup.png',
+      '/images/projects/personal-trainer-app/personal-trainer-app-payment-overview-ui.png',
+      '/images/projects/personal-trainer-app/personal-trainer-app-hero-ui.png'
     ],
     galleryCaptions: [
-      'App home screen with upcoming sessions overview',
-      'Client management and progress tracking',
-      'Session scheduling interface',
-      'Payment tracking dashboard',
-      'Brand identity and UI kit',
-      'Mobile app in dark mode with vibrant highlights'
+      'Payment overview and financial tracking',
+      'Welcome screen and onboarding experience',
+      'Client list and management interface',
+      '',
+      'Main dashboard and app overview'
+    ],
+    galleryAlt: [
+      'Client list interface showing session counts and profile pictures',
+      'Timetable and payments screens from personal trainer management app',
+      'Welcome screen detail with workout reminder on mobile fitness app',
+      'Payment summary and transaction list in personal trainer app',
+      'Welcome screen of personal trainer app with motivational tagline'
     ],
     overview: '',
     challenge: "The task was to create a fresh brand identity and final UI for a personal trainer app. The goal? To provide an easy and intuitive way for personal trainers to manage their clients, streamline bookings, and keep track of payments effortlessly. It needed to be sleek, modern, and user-friendly.",
