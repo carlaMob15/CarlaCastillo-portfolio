@@ -584,48 +584,170 @@ export default function ProjectDetail() {
                 <div className="space-y-8">
                   <h2 className="text-2xl font-semibold tracking-tight">Technical Approach</h2>
                   <div className="space-y-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-                    {project.slug === 'my-sky-app-companion' ? (
-                      <>
-                        <p>We designed with modularity in mind, using familiar Sky UI patterns to help new features slot into the existing structure.</p>
-                        <p>Each concept was considered with technical feasibility and rollout in mind—especially for more experimental features like face scan, which were framed as future-facing options rather than immediate releases.</p>
-                      </>
-                    ) : (
-                      project.technicalApproach ? (
-                        project.technicalApproach.map((paragraph, index) => (
-                          paragraph.startsWith('-') ? (
-                            <ul key={index} className="list-disc pl-6 space-y-2">
-                              <li>{paragraph.substring(1).trim()}</li>
-                            </ul>
-                          ) : (
-                            <p key={index}>{paragraph}</p>
-                          )
+                    {project.technicalApproach ? (
+                      project.technicalApproach.map((paragraph, index) => (
+                        paragraph.startsWith('-') ? (
+                          <ul key={index} className="list-disc pl-6 space-y-2">
+                            <li>{paragraph.substring(1).trim()}</li>
+                          </ul>
+                        ) : (
+                          <p key={index}>{paragraph}</p>
+                        )
+                      ))
+                    ) : null}
+                  </div>
+                  
+                  {/* Technical Approach Images */}
+                  {project.technicalApproachImages && (
+                    <div className="space-y-8 mt-12">
+                      {project.slug === 'jugo-virtual-events' ? (
+                        // Three large images for Jugo project
+                        project.technicalApproachImages.map((image, index) => (
+                          <div key={index} className="space-y-4">
+                            <motion.div 
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.5, delay: index * 0.1 }}
+                              className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                              onClick={() => handleImageClick(project.gallery.length + index)}
+                            >
+                              <Image
+                                src={image.src}
+                                alt={image.alt}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
+                                quality={85}
+                                loading="lazy"
+                                placeholder="blur"
+                                blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                                  '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
+                                ).toString('base64')}`}
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                  <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                                </div>
+                              </div>
+                            </motion.div>
+                            {image.caption && (
+                              <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
+                                {image.caption}
+                              </p>
+                            )}
+                          </div>
                         ))
                       ) : (
+                        // Original layout for other projects
                         <>
-                          <p>
-                            We retained the existing brand identity while giving it a fresh, contemporary feel. The responsive design performs smoothly across devices—from mobile to desktop—and incorporates accessible typography, clear headings, and responsive video content.
-                          </p>
-                          <p>
-                            Working closely with the product owner and development team, we ensured the design met both user needs and technical requirements. The result is a visually appealing, technically sound experience that helps users find what they're looking for more easily.
-                          </p>
+                          {/* Large image */}
+                          <motion.div 
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                            className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                            onClick={() => handleImageClick(project.gallery.length)}
+                          >
+                            <Image
+                              src={project.technicalApproachImages[0].src}
+                              alt={project.technicalApproachImages[0].alt}
+                              fill
+                              className="object-cover transition-transform duration-700 group-hover:scale-105"
+                              sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
+                              quality={85}
+                              loading="lazy"
+                              placeholder="blur"
+                              blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                                '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
+                              ).toString('base64')}`}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                              </div>
+                            </div>
+                          </motion.div>
+                          {project.technicalApproachImages[0].caption && (
+                            <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
+                              {project.technicalApproachImages[0].caption}
+                            </p>
+                          )}
+                          
+                          {/* Two smaller images */}
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {project.technicalApproachImages.slice(1).map((image, index) => (
+                              <div key={index} className="space-y-4">
+                                <motion.div 
+                                  initial={{ opacity: 0, y: 20 }}
+                                  whileInView={{ opacity: 1, y: 0 }}
+                                  viewport={{ once: true }}
+                                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                                  className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                                  onClick={() => handleImageClick(project.gallery.length + index + 1)}
+                                >
+                                  <Image
+                                    src={image.src}
+                                    alt={image.alt}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    sizes="(min-width: 1280px) 600px, (min-width: 768px) 384px, 100vw"
+                                    quality={85}
+                                    loading="lazy"
+                                    placeholder="blur"
+                                    blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                                      '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
+                                    ).toString('base64')}`}
+                                  />
+                                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                  <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                      <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                                    </div>
+                                  </div>
+                                </motion.div>
+                                {image.caption && (
+                                  <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
+                                    {image.caption}
+                                  </p>
+                                )}
+                              </div>
+                            ))}
+                          </div>
                         </>
+                      )}
+                    </div>
+                  )}
+                </div>
+
+                {/* Project Impact & Reflection */}
+                <div className="space-y-6 mt-16">
+                  <h2 className="text-2xl font-semibold tracking-tight">Project Impact & Reflection</h2>
+                  <div className="space-y-4">
+                    {project.impact.split(/\n\s*\n/).map((para, idx) => (
+                      para.trim() && (
+                        <p key={idx} className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">{para.trim()}</p>
                       )
-                    )}
+                    ))}
                   </div>
-                  {/* Last image */}
-                  {project.gallery[3] && (
-                    <div className="mt-8">
+                  
+                  {/* Impact Image */}
+                  {project.impactImage && (
+                    <div className="mt-12">
                       <motion.div 
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                         className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
-                        onClick={() => handleImageClick(3)}
+                        onClick={() => handleImageClick(project.gallery.length)}
                       >
                         <Image
-                          src={project.gallery[3]}
-                          alt={project.galleryAlt?.[3] || "Technical detail"}
+                          src={project.impactImage.src}
+                          alt={project.impactImage.alt}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                           sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
@@ -643,25 +765,13 @@ export default function ProjectDetail() {
                           </div>
                         </div>
                       </motion.div>
-                      {project.galleryCaptions?.[3] && (
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
-                          {project.galleryCaptions[3]}
+                      {project.impactImage.caption && (
+                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4">
+                          {project.impactImage.caption}
                         </p>
                       )}
                     </div>
                   )}
-                </div>
-
-                {/* Project Impact & Reflection */}
-                <div className="space-y-8 mt-16">
-                  <h2 className="text-2xl font-semibold tracking-tight">Project Impact & Reflection</h2>
-                  <div className="space-y-6">
-                    {project.impact.split(/\n\s*\n/).map((para, idx) => (
-                      para.trim() && (
-                        <p key={idx} className="text-base md:text-lg text-zinc-600 dark:text-zinc-400 mb-4">{para.trim()}</p>
-                      )
-                    ))}
-                  </div>
                 </div>
               </div>
             </>

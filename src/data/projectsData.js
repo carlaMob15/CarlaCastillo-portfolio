@@ -293,7 +293,8 @@ export const projectsData = [
     description: 'Designed a native iOS companion app for virtual meetings, combining seamless UX with cross-device functionality for events and presentations.',
     shortDescription: 'Designed a native iOS companion app for virtual meetings, combining seamless UX with cross-device functionality for events and presentations.',
     projectType: 'Mobile App, B2B, Events/Meetings',
-    image: 'https://picsum.photos/1920/1080?random=8',
+    image: '/images/projects/jugo/jugo-hero-ui-overview.png',
+    imageAlt: 'Mobile interface overview for Jugo\'s virtual events app, showing call and attendees view',
     slug: 'jugo-virtual-events',
     client: 'Jugo Ltd',
     timeline: '2023 - 2024',
@@ -309,20 +310,31 @@ export const projectsData = [
       'Offline mode support'
     ],
     gallery: [
-      'https://picsum.photos/1920/1080?random=9',
-      'https://picsum.photos/1920/1080?random=10',
-      'https://picsum.photos/1920/1080?random=11',
-      'https://picsum.photos/1920/1080?random=12',
-      'https://picsum.photos/1920/1080?random=13',
-      'https://picsum.photos/1920/1080?random=14'
+      '/images/projects/jugo/jugo-shared-screen-and-remote-control.png',
+      '/images/projects/jugo/jugo-presenter-view.png',
+      '/images/projects/jugo/jugo-remote-control.png',
+      '/images/projects/jugo/jugo-dashboard-event-chat-profile.png',
+      '/images/projects/jugo/jugo-ipad-dual-screen-control.png',
+      '/images/projects/jugo/jugo-ipad-multi-speaker-gallery.png',
+      '/images/projects/jugo/jugo-responsive-mobile-landscape.png'
     ],
     galleryCaptions: [
-      'Main dashboard showcasing event overview and navigation',
-      'Presentation controls and interaction features',
-      'Participant engagement interface',
-      'Cross-device synchronization demonstration',
-      'Offline mode functionality',
-      'Settings and customization options'
+      'Shared screen view demonstrating cross-device functionality',
+      'Presenter view showcasing event management tools',
+      'Remote control interface demonstrating native iOS interactions',
+      'Main dashboard with event overview, chat, and profile features',
+      'iPad dual-screen control demonstration',
+      'Multi-speaker gallery view on iPad',
+      'Responsive mobile layout in landscape mode'
+    ],
+    galleryAlt: [
+      'Jugo\'s split-screen showing shared presentation content with remote control functionality',
+      'Presenter view with shared slides, attendee list, and live poll in Jugo interface',
+      'Remote slide navigation UI on mobile for controlling live Jugo sessions',
+      'Jugo mobile app dashboard with event schedule, chat, and user profile screens',
+      'Tablet view showing Jugo slide presentation alongside remote control interface',
+      'Gallery view of multiple video call participants in the Jugo app on iPad',
+      'Responsive mobile layout showing Jugo video call in landscape mode with active speakers'
     ],
     overview: "Jugo is a native iOS companion app designed to enhance virtual meetings and presentations. The app provides seamless cross-device functionality, allowing users to control presentations, engage with participants, and manage events from their iOS devices.",
     challenge: 'The challenge was to create a companion app that enhances the user experience primarily on iPhones while ensuring a seamless experience on iPads and maintaining consistency with the web version. The solution was a fully native app designed to be smooth and intuitive, making virtual meetings easy and enjoyable.',
@@ -337,7 +349,29 @@ Serving as a companion to the iPad version, the app enhances the user experience
       '- Intuitive presentation controls',
       'The app was designed with scalability in mind, allowing for future feature additions and platform expansion.'
     ],
-    impact: "I really enjoyed this project because I learned so much from my colleagues and deepened my understanding of iOS app design — even experimenting a little with Swift to better design for the platform. I spent most of last year focused on this product, and the collaboration across the team was incredible. We got the app up and running within four months, which was a huge achievement.\n\nOf course, there were some bumps along the way, but the experience was one of the most rewarding I've had. It was a real team effort, and I'm proud of what we built together.\n\nWhile the company later shifted direction and the app's future became uncertain, we successfully delivered a fully functional, polished product. I'm proud of what we achieved together — and even if the roadmap paused, the experience shaped how I approach mobile design today."
+    technicalApproachImages: [
+      {
+        src: '/images/projects/jugo/jugo-dashboard-event-chat-profile.png',
+        alt: 'Jugo mobile app dashboard with event schedule, chat, and user profile screens',
+        caption: 'Main dashboard with event overview, chat, and profile features'
+      },
+      {
+        src: '/images/projects/jugo/jugo-responsive-mobile-landscape.png',
+        alt: 'Responsive mobile layout showing Jugo video call in landscape mode with active speakers',
+        caption: 'Responsive mobile layout in landscape mode'
+      },
+      {
+        src: '/images/projects/jugo/jugo-ipad-multi-speaker-gallery.png',
+        alt: 'Gallery view of multiple video call participants in the Jugo app on iPad',
+        caption: 'Multi-speaker gallery view on iPad'
+      }
+    ],
+    impact: "I really enjoyed this project because I learned so much from my colleagues and deepened my understanding of iOS app design — even experimenting a little with Swift to better design for the platform. I spent most of last year focused on this product, and the collaboration across the team was incredible. We got the app up and running within four months, which was a huge achievement.\n\nOf course, there were some bumps along the way, but the experience was one of the most rewarding I've had. It was a real team effort, and I'm proud of what we built together.\n\nWhile the company later shifted direction and the app's future became uncertain, we successfully delivered a fully functional, polished product. I'm proud of what we achieved together — and even if the roadmap paused, the experience shaped how I approach mobile design today.",
+    impactImage: {
+      src: '/images/projects/jugo/jugo-ipad-dual-screen-control.png',
+      alt: 'Tablet view showing Jugo slide presentation alongside remote control interface',
+      caption: 'iPad dual-screen control demonstration'
+    }
   },
   {
     title: 'Covea – Design System Foundations',
