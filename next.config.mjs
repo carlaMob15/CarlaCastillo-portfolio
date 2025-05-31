@@ -8,6 +8,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['picsum.photos', 'via.placeholder.com', 'images.unsplash.com'],
+    unoptimized: true,
   },
   // Optimize development performance
   swcMinify: true,
