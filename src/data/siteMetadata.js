@@ -22,7 +22,7 @@ const siteMetadata = {
     github: '',
     linkedin: 'https://www.linkedin.com/company/wcwebcreativity/',
     twitter: '',
-    dribbble: 'https://dribbble.com/Calaca15',
+    dribbble: 'https://dribbble.com/wcwebcreativity',
     medium: 'https://medium.com/@wcwebcreativity'
   },
   locale: 'en-GB',

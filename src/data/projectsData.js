@@ -204,7 +204,8 @@ export const projectsData = [
     description: 'A bold new mobile-first brand built from scratch to unify digital products and spark innovation across Covea\'s platforms.',
     shortDescription: 'A bold new mobile-first brand built from scratch to unify digital products and spark innovation across Covea\'s platforms.',
     projectType: 'Brand, UX/UI, Mobile-First, Insurance',
-    image: 'https://picsum.photos/1920/1080?random=22',
+    image: '/images/projects/gosure/Hero.png',
+    imageAlt: 'GoSure brand identity showcasing the modern and innovative approach',
     slug: 'gosure-brand-redesign',
     client: 'Covea Insurance plc',
     timeline: '2020 - 2023',
@@ -219,20 +220,19 @@ export const projectsData = [
       'Responsive Design'
     ],
     gallery: [
-      'https://picsum.photos/1920/1080?random=23',
-      'https://picsum.photos/1920/1080?random=24',
-      'https://picsum.photos/1920/1080?random=25',
-      'https://picsum.photos/1920/1080?random=26',
-      'https://picsum.photos/1920/1080?random=27',
-      'https://picsum.photos/1920/1080?random=28'
+      '/images/projects/gosure/gosure-car-insurance-flow-quote-screen.png',
+      '/images/projects/gosure/gosure-car-details-found-screen.png',
+      '/images/projects/gosure/gosure-driver-licence-upload-screen.png'
     ],
     galleryCaptions: [
-      'New brand identity showcasing the modern and innovative approach',
-      'Mobile-first design system components and patterns',
-      'Cross-platform digital product integration',
-      'User experience improvements and innovations',
-      'Brand guidelines and documentation',
-      'Implementation across various touchpoints'
+      'Car insurance quote screen with vehicle registration input and summary',
+      'Car details found screen showing vehicle information and coverage options',
+      'Driver license upload screen with document verification interface'
+    ],
+    galleryAlt: [
+      'Car insurance quote screen with vehicle registration input and summary',
+      'Car details found screen showing vehicle information and coverage options',
+      'Driver license upload screen with document verification interface'
     ],
     overview: "Covea needed a forward-thinking approach to unify and modernise its digital insurance experience. We created GoSure, a mobile-first brand designed to challenge outdated UX patterns, establish a new visual and verbal identity, and provide a collaborative foundation for future design system work across teams.",
     challenge: "Covea's existing product brands were inconsistent, outdated, and not designed with accessibility or mobile-first principles in mind. User journeys were inefficient and led to significant customer drop-off. Internally, design and development teams used different tools and had no single source of truth, leading to fragmented execution. On top of this, introducing future-thinking concepts within existing brand structures was nearly impossible without creating confusion among stakeholders.",
@@ -245,6 +245,38 @@ export const projectsData = [
       "- New UX patterns designed with mobile-first in mind",
       "- Redesigns of key journeys from scratch to reflect both business needs and modern user expectations",
       "Design mockups and interactive prototypes (created in Figma and After Effects) were used to communicate ideas and secure stakeholder buy-in. These concepts not only challenged internal thinking but many were approved and are now in production."
+    ],
+    technicalApproachImages: [
+      {
+        src: '/images/projects/gosure/gosure-customer-account-dashboard.png',
+        alt: 'Customer account dashboard showing policy management and quick actions',
+        caption: 'Customer account dashboard showing policy management and quick actions'
+      },
+      {
+        src: '/images/projects/gosure/gosure-design-system-ui-components.png',
+        alt: 'Design system UI components and guidelines',
+        caption: 'Design system UI components and guidelines'
+      },
+      {
+        src: '/images/projects/gosure/gosure-insurance-user-journey-map.png',
+        alt: 'Insurance user journey map showing key touchpoints and interactions',
+        caption: 'Insurance user journey map showing key touchpoints and interactions'
+      },
+      {
+        src: '/images/projects/gosure/gosure-home-and-tech-cover-flow.png',
+        alt: 'Home and tech insurance cover selection flow',
+        caption: 'Home and tech insurance cover selection flow'
+      },
+      {
+        src: '/images/projects/gosure/gosure-claims-support-chat-ui.png',
+        alt: 'Claims support chat interface with AI assistance',
+        caption: 'Claims support chat interface with AI assistance'
+      },
+      {
+        src: '/images/projects/gosure/gosure-payment-final-step-desktop.png',
+        alt: 'Final payment step with secure checkout interface',
+        caption: 'Final payment step with secure checkout interface'
+      }
     ],
     impact: "GoSure became more than a new brand — it was a strategic shift in how Covea designs and delivers digital experiences. It provided a shared foundation for cross-functional teams, brought visual and UX consistency across journeys, and created space for innovation. It was particularly rewarding to see early concepts gain momentum and move into production, proving the value of investing in thoughtful, user-led design from the start."
   },

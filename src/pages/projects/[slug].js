@@ -623,40 +623,31 @@ export default function ProjectDetail() {
                 </div>
 
                 {/* Technical Approach */}
-                <div className="space-y-8">
-                  <h2 className="text-2xl font-semibold tracking-tight">Technical Approach</h2>
-                  <div className="space-y-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400">
-                    {project.technicalApproach ? (
-                      project.technicalApproach.map((paragraph, index) => (
-                        paragraph.startsWith('-') ? (
-                          <ul key={index} className="list-disc pl-6 space-y-2">
-                            <li>{paragraph.substring(1).trim()}</li>
-                          </ul>
-                        ) : (
-                          <p key={index}>{paragraph}</p>
-                        )
-                      ))
-                    ) : null}
-                  </div>
-                  
-                  {/* Technical Approach Images */}
-                  {project.technicalApproachImages && (
-                    <div className="space-y-8 mt-12">
-                      {project.slug === 'gosure-claims-management' ? (
-                        // Two large images for GoSure project
-                        project.technicalApproachImages.map((image, index) => (
-                          <div key={index} className="space-y-4">
-                            <motion.div 
+                {project.technicalApproach && (
+                  <div className="mt-12">
+                    <h3 className="text-2xl font-bold mb-6">Technical Approach</h3>
+                    <div className="space-y-6">
+                      {project.technicalApproach.map((item, index) => (
+                        <p key={index} className="text-gray-700">{item}</p>
+                      ))}
+                    </div>
+                    {project.technicalApproachImages && project.technicalApproachImages.length > 0 && (
+                      <div className="mt-8 space-y-8">
+                        {project.slug === 'gosure-brand-redesign' ? (
+                          <>
+                            {/* First large image */}
+                            {project.technicalApproachImages[0] && (
+                            <motion.div
                               initial={{ opacity: 0, y: 20 }}
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: index * 0.1 }}
+                              transition={{ duration: 0.6 }}
                               className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
-                              onClick={() => handleImageClick(project.gallery.length + index)}
+                              onClick={() => handleImageClick(project.gallery.length + 4)}
                             >
                               <Image
-                                src={image.src}
-                                alt={image.alt}
+                                src={project.technicalApproachImages[0].src}
+                                alt={project.technicalApproachImages[0].alt}
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                                 sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
@@ -674,96 +665,127 @@ export default function ProjectDetail() {
                                 </div>
                               </div>
                             </motion.div>
-                            {image.caption && (
-                              <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
-                                {image.caption}
+                            )}
+                            {project.technicalApproachImages[0]?.caption && (
+                              <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                                {project.technicalApproachImages[0].caption}
                               </p>
                             )}
-                          </div>
-                        ))
-                      ) : (
-                        // Original layout for other projects
-                        <>
-                          {/* Large image */}
-                          <motion.div 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                            className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
-                            onClick={() => handleImageClick(project.gallery.length)}
-                          >
-                            <Image
-                              src={project.technicalApproachImages[0].src}
-                              alt={project.technicalApproachImages[0].alt}
-                              fill
-                              className="object-cover transition-transform duration-700 group-hover:scale-105"
-                              sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
-                              quality={85}
-                              loading="lazy"
-                              placeholder="blur"
-                              blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
-                                '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
-                              ).toString('base64')}`}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                <HiMagnifyingGlass className="w-6 h-6 text-white" />
-                              </div>
-                            </div>
-                          </motion.div>
-                          {project.technicalApproachImages[0].caption && (
-                            <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
-                              {project.technicalApproachImages[0].caption}
-                            </p>
-                          )}
-                          
-                          {/* Two smaller images */}
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {project.technicalApproachImages.slice(1).map((image, index) => (
-                              <div key={index} className="space-y-4">
-                                <motion.div 
-                                  initial={{ opacity: 0, y: 20 }}
-                                  whileInView={{ opacity: 1, y: 0 }}
-                                  viewport={{ once: true }}
-                                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                                  className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden cursor-pointer group"
-                                  onClick={() => handleImageClick(project.gallery.length + index + 1)}
-                                >
-                                  <Image
-                                    src={image.src}
-                                    alt={image.alt}
-                                    fill
-                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                    sizes="(min-width: 1280px) 600px, (min-width: 768px) 384px, 100vw"
-                                    quality={85}
-                                    loading="lazy"
-                                    placeholder="blur"
-                                    blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
-                                      '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
-                                    ).toString('base64')}`}
-                                  />
-                                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                  <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                      <HiMagnifyingGlass className="w-6 h-6 text-white" />
+
+                            {/* Two small images side by side */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                              {[1, 2].map((index) => (
+                                project.technicalApproachImages[index] && (
+                                <div key={index} className="space-y-4">
+                                  <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                                    className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                                    onClick={() => handleImageClick(project.gallery.length + 4 + index)}
+                                  >
+                                    <Image
+                                      src={project.technicalApproachImages[index].src}
+                                      alt={project.technicalApproachImages[index].alt}
+                                      fill
+                                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                      sizes="(min-width: 1280px) 600px, (min-width: 768px) 384px, 100vw"
+                                      quality={80}
+                                      loading="lazy"
+                                      placeholder="blur"
+                                      blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                                        '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
+                                      ).toString('base64')}`}
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                      <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                        <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                                      </div>
                                     </div>
-                                  </div>
-                                </motion.div>
-                                {image.caption && (
-                                  <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
-                                    {image.caption}
-                                  </p>
-                                )}
+                                  </motion.div>
+                                  {project.technicalApproachImages[index].caption && (
+                                    <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                                      {project.technicalApproachImages[index].caption}
+                                    </p>
+                                  )}
+                                </div>
+                                )
+                              ))}
+                            </div>
+
+                            {/* Last large image */}
+                            {project.technicalApproachImages[3] && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 20 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.6, delay: 0.4 }}
+                              className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                              onClick={() => handleImageClick(project.gallery.length + 7)}
+                            >
+                              <Image
+                                src={project.technicalApproachImages[3].src}
+                                alt={project.technicalApproachImages[3].alt}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
+                                quality={85}
+                                loading="lazy"
+                                placeholder="blur"
+                                blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                                  '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
+                                ).toString('base64')}`}
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                  <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                                </div>
                               </div>
+                            </motion.div>
+                            )}
+                            {project.technicalApproachImages[3]?.caption && (
+                              <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                                {project.technicalApproachImages[3].caption}
+                              </p>
+                            )}
+                          </>
+                        ) : (
+                          // Original layout for other projects
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {project.technicalApproachImages.map((img, index) => (
+                              <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: index * 0.2 }}
+                                className={`relative group ${index === 0 ? 'md:col-span-2' : ''}`}
+                              >
+                                <div className={`aspect-[${index === 0 ? '16/9' : '4/3'}] overflow-hidden rounded-2xl`}>
+                                  <Image
+                                    src={img.src}
+                                    alt={img.alt}
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    sizes={index === 0 ? "(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw" : "(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 35vw"}
+                                    quality={90}
+                                  />
+                                </div>
+                                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 rounded-2xl" />
+                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl">
+                                  <p className="text-white text-sm">{img.caption}</p>
+                                </div>
+                              </motion.div>
                             ))}
                           </div>
-                        </>
-                      )}
-                    </div>
-                  )}
-                </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )}
 
                 {/* Project Impact & Reflection */}
                 <div className="space-y-6 mt-16">
@@ -776,20 +798,22 @@ export default function ProjectDetail() {
                     ))}
                   </div>
                   
-                  {/* Impact Image */}
-                  {project.impactImage && (
-                    <div className="mt-12">
-                      <motion.div 
+                  {/* Impact Images */}
+                  {project.slug === 'gosure-brand-redesign' && project.technicalApproachImages && project.technicalApproachImages.length > 4 && (
+                    <div className="mt-12 space-y-8">
+                      {/* First large image */}
+                      {project.technicalApproachImages[4] && (
+                      <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
+                        transition={{ duration: 0.6 }}
                         className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
-                        onClick={() => handleImageClick(project.gallery.length)}
+                        onClick={() => handleImageClick(project.gallery.length + 8)}
                       >
                         <Image
-                          src={project.impactImage.src}
-                          alt={project.impactImage.alt}
+                          src={project.technicalApproachImages[4].src}
+                          alt={project.technicalApproachImages[4].alt}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
                           sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
@@ -807,9 +831,47 @@ export default function ProjectDetail() {
                           </div>
                         </div>
                       </motion.div>
-                      {project.impactImage.caption && (
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4">
-                          {project.impactImage.caption}
+                      )}
+                      {project.technicalApproachImages[4]?.caption && (
+                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                          {project.technicalApproachImages[4].caption}
+                        </p>
+                      )}
+
+                      {/* Second large image */}
+                      {project.technicalApproachImages[5] && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden cursor-pointer group"
+                        onClick={() => handleImageClick(project.gallery.length + 9)}
+                      >
+                        <Image
+                          src={project.technicalApproachImages[5].src}
+                          alt={project.technicalApproachImages[5].alt}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-105"
+                          sizes="(min-width: 1280px) 1200px, (min-width: 768px) 768px, 100vw"
+                          quality={85}
+                          loading="lazy"
+                          placeholder="blur"
+                          blurDataURL={`data:image/svg+xml;base64,${Buffer.from(
+                            '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="300" fill="#f3f4f6"/></svg>'
+                          ).toString('base64')}`}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="bg-white/10 backdrop-blur-sm p-3 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                            <HiMagnifyingGlass className="w-6 h-6 text-white" />
+                          </div>
+                        </div>
+                      </motion.div>
+                      )}
+                      {project.technicalApproachImages[5]?.caption && (
+                        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mt-4 mb-2 px-4">
+                          {project.technicalApproachImages[5].caption}
                         </p>
                       )}
                     </div>

@@ -4,8 +4,8 @@ import siteMetadata from '../data/siteMetadata';
 export default function ContactPurpleBlock({
   className = '',
   bgColor = 'bg-primary-500', // solid color, can be overridden
-  title = "Let's Bring Your Digital Ideas to Life",
-  description = "Have a project in mind? I'm available for new opportunities and love designing thoughtful, user-friendly digital products—whether it's UX/UI for web and mobile apps, SaaS platforms, or something new.",
+  title = "Let's Collaborate",
+  description = "I'm currently open to new freelance projects. If you've got an idea brewing—or just need a hand bringing it to life with clear, well-crafted design—feel free to get in touch.",
   cta = "Let's talk"
 }) {
   return (
@@ -38,7 +38,7 @@ export default function ContactPurpleBlock({
           {cta}
         </motion.a>
         <div className="mt-6 text-white/80 text-base">
-          Or email me directly at <a href="mailto:wcwebcreativity@gmail.com" className="underline hover:text-white transition-colors">wcwebcreativity@gmail.com</a>
+          Always happy to chat
         </div>
       </div>
     </div>
