@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 import { useState, useEffect } from 'react';
-import { Container } from '../../components/Container';
-import { ProjectCard } from '../../components/ProjectCard';
-import ContactPurpleBlock from '../../components/ContactPurpleBlock';
-import BackToTop from '../../components/BackToTop';
-import { projectsData } from '../../data/projectsData';
+import { Container } from '../../src/components/Container';
+import { ProjectCard } from '../../src/components/ProjectCard';
+import ContactPurpleBlock from '../../src/components/ContactPurpleBlock';
+import BackToTop from '../../src/components/BackToTop';
+import { projectsData } from '../../src/data/projectsData';
 import { SiFigma, SiReact, SiTailwindcss, SiNextdotjs, SiMongodb, SiStripe, SiStorybook, SiConfluence, SiJira, SiSketch, SiInvision, SiMiro } from 'react-icons/si';
 import { HiMagnifyingGlass, HiChevronLeft, HiChevronRight } from 'react-icons/hi2';
 
