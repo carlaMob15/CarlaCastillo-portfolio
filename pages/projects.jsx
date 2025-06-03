@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion'
-import { PageSEO } from '../components/SEO'
-import { SimpleLayout } from '../components/SimpleLayout'
-import ContactPurpleBlock from '../components/ContactPurpleBlock'
-import { Container } from '../components/Container'
-import { ProjectCard } from '../components/ProjectCard'
-import { projectsData } from '../data/projectsData'
-import { getProjectsPage, getProjects } from '../../lib/sanity-queries'
+import { PageSEO } from '../src/components/SEO'
+import { SimpleLayout } from '../src/components/SimpleLayout'
+import ContactPurpleBlock from '../src/components/ContactPurpleBlock'
+import { Container } from '../src/components/Container'
+import { ProjectCard } from '../src/components/ProjectCard'
+import { projectsData } from '../src/data/projectsData'
+import { getProjectsPage, getProjects } from '../lib/sanity-queries'
 
 export default function Projects({ projectsPageData, projects }) {
   // Use Sanity data if available, otherwise fall back to static data

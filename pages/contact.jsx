@@ -1,6 +1,6 @@
-import { PageSEO } from '../components/SEO';
-import siteMetadata from '../data/siteMetadata';
-import ContactPurpleBlock from '../components/ContactPurpleBlock';
+import { PageSEO } from '../src/components/SEO';
+import siteMetadata from '../src/data/siteMetadata';
+import ContactPurpleBlock from '../src/components/ContactPurpleBlock';
 
 export default function ContactPage() {
   return (
