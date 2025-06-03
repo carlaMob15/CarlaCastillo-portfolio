@@ -1,6 +1,4 @@
-import { Metadata } from 'next'
-
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Blog | Carla Castillo',
   description: 'Thoughts, ideas, and insights about software development and technology.',
 }

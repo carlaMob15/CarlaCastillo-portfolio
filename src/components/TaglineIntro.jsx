@@ -3,13 +3,18 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const phrases = [
+const defaultPhrases = [
   "In a world where brilliant is boring...",
   `Make <span style='color: rgb(99 102 241 / var(--tw-text-opacity, 1))'>boring brilliant</span>`,
   `Thoughtful digital products, built with purpose<span style='color: rgb(99 102 241 / var(--tw-text-opacity, 1))'>.</span>`,
 ];
 
-export default function TaglineIntro() {
+export default function TaglineIntro({ animatedPhrases, scrollCueText = "Scroll to explore" }) {
+  // Use CMS data if available, otherwise fall back to default phrases
+  const phrases = animatedPhrases && animatedPhrases.length > 0 
+    ? animatedPhrases.map(item => item.phrase)
+    : defaultPhrases;
+
   const [index, setIndex] = useState(0);
   const [scrollY, setScrollY] = useState(0);
 
@@ -22,7 +27,7 @@ export default function TaglineIntro() {
       });
     }, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [phrases.length]);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -62,7 +67,7 @@ export default function TaglineIntro() {
           transition={{ delay: 0.5, duration: 1 }}
           className="absolute bottom-[-8rem] left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
         >
-          <div className="text-base md:text-lg text-neutral-400 font-medium">Scroll to explore</div>
+          <div className="text-base md:text-lg text-neutral-400 font-medium">{scrollCueText}</div>
           <div className="text-xl md:text-2xl text-neutral-400 animate-bounce">↓</div>
         </motion.div>
       </div>

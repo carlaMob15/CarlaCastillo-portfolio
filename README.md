@@ -1,3 +1,87 @@
+# Carla Castillo Portfolio
+
+<!-- Updated for Vercel deployment with environment variables -->
+
+This is a modern portfolio website built with Next.js and powered by Sanity CMS.
+
+## Features
+
+- **Next.js**: React framework for production
+- **Sanity CMS**: Headless content management
+- **Tailwind CSS**: Utility-first CSS framework
+- **Responsive Design**: Mobile-first approach
+- **SEO Optimized**: Meta tags and structured data
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Sanity Studio
+
+To access the CMS:
+
+```bash
+npm run sanity
+```
+
+Open [http://localhost:3333](http://localhost:3333) to access Sanity Studio.
+
+## Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+```
+
+## Deployment
+
+The app is configured for deployment on Vercel. Make sure to add the environment variables in your Vercel project settings.
+
+## Content Management
+
+The site includes the following content types:
+- Site Settings (global config)
+- Navigation Links
+- Projects
+- Services Page
+- Home Page
+- Testimonials
+
+## Project Structure
+
+```
+src/
+├── pages/           # Next.js pages
+├── components/      # React components
+├── lib/            # Utility functions
+└── styles/         # CSS styles
+
+schemas/            # Sanity schemas
+```
+
+## Tech Stack
+
+- Next.js 13
+- React 18
+- Sanity CMS
+- Tailwind CSS
+- Framer Motion
+- Vercel (deployment)
+
+## License
+
+This project is private and proprietary.
+
 # Nextjs Tailwind Personal Website
 
 This is a [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/) starter template intended to be used as a portfolio or personal website. It comes out of the box configured with the latest technologies, tools, and best practices. It's built to be easily configured, customized and extended. It's also fully responsive and mobile friendly.

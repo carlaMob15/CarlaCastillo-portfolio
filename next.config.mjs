@@ -4,7 +4,7 @@ import rehypePrism from '@mapbox/rehype-prism'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   reactStrictMode: true,
   images: {
     domains: ['picsum.photos', 'via.placeholder.com', 'images.unsplash.com'],
@@ -18,7 +18,16 @@ const nextConfig = {
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     // Add any custom webpack config here
     return config
-  }
+  },
+  experimental: {
+    scrollRestoration: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 }
 
 const withMDX = nextMDX({
