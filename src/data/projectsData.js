@@ -100,7 +100,8 @@ export const projectsData = [
     description: 'Expanded Sky\'s Orion design system for native platforms, bridging design and development with shared standards and tooling.',
     shortDescription: 'Expanded Sky\'s Orion design system for native platforms, bridging design and development with shared standards and tooling.',
     projectType: 'Design System, Native Apps, Cross-Platform',
-    image: 'https://picsum.photos/1920/1080?random=29',
+    image: '/images/projects/sky-orion-design-system/Hero.png',
+    imageAlt: 'Hero view of Sky Orion Design System showing component library and documentation',
     slug: 'sky-orion-design-system',
     client: 'Sky UK Limited',
     timeline: '2018 - 2020',
@@ -115,20 +116,16 @@ export const projectsData = [
       'Team Collaboration Tools'
     ],
     gallery: [
-      'https://picsum.photos/1920/1080?random=30',
-      'https://picsum.photos/1920/1080?random=31',
-      'https://picsum.photos/1920/1080?random=32',
-      'https://picsum.photos/1920/1080?random=33',
-      'https://picsum.photos/1920/1080?random=34',
-      'https://picsum.photos/1920/1080?random=35'
+      '/images/projects/sky-orion-design-system/Design system 1.png',
+      '/images/projects/sky-orion-design-system/Design system 2.png',
+      '/images/projects/sky-orion-design-system/Design system 3.png',
+      '/images/projects/sky-orion-design-system/Design system 4.png'
     ],
     galleryCaptions: [
       'Orion design system overview showing component hierarchy',
       'Native iOS components and patterns',
       'Android-specific design elements',
-      'Accessibility guidelines and documentation',
-      'Cross-platform component mapping',
-      'Design system governance framework'
+      'Accessibility guidelines and documentation'
     ],
     overview: "Sky set out to expand its Orion design system beyond web to support native mobile platforms, with the long-term goal of creating a unified, scalable system across apps, websites, and even TV interfaces. This project focused on defining mobile-specific components, improving accessibility, and aligning design with development through consistent naming and documentation practices.",
     challenge: "Existing web-based components didn't translate well to mobile, and there was no shared mobile toolkit that followed native platform guidelines. Accessibility considerations were inconsistent, and handoff between design and development lacked a common structure. A key technical objective was to define a component naming convention that could feed into Sky's internal AI algorithm — the 'Sky namespace' — which would eventually allow the system to recognise and manage components automatically. The bigger ambition was to establish a single source of truth that could scale across teams, products, and platforms.",
@@ -285,7 +282,8 @@ export const projectsData = [
     description: 'A complete redesign of OSD\'s healthcare website, improving accessibility, navigation, and user experience across devices.',
     shortDescription: 'A complete redesign of OSD\'s healthcare website, improving accessibility, navigation, and user experience across devices.',
     projectType: 'Website, B2C, Healthcare',
-    image: 'https://picsum.photos/1920/1080?random=1',
+    image: '/images/projects/osd-healthcare/Hero.png',
+    imageAlt: 'OSD Healthcare hero section on laptop screen with a nurse demonstrating equipment to a young patient and key site navigation.',
     slug: 'osd-healthcare-redesign',
     client: 'Tarrantoga',
     timeline: '2024 - 2025',
@@ -302,20 +300,25 @@ export const projectsData = [
       'Balanced content distribution with sliders, lists, and images'
     ],
     gallery: [
-      'https://picsum.photos/1920/1080?random=2',
-      'https://picsum.photos/1920/1080?random=3',
-      'https://picsum.photos/1920/1080?random=4',
-      'https://picsum.photos/1920/1080?random=5',
-      'https://picsum.photos/1920/1080?random=6',
-      'https://picsum.photos/1920/1080?random=7'
+      '/images/projects/osd-healthcare/osd-healthcare-homepage-bento-layout.png',
+      '/images/projects/osd-healthcare/osd-select-treatment-body-part-ui.png',
+      '/images/projects/osd-healthcare/osd-healthcare-sticky-footer-navigation.png',
+      '/images/projects/osd-healthcare/osd-healthcare-treatment-directory.png',
+      '/images/projects/osd-healthcare/osd-healthcare-desktop-pages.png'
     ],
     galleryCaptions: [
-      'Homepage redesign showcasing the new interactive human body interface',
-      'Treatment browsing interface with intuitive navigation',
-      'Mobile-responsive design for optimal viewing on all devices',
-      'Service directory with improved information architecture',
-      'Patient portal with enhanced user experience',
-      'Contact page with streamlined appointment booking'
+      'Homepage featuring modern bento-style grid layout',
+      'Interactive human body interface for treatment selection',
+      'Mobile interface with sticky footer navigation',
+      'Treatment directory with improved navigation',
+      'Desktop pages showing comprehensive redesign'
+    ],
+    galleryAlt: [
+      'OSD Healthcare homepage with bento-style layout showing family at reception, facility photos, and information about private hospital services.',
+      'Mobile interface showing a body silhouette with interactive points for selecting body part and gender to find treatment.',
+      'Mobile view of OSD Healthcare site with sticky footer menu, cardiology clinic info, and links to patient resources.',
+      'Mobile and desktop view of OSD Healthcare treatments page with clinic filters, treatment list, and patient-friendly interface.',
+      'Desktop view of multiple OSD pages showing consistent design system'
     ],
     overview: "A complete redesign of a healthcare services website, focused on improving user experience through a modern interface and intuitive navigation. The project aimed to enhance engagement by refining the visual hierarchy and streamlining the information architecture—particularly in making treatment and services directories easier to explore.",
     challenge: "The main challenge was creating an intuitive interface for browsing medical treatments while maintaining accessibility and ease of use. We needed to balance comprehensive medical information with a user-friendly design that works across all devices.",
@@ -324,7 +327,19 @@ export const projectsData = [
       "We retained OSD's existing brand identity while giving it a fresh, contemporary feel. The responsive design performs smoothly across devices—from mobile to desktop—and incorporates accessible typography, clear headings, and responsive video content.",
       "Working closely with the product owner and development team, we ensured the design met both user needs and technical requirements. The result is a visually appealing, technically sound experience that helps users find what they're looking for more easily."
     ],
-    impact: "This was a genuinely enjoyable project to work on. Collaborating with a former colleague on the development side added a personal layer to the experience. I particularly loved the challenge of turning dense medical content into something practical, clear, and engaging. The interactive features brought real value, making the site feel informative without being overwhelming."
+    technicalApproachImages: [
+      {
+        src: '/images/projects/osd-healthcare/osd-healthcare-treatment-directory.png',
+        alt: 'Desktop view of OSD Healthcare treatment directory, showcasing consultants, surgery details, key treatments, and patient information.',
+        caption: 'Treatment directory with enhanced filtering and intuitive navigation'
+      }
+    ],
+    impact: "This was a genuinely enjoyable project to work on. Collaborating with a former colleague on the development side added a personal layer to the experience. I particularly loved the challenge of turning dense medical content into something practical, clear, and engaging. The interactive features brought real value, making the site feel informative without being overwhelming.",
+    impactImage: {
+      src: '/images/projects/osd-healthcare/osd-healthcare-desktop-pages.png',
+      alt: 'Desktop pages showing comprehensive design system implementation across OSD website',
+      caption: 'Desktop implementation showcasing consistent design system across multiple pages'
+    }
   },
   {
     title: 'Jugo – Companion for Virtual Events',
@@ -416,7 +431,8 @@ Serving as a companion to the iPad version, the app enhances the user experience
     description: 'Created a scalable, mobile-first design system to align teams, speed up delivery, and drive consistency across products.',
     shortDescription: 'Created a scalable, mobile-first design system to align teams, speed up delivery, and drive consistency across products.',
     projectType: 'Design System, Internal Toolkit, Cross-Platform',
-    image: '/images/projects/covea-design-system/hero.jpg',
+    image: '/images/projects/covea-design-system/Hero.png',
+    imageAlt: 'Covea Design System overview showing component library and documentation',
     slug: 'covea-design-system-foundations',
     client: 'Covea Insurance plc',
     timeline: '2020 - 2023',
@@ -425,20 +441,13 @@ Serving as a companion to the iPad version, the app enhances the user experience
     overview: `To support Covea's growing portfolio of insurance products and platforms, there was a need for a centralised, flexible design system. The goal was to create a toolkit of adaptive components that could be reused across brands and projects, enabling faster delivery, reducing duplication, and improving collaboration between design and development teams.`,
     challenge: `The team needed a mobile-first, modular design system that could serve multiple customer-facing products and internal tools. Existing design efforts were fragmented, with duplicated work, inconsistent components, and slow feedback loops. Designers and developers were working in silos, lacking a shared language, process, or source of truth.`,
     gallery: [
-      'https://picsum.photos/1200/800?random=1',
-      'https://picsum.photos/800/600?random=2',
-      'https://picsum.photos/800/600?random=3',
-      'https://picsum.photos/1200/800?random=4',
-      'https://picsum.photos/1200/800?random=5',
-      'https://picsum.photos/1200/800?random=6'
+      '/images/projects/covea-design-system/design-system-decision-flowchart.png'
     ],
     galleryCaptions: [
-      'Design system overview showing component hierarchy and relationships',
-      'Component library in Storybook with interactive documentation',
-      'Design tokens and style guide documentation',
-      'Mobile-first responsive components and patterns',
-      'Cross-platform implementation examples',
-      'Team collaboration and governance framework'
+      'Design system decision flowchart and governance framework'
+    ],
+    galleryAlt: [
+      'Design system flowchart showing decision paths for using existing UI solutions or modifying patterns based on UX and content feedback.'
     ],
     solution: `We created a scalable design system with reusable, white label components that could be adapted for various customer products. The system included:
 
@@ -454,6 +463,18 @@ To bridge communication, we introduced shared documentation in Confluence and se
       '- Creating documentation to define component behaviour, usage rules, and version control',
       '- Running fortnightly syncs to review progress and ensure cross-team alignment',
       '- Hosting workshops to onboard designers and introduce best practices around the system'
+    ],
+    technicalApproachImages: [
+      {
+        src: '/images/projects/covea-design-system/voice-input-ui-examples-insurance.png',
+        alt: 'Three mobile UIs showing voice assistant interaction for address entry, featuring brands GoSure, Itch, and Provident with microphone input designs.',
+        caption: 'Voice input UI examples and interaction patterns for insurance applications'
+      },
+      {
+        src: '/images/projects/covea-design-system/insurance-address-input-ui-comparison.png',
+        alt: 'Three mobile UI designs from GoSure, ASDA Money, and TSB, showing address lookup with postcode input and suggested address results.',
+        caption: 'Address input component variations showing different states and implementations'
+      }
     ],
     impact: `My focus was on laying the design foundations — building the internal UI library, aligning it with the GoSure brand, and collaborating closely with developers to ensure accurate implementation.
 

@@ -103,7 +103,7 @@ const Services = () => {
       {/* How We Work Section (formerly Life Beyond Design) */}
       <section className="w-full py-20 sm:py-28 px-4 sm:px-8">
         <div className="max-w-3xl lg:max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-          <div className="flex-1">
+          <div className="flex-1 order-2 lg:order-1">
             <h2 className="text-4xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-5xl mb-6 text-left">
               How We Work
             </h2>
@@ -112,9 +112,9 @@ const Services = () => {
               We start each project by understanding your goals, mapping out real user journeys, and sketching ideas by hand. From there, we iterate, prototype, and refine until the experience feels just right.
             </p>
           </div>
-          <div className="flex-1 flex justify-center">
+          <div className="flex-1 flex justify-center order-1 lg:order-2">
             <Image
-              src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+              src="/images/services/Sketch.jpg"
               alt="Design process illustration"
               width={320}
               height={320}
@@ -129,37 +129,40 @@ const Services = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Images */}
           <div className="flex flex-col gap-8 justify-center">
-            <RoundedImage
-              src="https://picsum.photos/800/700?random=1"
-              alt="Design process"
-              width={400}
-              height={350}
-              className="w-full h-[380px] object-cover"
-              sizes="(min-width: 1024px) 400px, (min-width: 768px) 350px, 100vw"
-              loading="lazy"
-              quality={85}
-            />
-            <div className="grid grid-cols-2 gap-8 items-center">
+            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
               <RoundedImage
-                src="https://picsum.photos/400/300?random=2"
-                alt="UX Research"
-                width={200}
-                height={220}
-                className="w-full h-[220px] object-cover"
-                sizes="(min-width: 1024px) 200px, (min-width: 768px) 175px, 50vw"
-                loading="lazy"
-                quality={85}
+                src="/images/services/Carla.jpg"
+                alt="Carla Castillo - Senior Product UX/UI Designer"
+                fill
+                className="object-cover"
+                sizes="(min-width: 1280px) 800px, (min-width: 1024px) 700px, (min-width: 768px) 600px, 100vw"
+                priority
+                quality={90}
               />
-              <RoundedImage
-                src="https://picsum.photos/400/300?random=3"
-                alt="Design implementation"
-                width={200}
-                height={220}
-                className="w-full h-[220px] object-cover"
-                sizes="(min-width: 1024px) 200px, (min-width: 768px) 175px, 50vw"
-                loading="lazy"
-                quality={85}
-              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 items-center">
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+                <RoundedImage
+                  src="/images/services/Familia.jpg"
+                  alt="Family moments"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1280px) 400px, (min-width: 1024px) 350px, (min-width: 768px) 300px, 50vw"
+                  loading="lazy"
+                  quality={85}
+                />
+              </div>
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+                <RoundedImage
+                  src="/images/services/carla-sketch.jpg"
+                  alt="Design process and sketching"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1280px) 400px, (min-width: 1024px) 350px, (min-width: 768px) 300px, 50vw"
+                  loading="lazy"
+                  quality={85}
+                />
+              </div>
             </div>
           </div>
           {/* About Carla Content */}
