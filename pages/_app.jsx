@@ -36,13 +36,6 @@ export default function App({ Component, pageProps, router }) {
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#6366f1" />
-        
-        {/* Preload critical fonts */}
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-          as="style"
-        />
       </Head>
       <div className="relative flex min-h-screen flex-col">
         <Header />
