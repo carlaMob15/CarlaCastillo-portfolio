@@ -347,7 +347,71 @@ const servicesPageSchema = {
         },
       ],
     },
-    // Additional fields would go here...
+    {
+      name: 'testimonialsTitle',
+      title: 'Testimonials Title',
+      type: 'string',
+    },
+    {
+      name: 'showTestimonials',
+      title: 'Show Testimonials Section',
+      type: 'boolean',
+      description: 'Toggle to show/hide the testimonials section on the services page',
+    },
+    {
+      name: 'testimonialsToShow',
+      title: 'Testimonials to Show',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'testimonial' }],
+        },
+      ],
+      description: 'Select which testimonials to display on the services page',
+    },
+    {
+      name: 'howWeWorkTitle',
+      title: 'How We Work Title',
+      type: 'string',
+    },
+    {
+      name: 'howWeWorkDescription',
+      title: 'How We Work Description',
+      type: 'text',
+    },
+    {
+      name: 'howWeWorkImage',
+      title: 'How We Work Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'aboutTitle',
+      title: 'About Title',
+      type: 'string',
+    },
+    {
+      name: 'aboutDescription',
+      title: 'About Description',
+      type: 'text',
+    },
+    {
+      name: 'aboutMainImage',
+      title: 'About Main Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'aboutSecondaryImages',
+      title: 'About Secondary Images',
+      type: 'array',
+      of: [{ type: 'image' }],
+    },
   ],
 }
 
