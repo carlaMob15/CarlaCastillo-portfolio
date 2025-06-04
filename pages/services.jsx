@@ -205,23 +205,16 @@ const Services = ({ servicesPageData, featuredTestimonial }) => {
             <span className="inline-block align-baseline ml-2 w-2.5 h-2.5 md:w-4 md:h-4 rounded-full bg-[rgb(99,102,241)]" style={{ verticalAlign: 'baseline' }}></span>
           </h1>
           <div className="text-lg text-neutral-600 dark:text-neutral-400 mb-4 text-left">
-            {data.heroDescription && data.heroDescription.length > 0 ? (
-              <PortableText 
-                value={data.heroDescription}
-                components={{
-                  block: {
-                    normal: ({children}) => <p className="mb-4">{children}</p>,
-                  },
-                }}
-              />
+            {data.heroDescription ? (
+              <p className="mb-4">{data.heroDescription}</p>
             ) : (
               <>
                 <p className="mb-4">
-            Web Creativity Studio is a UK-based creative studio led by Carla Castillo, a Senior Product UX/UI Designer passionate about functional, inclusive, user-centred design.
-          </p>
+                  Web Creativity Studio is a UK-based creative studio led by Carla Castillo, a Senior Product UX/UI Designer passionate about functional, inclusive, user-centred design.
+                </p>
                 <p className="mb-4">
-            We collaborate with clients across the UK and Europe to craft intuitive websites and apps, digital products, and visual identities that connect — and make a lasting impact.
-          </p>
+                  We collaborate with clients across the UK and Europe to craft intuitive websites and apps, digital products, and visual identities that connect — and make a lasting impact.
+                </p>
               </>
             )}
           </div>
